@@ -7,18 +7,21 @@ public class JeuxVideo extends Oeuvre{
     public JeuxVideo(){
         setCategory();
     }
-    @Override
+    //@Override
     public void setCategory() {
-        this.categorie = Categorie.JEUXVIDEOS;
+
+        //this.categorie = Categorie.JEUXVIDEOS;
     }
 
-    @Override
+    //@Override
     public String getCategoryName() {
-        return categorie.getName();
+
+        //return categorie.getName();
+        return "toto";
     }
 
     public int getCategoryID(){
-        return categorie.getId_categorie();
-
+        //return categorie.getId_categorie();
+        return 1;
     }
 }

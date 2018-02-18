@@ -2,11 +2,11 @@ package SQLite_DataBase.Object_to_insert.dependenciesTables;
 
 import java.util.ArrayList;
 
-public class Personne {
+public abstract class Personne {
 
-    private int id_personne;
-    private String first_name;
-    private String family_name;
+    protected int id_personne;
+    protected String first_name;
+    protected String family_name;
     private ArrayList<String> personne_list;
 
     public void setPersonne_list(ArrayList<String> personne_list) {

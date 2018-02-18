@@ -6,22 +6,25 @@ public class Film extends Oeuvre {
 
 
     public Film() {
+        this.titre = "TheDescent";
         setCategory();
     }
 
-    @Override
+    //@Override
     public void setCategory() {
-        this.categorie = Categorie.FILM;
+
+        this.categorie = Categorie.FILM.getId_categorie();
     }
 
 
-    @Override
+    //@Override
     public String getCategoryName() {
-        return categorie.getName();
+
+        return Categorie.FILM.getName();
     }
 
     public int getCategoryID(){
-        return categorie.getId_categorie();
+        return Categorie.FILM.getId_categorie();
 
     }
 

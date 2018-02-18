@@ -7,18 +7,21 @@ public class Musique extends Oeuvre{
     public Musique(){
         setCategory();
     }
-    @Override
+    //@Override
     public void setCategory() {
-        this.categorie = Categorie.MUSIQUE;
+
+        //this.categorie = Categorie.MUSIQUE;
     }
 
-    @Override
+    //@Override
     public String getCategoryName() {
-        return categorie.getName();
+
+        //return categorie.getName();
+        return "toto";
     }
 
     public int getCategoryID(){
-        return categorie.getId_categorie();
-
+        //return categorie.getId_categorie();
+        return 1;
     }
 }

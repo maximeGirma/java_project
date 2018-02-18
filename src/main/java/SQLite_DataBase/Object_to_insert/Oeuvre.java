@@ -1,27 +1,35 @@
 package SQLite_DataBase.Object_to_insert;
 
 import SQLite_DataBase.Object_to_insert.dependenciesTables.Categorie;
+import za.co.neilson.sqlite.orm.annotations.ForeignKey;
+import za.co.neilson.sqlite.orm.annotations.PrimaryKey;
 
 import java.sql.Date;
 
-public abstract class Oeuvre implements IOeuvre{
+public class Oeuvre{
 
-    protected int id_oeuvre;
+    @PrimaryKey(autoIncrement = true)
+    protected String id_oeuvre;
     protected int reference;
     protected String titre;
-    protected Date dateEdition;
+    protected int dateEdition;
     protected String commentaire;
     protected int nbrepages;
     protected int isbn;
     protected String duree;
     protected int pegi;
     protected int id_acquisition_date;
+
     protected int id_support;
     protected int id_statut;
-    protected Categorie categorie;
+    protected int categorie = 1;
     protected int id_acquisition_origine;
     protected int id_langue;
 
+
+    Oeuvre(){
+
+    }
 
     public int getId_langue() {
         return id_langue;
@@ -31,11 +39,11 @@ public abstract class Oeuvre implements IOeuvre{
         this.id_langue = id_langue;
     }
 
-    public int getId_oeuvre() {
+    public String getId_oeuvre() {
         return id_oeuvre;
     }
 
-    public void setId_oeuvre(int id_oeuvre) {
+    public void setId_oeuvre(String id_oeuvre) {
         this.id_oeuvre = id_oeuvre;
     }
 
@@ -55,11 +63,11 @@ public abstract class Oeuvre implements IOeuvre{
         this.titre = titre;
     }
 
-    public Date getDateEdition() {
+    public int getDateEdition() {
         return dateEdition;
     }
 
-    public void setDateEdition(Date dateEdition) {
+    public void setDateEdition(int dateEdition) {
         this.dateEdition = dateEdition;
     }
 

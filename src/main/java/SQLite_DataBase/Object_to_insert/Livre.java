@@ -9,20 +9,21 @@ public class Livre extends Oeuvre {
         setCategory();
     }
 
-    @Override
+
     public void setCategory() {
-        this.categorie = Categorie.LIVRE;
+        this.categorie = Categorie.LIVRE.getId_categorie();
     }
 
 
-    @Override
+
     public String getCategoryName() {
-        return categorie.getName();
+        //return categorie.getName();
+    return "toto";
     }
 
     public int getCategoryID(){
-        return categorie.getId_categorie();
-
+        //return categorie.getId_categorie();
+        return 1;
     }
 
 }
