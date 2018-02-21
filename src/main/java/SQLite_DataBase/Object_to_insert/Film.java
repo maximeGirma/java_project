@@ -7,7 +7,8 @@ public class Film extends Oeuvre {
 
     public Film() {
         this.titre = "TheDescent";
-        setCategory();
+        this.id_oeuvre = "9";
+
     }
 
     //@Override

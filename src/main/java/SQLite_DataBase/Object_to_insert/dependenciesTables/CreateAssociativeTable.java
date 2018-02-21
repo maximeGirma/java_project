@@ -2,7 +2,10 @@
 CreateAssociativeTable est une methode statique qui prend une oeuvre et une liste de genre en paramètres
 (liste et oeuvre préalablement renseignée par l'utilisateur)
 La méthode retourne un tableau de OeuvreAppartientAGenre, pret à etre écrit en BDD à l'aide d'un boucle
- Attention : Setter le id_categorie de l'oeuvre : et ca je sais pas comment faire!!
+ Attention : Setter le id_categorie de l'oeuvre avant de creer la table
+ eventuellement en allant chercher l'id en base.
+ --> Creer l'oeuvre av l'id STR en auto increment puis SQL read, recup l'id et creer  les liens
+ ou recup l'id de la derniere oeuvre ecrite avec d'ecrire la nouvelle.
  */
 
 

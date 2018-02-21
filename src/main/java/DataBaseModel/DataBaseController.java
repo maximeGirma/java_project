@@ -41,16 +41,45 @@ public class DataBaseController extends DatabaseModel<ResultSet, HashMap<String,
          */
         // Register the ObjectModel for the Oeuvre class with the DatabaseModel
 
+        objectModels.put(Note.class, new JdbcObjectModel<Note>(this) {
+        });
+
+        objectModels.put(PersonneType.class, new JdbcObjectModel<PersonneType>(this) {
+        });
+
+
+        objectModels.put(Personne.class, new JdbcObjectModel<Personne>(this) {
+        });
+
+        objectModels.put(AcquisitionDate.class, new JdbcObjectModel<AcquisitionDate>(this) {
+        });
+
+
+        objectModels.put(AcquisitionOrigine.class, new JdbcObjectModel<AcquisitionOrigine>(this) {
+        });
+
+
+        objectModels.put(Support.class, new JdbcObjectModel<Support>(this) {
+        });
+
+        objectModels.put(MenuStatut.class, new JdbcObjectModel<MenuStatut>(this) {
+        });
+
+        objectModels.put(MenuLangue.class, new JdbcObjectModel<MenuLangue>(this) {
+        });
+
+
         objectModels.put(Oeuvre.class, new JdbcObjectModel<Oeuvre>(this) {
         });
-        objectModels.put(PersonneType.class, new JdbcObjectModel<PersonneType>(this) {
+
+        /*objectModels.put(Oeuvre.class, new JdbcObjectModel<Oeuvre>(this) {
         });
 
         objectModels.put(Genre.class, new JdbcObjectModel<Genre>(this) {
         });
         objectModels.put(OeuvreAppartientAGenre.class, new JdbcObjectModel<OeuvreAppartientAGenre>(this) {
         });
-
+*/
 
 
 
@@ -72,7 +101,7 @@ public class DataBaseController extends DatabaseModel<ResultSet, HashMap<String,
     @Override
     public void onInsertDefaultValues() {
 
-        Oeuvre film = new Film();
+       /* Oeuvre film = new Film();
         ArrayList<Genre> genre = new ArrayList<Genre>();
         for (int i = 0; i<5 ; i++){
             genre.add(new Genre(i+1));
@@ -97,7 +126,7 @@ public class DataBaseController extends DatabaseModel<ResultSet, HashMap<String,
                 e.printStackTrace();
             }
         }
-
+*/
 
 
     }

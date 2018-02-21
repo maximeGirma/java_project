@@ -1,10 +1,10 @@
+
+
+
 package SQLite_DataBase.Object_to_insert;
 
-import SQLite_DataBase.Object_to_insert.dependenciesTables.Categorie;
 import za.co.neilson.sqlite.orm.annotations.ForeignKey;
 import za.co.neilson.sqlite.orm.annotations.PrimaryKey;
-
-import java.sql.Date;
 
 public class Oeuvre{
 
@@ -17,13 +17,25 @@ public class Oeuvre{
     protected int nbrepages;
     protected int isbn;
     protected String duree;
+    @ForeignKey(table = "Note", column = "id_note", childReference = "id_note")
+    protected int id_note;
     protected int pegi;
+
+    @ForeignKey(table = "AcquisitionDate", column = "id_acquisition_date", childReference = "id_acquisition_date")
     protected int id_acquisition_date;
 
-    protected int id_support;
-    protected int id_statut;
-    protected int categorie = 1;
+    @ForeignKey(table = "AcquisitionOrigine", column = "id_acquisition_origine", childReference = "id_acquisition_origine")
     protected int id_acquisition_origine;
+
+    @ForeignKey(table = "Support", column = "id_support", childReference = "id_support")
+    protected int id_support;
+
+    @ForeignKey(table = "MenuStatut", column = "id_statut", childReference = "id_statut")
+    protected int id_statut;
+
+    protected int categorie = 1;
+
+    @ForeignKey(table = "MenuLangue", column = "id_langue", childReference = "id_langue")
     protected int id_langue;
 
 
@@ -144,8 +156,13 @@ public class Oeuvre{
         this.id_acquisition_origine = id_acquisition_origine;
     }
 
+    public int getId_note() {
+        return id_note;
+    }
 
-
+    public void setId_note(int id_note) {
+        this.id_note = id_note;
+    }
 }
 
 
