@@ -1,4 +1,5 @@
-import java.awt.BorderLayout;
+package GraphicalUtilisateurInterface;
+
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.GridBagConstraints;
@@ -11,16 +12,16 @@ import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
-import javax.swing.JScrollBar;
 import javax.swing.JScrollPane;
 import javax.swing.JTextField;
 
 
-public class ItemPanel extends JPanel {
+public class ItemPanel2 extends JPanel {
 	
 	private JLabel idLabel;
 	private JLabel titleLabel;
-	private JLabel artistLabel;
+	private JLabel actorLabel;
+	private JLabel producerLabel;
 	private JLabel yearLabel;
 	private JLabel timeLabel;
 	private JLabel originLabel;
@@ -30,45 +31,41 @@ public class ItemPanel extends JPanel {
 	private JComboBox typeCombo;
 	private JLabel statusLabel;
 	private JComboBox statusCombo;
-	private JLabel trackLabel;
-	private JLabel diskLabel;
+	private JLabel languageLabel;
 	private JLabel ratingLabel;
 	private JComboBox ratingCombo;
 	private JLabel commentLabel;
 	private JLabel artworkLabel;
+	
 	private JTextField titleField;
-	private JTextField artistField;
+	private JTextField actorField;
+	private JTextField producerField;
 	private JTextField yearField;
 	private JTextField timeField;
 	private JTextField originField;
 	private JTextField acquireField;
 	private JTextField supportField;
-	private JTextField trackField;
-	private JTextField diskField;
+	private JTextField languageField;
 	private JTextField commentField;
 	private JButton modifBtn;
 	private JButton delBtn;
 	private JButton addBtn;
-	private JScrollBar scrollbar;
 	
-
-		
-	public ItemPanel(){
-		
-		Dimension dim = getPreferredSize();
-		dim.width = 100;
-		setPreferredSize(dim);
-		setMinimumSize(dim);
+	public void ScrollPane(){
 		
 		JLabel label = new JLabel();
-		JScrollBar vbar = new JScrollBar(JScrollBar.VERTICAL, 30,40,0,300);
-		add(vbar, BorderLayout.EAST);
-	
+		JScrollPane scrollPane = new JScrollPane();
+		scrollPane.setViewportView(label);
+	}
+		
+	public ItemPanel2(){
+
 		setBackground(Color.WHITE);
 		
 		idLabel = new JLabel("Id: 1");
 		titleLabel = new JLabel("Titre: ");
-		artistLabel = new JLabel("Artiste: ");
+		actorLabel = new JLabel("Acteur(s): ");
+		producerLabel= new JLabel("Producteur(s): ");
 		yearLabel = new JLabel("Annee: ");
 		timeLabel = new JLabel ("Duree: ");
 		originLabel = new JLabel ("Lieu d'origine: ");
@@ -78,15 +75,14 @@ public class ItemPanel extends JPanel {
 		typeCombo = new JComboBox ();
 		statusLabel = new JLabel ("Status: ");
 		statusCombo = new JComboBox ();
-		trackLabel= new JLabel("Nombre de pistes: ");
-		diskLabel = new JLabel ("Nombre de disques: ");
+		languageLabel = new JLabel ("Langue: ");
 		ratingLabel = new JLabel ("Note: ");
 		ratingCombo = new JComboBox();
 		commentLabel = new JLabel("Commentaire: ");
 		
 		artworkLabel = new JLabel(new ImageIcon("C:\\Users\\danib\\Desktop\\Icons\\album.png"));
 		titleField = new JTextField(15);
-		artistField = new JTextField(15);
+		actorField = new JTextField(15);
 		yearField = new JTextField(15);
 		timeField = new JTextField (15);
 		originField = new JTextField (15);
@@ -94,10 +90,10 @@ public class ItemPanel extends JPanel {
 		supportField = new JTextField (15);
 		typeCombo = new JComboBox ();
 		statusCombo = new JComboBox ();
-		trackField = new JTextField(15);
-		diskField = new JTextField (15);
+		producerField = new JTextField(15);
+		languageField = new JTextField (15);
 		ratingCombo = new JComboBox();
-		commentField = new JTextField(15);
+		commentField = new JTextField(30);
 		
 		//SAVE BUTTON//
 		addBtn = new JButton("Sauvegarder");
@@ -176,23 +172,23 @@ public class ItemPanel extends JPanel {
 		gc.anchor=GridBagConstraints.LINE_START;
 		add(titleField,gc);
 		
-		//ARTIST LABEL 2,1//
+		//ACTOR LABEL 2,1//
 		gc.weightx=1;
 		gc.weighty=0.1;
 		gc.gridx=2;
 		gc.gridy=1;
 		gc.fill=GridBagConstraints.NONE;
 		gc.anchor=GridBagConstraints.LINE_END;
-		add(artistLabel, gc);
+		add(actorLabel, gc);
 		
-		//ARTIST FIELD 3,1//
+		//ACTOR FIELD 3,1//
 		gc.weightx=1;
 		gc.weighty=0.1;		
 		gc.gridx=3;
 		gc.gridy=1;
 		gc.fill=GridBagConstraints.NONE;
 		gc.anchor=GridBagConstraints.LINE_START;
-		add(artistField, gc);
+		add(actorField, gc);
 		
 		//YEAR LABEL 0,2//
 		gc.weightx=1;
@@ -212,23 +208,23 @@ public class ItemPanel extends JPanel {
 		gc.anchor=GridBagConstraints.LINE_START;
 		add(yearField,gc);
 		
-		//TIME LABEL 2,2//
+		//PRODUCER LABEL 2,2//
 		gc.weightx=1;
 		gc.weighty=0.1;
 		gc.gridx=2;
 		gc.gridy=2;
 		gc.fill=GridBagConstraints.NONE;
 		gc.anchor=GridBagConstraints.LINE_END;
-		add(timeLabel,gc);
+		add(producerLabel,gc);
 		
-		//TIME FIELD 3,2//
+		//PRODUCER FIELD 3,2//
 		gc.weightx=1;
 		gc.weighty=0.1;
 		gc.gridx=3;
 		gc.gridy=2;
 		gc.fill=GridBagConstraints.NONE;
 		gc.anchor=GridBagConstraints.LINE_START;
-		add(timeField,gc);
+		add(producerField,gc);
 		
 		//TYPE LABEL 0,3//
 		gc.weightx=1;
@@ -266,41 +262,41 @@ public class ItemPanel extends JPanel {
 		gc.anchor=GridBagConstraints.LINE_START;
 		add(supportField,gc);
 		
-		//TRACK LABEL 0,4//
+		//TIME LABEL 0,4//
 		gc.weightx=1;
 		gc.weighty=0.1;
 		gc.gridx=0;
 		gc.gridy=4;
 		gc.fill=GridBagConstraints.NONE;
 		gc.anchor=GridBagConstraints.LINE_END;
-		add(trackLabel,gc);
+		add(timeLabel,gc);
 				
-		//TRACK FIELD 1,4//
+		//TIME FIELD 1,4//
 		gc.weightx=1;
 		gc.weighty=0.1;
 		gc.gridx=1;
 		gc.gridy=4;
 		gc.fill=GridBagConstraints.NONE;
 		gc.anchor=GridBagConstraints.LINE_START;
-		add(trackField,gc);
+		add(timeField,gc);
 		
-		//DISK LABEL 2,4//
+		//LANGUAGE LABEL 2,4//
 		gc.weightx=1;
 		gc.weighty=0.1;
 		gc.gridx=2;
 		gc.gridy=4;
 		gc.fill=GridBagConstraints.NONE;
 		gc.anchor=GridBagConstraints.LINE_END;
-		add(diskLabel,gc);
+		add(languageLabel,gc);
 				
-		//DISK FIELD 3,4//
+		//LANGUAGE FIELD 3,4//
 		gc.weightx=1;
 		gc.weighty=0.1;
 		gc.gridx=3;
 		gc.gridy=4;
 		gc.fill=GridBagConstraints.NONE;
 		gc.anchor=GridBagConstraints.LINE_START;
-		add(diskField,gc);
+		add(languageField,gc);
 		
 		//ORIGIN LABEL 0,5//
 		gc.weightx=1;
@@ -409,6 +405,5 @@ private LayoutManager newGridBagLayout() {
 return null;
 }
 	
-	
-	
 }
+

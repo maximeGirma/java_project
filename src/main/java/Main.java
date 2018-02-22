@@ -1,14 +1,9 @@
 import DataBaseModel.DataBaseController;
 import DataBaseModel.InsertValues;
-import Display.MainFrame;
-import SQLite_DataBase.SQLiteCreateDataBase;
-import SQLite_DataBase.SQLiteInsert;
+import GraphicalUtilisateurInterface.MainFrame;
 
 import javax.swing.*;
-import java.sql.Connection;
 import java.sql.SQLException;
-
-import static SQLite_DataBase.SQLite_connect.connect;
 
 public class Main {
 

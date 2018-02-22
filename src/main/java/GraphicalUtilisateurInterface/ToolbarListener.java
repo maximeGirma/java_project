@@ -1,3 +1,4 @@
+package GraphicalUtilisateurInterface;
 
 public interface ToolbarListener {
 	

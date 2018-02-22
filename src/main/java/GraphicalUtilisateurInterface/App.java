@@ -1,13 +1,10 @@
-/**
+package GraphicalUtilisateurInterface; /**
  * 
  * Launch the CollectBee application
  *
  */
 
-import java.awt.Color;
-import java.awt.Image;
 import javax.swing.ImageIcon;
-import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.SwingUtilities;
 

@@ -1,12 +1,13 @@
+package GraphicalUtilisateurInterface;
+
 import java.awt.Color;
 import java.awt.Dimension;
-import java.awt.FlowLayout;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.LayoutManager;
 
-import javafx.geometry.Insets;
-import javafx.scene.layout.Border;
+//import javafx.geometry.Insets;
+//import javafx.scene.layout.Border;
 
 import javax.swing.BorderFactory;
 import javax.swing.ImageIcon;

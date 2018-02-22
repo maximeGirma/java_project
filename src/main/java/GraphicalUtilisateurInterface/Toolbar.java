@@ -1,4 +1,4 @@
-/**
+package GraphicalUtilisateurInterface; /**
  * 
  * Application ToolBar 
  * The user can choose the category or search for the item of his choice.
@@ -7,15 +7,11 @@
 import java.awt.Color;
 import java.awt.Container;
 import java.awt.GridBagConstraints;
-import java.awt.GridLayout;
 import java.awt.Insets;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import javax.swing.BorderFactory;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
-import javax.swing.JPanel;
-import javax.swing.JSplitPane;
 import javax.swing.JTextField;
 import javax.swing.JToolBar;
 

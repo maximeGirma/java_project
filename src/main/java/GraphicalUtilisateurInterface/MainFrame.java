@@ -1,12 +1,10 @@
-/**
+package GraphicalUtilisateurInterface; /**
  * 
  * Application Mainframe
  *
  */
 import java.awt.BorderLayout;
 import java.awt.Color;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -14,7 +12,6 @@ import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 import javax.swing.JPanel;
-import javax.swing.JScrollPane;
 import javax.swing.JSplitPane;
 
 public class MainFrame extends JFrame {
@@ -38,8 +35,8 @@ public class MainFrame extends JFrame {
 		
 		toolbar = new Toolbar(); //NORTH//
 		splitPane = new JSplitPane(JSplitPane.HORIZONTAL_SPLIT);//CENTER
-		viewPanel = new ViewPanel();//LEFT PANE SPLIT¨PANE//
-		itemPanel = new ItemPanel();//RIGHT PANE SPLIT¨PANE//
+		viewPanel = new ViewPanel();//LEFT PANE SPLITï¿½PANE//
+		itemPanel = new ItemPanel();//RIGHT PANE SPLITï¿½PANE//
 		alphabetbar = new AlphabetBar();//SOUTH//
 		label = new JLabel();
 		panel = new JPanel();
