@@ -4,6 +4,10 @@ public class SearchDisplay {
 
     public static void getTitleByCategory(int category_type){
         switch (category_type){
+            case 0:
+                //toutes les oeuvres (concatenées avec leur categorie ce serait parfait
+                System.out.println("home");
+                break;
             case 1:
                 System.out.println("flims!");;
                 break;

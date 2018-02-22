@@ -80,14 +80,16 @@ public class Toolbar extends JToolBar implements ActionListener {
 		itemBtn.setBackground(Color.WHITE);
 		itemBtn.setToolTipText("Ajouter item");
 		itemBtn.setIcon(new ImageIcon("C:\\Users\\danib\\Desktop\\Icons\\add2.png"));
-		
+
+		GoButton = new JButton("");
+
 		/////Buttons Actions/////
 		homeBtn.addActionListener(this);
 		MusiqueButton.addActionListener(this);
 		FilmsButton.addActionListener(this);
 		LivresButton.addActionListener(this); 
 		JeuxButton.addActionListener(this); 
-		
+		GoButton.addActionListener(this);
 		//setLayout(new GridLayout());
 		
 		GridBagConstraints gc = new GridBagConstraints();
@@ -149,7 +151,7 @@ public class Toolbar extends JToolBar implements ActionListener {
 		gc.anchor= GridBagConstraints.NORTHWEST;
 		add(txtSearch,gc);
 		
-		GoButton = new JButton("");
+
 		GoButton.setForeground(Color.BLACK);
 		GoButton.setBackground(Color.WHITE);
 		GoButton.setIcon(new ImageIcon("C:\\Users\\danib\\Desktop\\Icons\\search.png"));
@@ -176,32 +178,37 @@ public class Toolbar extends JToolBar implements ActionListener {
 			if(toolbarListener !=null){
 				toolbarListener.musicEventOccured();
 				//textPanel.appendText("Musique\n");
-				SearchDisplay.getTitleByCategory(3);
+
 				}
 		}		
 		else if (clicked == FilmsButton){
 			if(toolbarListener !=null){
 				toolbarListener.movieEventOccured();
 				//textPanel.appendText("Films\n");
-				SearchDisplay.getTitleByCategory(1);
+
 			}
 		}		
 		else if (clicked == LivresButton){
 			if(toolbarListener !=null){
 				toolbarListener.bookEventOccured();
 				//textPanel.appendText("Livres\n");
-				SearchDisplay.getTitleByCategory(2);
+
 				}
 		}
 		else if (clicked == JeuxButton){
 			if(toolbarListener !=null){
 				toolbarListener.gameEventOccured();
 				//textPanel.appendText("Jeux Vid�os\n");
-				SearchDisplay.getTitleByCategory(4);
-				String[] temp = {"pouet","pouet2","pouet3"};
-				parent_main_frame.getViewPanel().UpdateViewPanel(temp);
+
 
 				}
+		}
+		else if (clicked == GoButton){
+			System.out.println(txtSearch.getText());
+			parent_main_frame.getViewPanel().SearchTitle(txtSearch.getText());
+		}
+		else if (clicked == homeBtn){
+			toolbarListener.homeEventOccured();
 		}
 	}
 

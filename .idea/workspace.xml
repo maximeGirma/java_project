@@ -2,11 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="431b41d5-0db1-461a-a71b-0f3478f89954" name="Default" comment="">
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/java/GraphicalUtilisateurInterface/DisplayController/SearchDisplay.java" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change beforePath="$PROJECT_DIR$/library.db" afterPath="$PROJECT_DIR$/library.db" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/GraphicalUtilisateurInterface/DisplayController/SearchDisplay.java" afterPath="$PROJECT_DIR$/src/main/java/GraphicalUtilisateurInterface/DisplayController/SearchDisplay.java" />
       <change beforePath="$PROJECT_DIR$/src/main/java/GraphicalUtilisateurInterface/MainFrame.java" afterPath="$PROJECT_DIR$/src/main/java/GraphicalUtilisateurInterface/MainFrame.java" />
       <change beforePath="$PROJECT_DIR$/src/main/java/GraphicalUtilisateurInterface/Toolbar.java" afterPath="$PROJECT_DIR$/src/main/java/GraphicalUtilisateurInterface/Toolbar.java" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/GraphicalUtilisateurInterface/ToolbarListener.java" afterPath="$PROJECT_DIR$/src/main/java/GraphicalUtilisateurInterface/ToolbarListener.java" />
       <change beforePath="$PROJECT_DIR$/src/main/java/GraphicalUtilisateurInterface/ViewPanel.java" afterPath="$PROJECT_DIR$/src/main/java/GraphicalUtilisateurInterface/ViewPanel.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -66,14 +66,24 @@
           </provider>
         </entry>
       </file>
+      <file leaf-file-name="ItemPanel.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/GraphicalUtilisateurInterface/ItemPanel.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="180">
+              <caret line="10" column="29" lean-forward="true" selection-start-line="10" selection-start-column="29" selection-end-line="10" selection-end-column="29" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="MainFrame.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/GraphicalUtilisateurInterface/MainFrame.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="306">
-              <caret line="35" column="34" lean-forward="false" selection-start-line="35" selection-start-column="34" selection-end-line="35" selection-end-column="34" />
+            <state relative-caret-position="288">
+              <caret line="102" column="52" lean-forward="false" selection-start-line="102" selection-start-column="52" selection-end-line="102" selection-end-column="52" />
               <folding>
-                <element signature="e#3250#3251#0" expanded="true" />
-                <element signature="e#3273#3274#0" expanded="true" />
+                <element signature="e#3698#3699#0" expanded="true" />
+                <element signature="e#3721#3722#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -91,21 +101,31 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Toolbar.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Toolbar.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/GraphicalUtilisateurInterface/Toolbar.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="378">
-              <caret line="200" column="60" lean-forward="false" selection-start-line="200" selection-start-column="60" selection-end-line="200" selection-end-column="60" />
+            <state relative-caret-position="158">
+              <caret line="205" column="38" lean-forward="true" selection-start-line="205" selection-start-column="38" selection-end-line="205" selection-end-column="38" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="SearchDisplay.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="SearchDisplay.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/GraphicalUtilisateurInterface/DisplayController/SearchDisplay.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="72">
-              <caret line="4" column="22" lean-forward="false" selection-start-line="4" selection-start-column="22" selection-end-line="4" selection-end-column="22" />
+            <state relative-caret-position="162">
+              <caret line="9" column="22" lean-forward="false" selection-start-line="9" selection-start-column="22" selection-end-line="9" selection-end-column="22" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="StringListener.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/GraphicalUtilisateurInterface/StringListener.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="36">
+              <caret line="2" column="18" lean-forward="false" selection-start-line="2" selection-start-column="18" selection-end-line="2" selection-end-column="18" />
               <folding />
             </state>
           </provider>
@@ -127,8 +147,18 @@
       <file leaf-file-name="ViewPanel.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/GraphicalUtilisateurInterface/ViewPanel.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="18">
-              <caret line="99" column="4" lean-forward="true" selection-start-line="99" selection-start-column="4" selection-end-line="99" selection-end-column="4" />
+            <state relative-caret-position="142">
+              <caret line="130" column="44" lean-forward="false" selection-start-line="130" selection-start-column="44" selection-end-line="130" selection-end-column="44" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ToolbarListener.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/GraphicalUtilisateurInterface/ToolbarListener.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="144">
+              <caret line="8" column="22" lean-forward="false" selection-start-line="8" selection-start-column="22" selection-end-line="8" selection-end-column="22" />
               <folding />
             </state>
           </provider>
@@ -148,8 +178,9 @@
     <findStrings>
       <find>ark</find>
       <find>Dark</find>
-      <find>view</find>
       <find>ViewPanel</find>
+      <find>view</find>
+      <find>txt</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -453,7 +484,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/main/java/SQLite_DataBase/Object_to_insert/dependenciesTables/AuthorType.java" />
         <option value="$PROJECT_DIR$/src/main/java/DataBaseModel/OeuvreDataBaseModel.java" />
         <option value="$PROJECT_DIR$/src/main/java/DataBaseModel/DatabaseModel.java" />
         <option value="$PROJECT_DIR$/src/main/java/tamerelagrandepute/samerelaclasse.java" />
@@ -498,12 +528,13 @@
         <option value="$PROJECT_DIR$/src/main/java/Display/ToolbarListener.java" />
         <option value="$PROJECT_DIR$/src/main/java/Display/ViewPanel.java" />
         <option value="$PROJECT_DIR$/src/main/java/Display/SidePanel.java" />
-        <option value="$PROJECT_DIR$/src/main/java/GraphicalUtilisateurInterface/DisplayController/SearchDisplay.java" />
         <option value="$PROJECT_DIR$/src/main/java/GraphicalUtilisateurInterface/SidePanel.java" />
         <option value="$PROJECT_DIR$/src/main/java/Main.java" />
+        <option value="$PROJECT_DIR$/src/main/java/GraphicalUtilisateurInterface/ViewPanel.java" />
         <option value="$PROJECT_DIR$/src/main/java/GraphicalUtilisateurInterface/MainFrame.java" />
         <option value="$PROJECT_DIR$/src/main/java/GraphicalUtilisateurInterface/Toolbar.java" />
-        <option value="$PROJECT_DIR$/src/main/java/GraphicalUtilisateurInterface/ViewPanel.java" />
+        <option value="$PROJECT_DIR$/src/main/java/GraphicalUtilisateurInterface/ToolbarListener.java" />
+        <option value="$PROJECT_DIR$/src/main/java/GraphicalUtilisateurInterface/DisplayController/SearchDisplay.java" />
       </list>
     </option>
   </component>
@@ -927,12 +958,12 @@
       <workItem from="1519288794911" duration="19700000" />
       <workItem from="1519313385109" duration="2749000" />
       <workItem from="1519317932145" duration="39000" />
-      <workItem from="1519321208506" duration="3076000" />
+      <workItem from="1519321208506" duration="8799000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="68303000" />
+    <option name="totallyTimeSpent" value="74026000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="65" y="-4" width="1303" height="780" extended-state="6" />
@@ -1310,42 +1341,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/GraphicalUtilisateurInterface/StringListener.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="36">
-          <caret line="2" column="18" lean-forward="false" selection-start-line="2" selection-start-column="18" selection-end-line="2" selection-end-column="18" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/GraphicalUtilisateurInterface/ToolbarListener.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="36">
-          <caret line="2" column="25" lean-forward="false" selection-start-line="2" selection-start-column="25" selection-end-line="2" selection-end-column="25" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/GraphicalUtilisateurInterface/SidePanel.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="232">
-          <caret line="82" column="0" lean-forward="false" selection-start-line="82" selection-start-column="0" selection-end-line="82" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/GraphicalUtilisateurInterface/ItemPanel.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="256">
-          <caret line="30" column="32" lean-forward="true" selection-start-line="30" selection-start-column="32" selection-end-line="30" selection-end-column="32" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/SQLite_DataBase/Object_to_insert/Oeuvre.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="18">
@@ -1389,37 +1384,71 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/GraphicalUtilisateurInterface/MainFrame.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/GraphicalUtilisateurInterface/ItemPanel.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="35" column="34" lean-forward="false" selection-start-line="35" selection-start-column="34" selection-end-line="35" selection-end-column="34" />
-          <folding>
-            <element signature="e#3250#3251#0" expanded="true" />
-            <element signature="e#3273#3274#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="180">
+          <caret line="10" column="29" lean-forward="true" selection-start-line="10" selection-start-column="29" selection-end-line="10" selection-end-column="29" />
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/GraphicalUtilisateurInterface/DisplayController/SearchDisplay.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/GraphicalUtilisateurInterface/StringListener.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="72">
-          <caret line="4" column="22" lean-forward="false" selection-start-line="4" selection-start-column="22" selection-end-line="4" selection-end-column="22" />
+        <state relative-caret-position="36">
+          <caret line="2" column="18" lean-forward="false" selection-start-line="2" selection-start-column="18" selection-end-line="2" selection-end-column="18" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/GraphicalUtilisateurInterface/SidePanel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="232">
+          <caret line="82" column="0" lean-forward="false" selection-start-line="82" selection-start-column="0" selection-end-line="82" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/GraphicalUtilisateurInterface/ViewPanel.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="18">
-          <caret line="99" column="4" lean-forward="true" selection-start-line="99" selection-start-column="4" selection-end-line="99" selection-end-column="4" />
+        <state relative-caret-position="142">
+          <caret line="130" column="44" lean-forward="false" selection-start-line="130" selection-start-column="44" selection-end-line="130" selection-end-column="44" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/GraphicalUtilisateurInterface/MainFrame.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="288">
+          <caret line="102" column="52" lean-forward="false" selection-start-line="102" selection-start-column="52" selection-end-line="102" selection-end-column="52" />
+          <folding>
+            <element signature="e#3698#3699#0" expanded="true" />
+            <element signature="e#3721#3722#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/GraphicalUtilisateurInterface/ToolbarListener.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="144">
+          <caret line="8" column="22" lean-forward="false" selection-start-line="8" selection-start-column="22" selection-end-line="8" selection-end-column="22" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/GraphicalUtilisateurInterface/Toolbar.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="378">
-          <caret line="200" column="60" lean-forward="false" selection-start-line="200" selection-start-column="60" selection-end-line="200" selection-end-column="60" />
+        <state relative-caret-position="158">
+          <caret line="205" column="38" lean-forward="true" selection-start-line="205" selection-start-column="38" selection-end-line="205" selection-end-column="38" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/GraphicalUtilisateurInterface/DisplayController/SearchDisplay.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="162">
+          <caret line="9" column="22" lean-forward="false" selection-start-line="9" selection-start-column="22" selection-end-line="9" selection-end-column="22" />
           <folding />
         </state>
       </provider>

@@ -3,6 +3,8 @@ package GraphicalUtilisateurInterface; /**
  * Application Mainframe
  *
  */
+import GraphicalUtilisateurInterface.DisplayController.SearchDisplay;
+
 import java.awt.BorderLayout;
 import java.awt.Color;
 import javax.swing.JButton;
@@ -76,18 +78,29 @@ public class MainFrame extends JFrame {
 		
 			public void musicEventOccured() {
 				System.out.println("it works music");
+				SearchDisplay.getTitleByCategory(3);
 			}
 
 			public void movieEventOccured() {
 				System.out.println("it works movie");
+				SearchDisplay.getTitleByCategory(1);
 			}
 
 			public void bookEventOccured() {
 				System.out.println("it works book");
+				SearchDisplay.getTitleByCategory(2);
 			}
 
 			public void gameEventOccured() {
+
 				System.out.println("it works game");
+				SearchDisplay.getTitleByCategory(4);
+				String[] temp = {"pouet","pouet2","pouet3"};
+				viewPanel.UpdateViewPanel(temp);
+			}
+			public void homeEventOccured(){
+				System.out.println("home clicked guys");
+				SearchDisplay.getTitleByCategory(0);
 			}
  		});
 		

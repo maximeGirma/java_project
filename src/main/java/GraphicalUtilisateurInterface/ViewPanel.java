@@ -4,10 +4,7 @@ import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.LayoutManager;
 
-import javax.swing.DefaultListModel;
-import javax.swing.JList;
-import javax.swing.JPanel;
-import javax.swing.JScrollPane;
+import javax.swing.*;
 
 
 public class ViewPanel extends JPanel{
@@ -15,7 +12,7 @@ public class ViewPanel extends JPanel{
 	private JList titleList;
 	private JScrollPane scrollPane;
 	private DefaultListModel listModel;
-
+	DefaultListModel temporary_list_model;
 	public ViewPanel(){
 		
 		setBackground(Color.WHITE);
@@ -108,14 +105,32 @@ public class ViewPanel extends JPanel{
 }
 
 	public void UpdateViewPanel(String[] title){
-		DefaultListModel temporary_list_model = new DefaultListModel();
 
+		this.listModel = new DefaultListModel();
 		for (String line : title) {
 
-			temporary_list_model.addElement(line);
-
+			this.listModel.addElement(line);
 		}
-		this.titleList.setModel(temporary_list_model);
+
+		this.titleList.setModel(this.listModel);
+	}
+
+	public void SearchTitle(String str_to_find){
+
+			this.temporary_list_model = new DefaultListModel();
+
+			for (int i = 0; i<listModel.getSize(); i++) {
+				String line = (String)listModel.get(i);
+				System.out.println(line);
+				if (line.contains(str_to_find)){
+					this.temporary_list_model.addElement(line);
+				}
+
+			}
+			this.titleList.setModel(this.temporary_list_model);
+			this.temporary_list_model = null;
+
+
 	}
 
 }

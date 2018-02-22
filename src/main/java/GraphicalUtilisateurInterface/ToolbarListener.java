@@ -6,5 +6,6 @@ public interface ToolbarListener {
 	public void movieEventOccured();
 	public void bookEventOccured();
 	public void gameEventOccured();
+	public void homeEventOccured();
 
 }
