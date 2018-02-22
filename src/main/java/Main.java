@@ -1,4 +1,5 @@
 import DataBaseModel.DataBaseController;
+import DataBaseModel.InsertValues;
 import SQLite_DataBase.SQLiteCreateDataBase;
 import SQLite_DataBase.SQLiteInsert;
 
@@ -25,11 +26,13 @@ public class Main {
         }
 
 */
-
+        DataBaseController e = null;
 
         try {
-            DataBaseController e = new DataBaseController();
-            e.onInsertDefaultValues();
+            e = new DataBaseController();
+            //e.onInsertDefaultValues();
+        //onInsertDefaultValues()est appelé par defaut au demmarage pas besoin de le rapeller
+
         } catch (SQLException e1) {
             e1.printStackTrace();
         } catch (ClassNotFoundException e1) {
@@ -37,6 +40,7 @@ public class Main {
         } catch (NoSuchFieldException e1) {
             e1.printStackTrace();
         }
+        InsertValues.insertObject(e);
     }
 
 

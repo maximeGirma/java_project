@@ -23,9 +23,9 @@ public final class CreateAssociativeTable {
 
         for(int i = 0; i < genrelist.size();i++ ){
 
-            table.add( new OeuvreAppartientAGenre());
+            /*table.add( new OeuvreAppartientAGenre());
             table.get(i).setId_oeuvre(oeuvre.getId_oeuvre());
-            table.get(i).setId_genre(genrelist.get(i).getId_genre());
+            table.get(i).setId_genre(genrelist.get(i).getId_genre());*/
         }
 
         return table;

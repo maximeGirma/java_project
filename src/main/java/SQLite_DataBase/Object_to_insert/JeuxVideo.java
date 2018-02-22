@@ -1,7 +1,5 @@
 package SQLite_DataBase.Object_to_insert;
 
-import SQLite_DataBase.Object_to_insert.dependenciesTables.Categorie;
-
 public class JeuxVideo extends Oeuvre{
 
     public JeuxVideo(){

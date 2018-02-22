@@ -1,6 +1,6 @@
 package SQLite_DataBase.Object_to_insert;
 
-import SQLite_DataBase.Object_to_insert.dependenciesTables.Categorie;
+import SQLite_DataBase.Object_to_insert.dependenciesTables.CategorieList;
 
 public class Livre extends Oeuvre {
 
@@ -11,7 +11,7 @@ public class Livre extends Oeuvre {
 
 
     public void setCategory() {
-        this.categorie = Categorie.LIVRE.getId_categorie();
+        this.categorie = CategorieList.LIVRE.getId_categorie();
     }
 
 

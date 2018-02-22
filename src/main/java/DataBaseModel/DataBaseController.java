@@ -44,6 +44,9 @@ public class DataBaseController extends DatabaseModel<ResultSet, HashMap<String,
         objectModels.put(Note.class, new JdbcObjectModel<Note>(this) {
         });
 
+        objectModels.put(Categorie.class, new JdbcObjectModel<Categorie>(this) {
+        });
+
         objectModels.put(PersonneType.class, new JdbcObjectModel<PersonneType>(this) {
         });
 
@@ -72,14 +75,15 @@ public class DataBaseController extends DatabaseModel<ResultSet, HashMap<String,
         objectModels.put(Oeuvre.class, new JdbcObjectModel<Oeuvre>(this) {
         });
 
-        /*objectModels.put(Oeuvre.class, new JdbcObjectModel<Oeuvre>(this) {
-        });
 
         objectModels.put(Genre.class, new JdbcObjectModel<Genre>(this) {
         });
+
         objectModels.put(OeuvreAppartientAGenre.class, new JdbcObjectModel<OeuvreAppartientAGenre>(this) {
         });
-*/
+        objectModels.put(Participe.class, new JdbcObjectModel<Participe>(this) {
+        });
+
 
 
 
@@ -100,22 +104,57 @@ public class DataBaseController extends DatabaseModel<ResultSet, HashMap<String,
 
     @Override
     public void onInsertDefaultValues() {
-
-       /* Oeuvre film = new Film();
-        ArrayList<Genre> genre = new ArrayList<Genre>();
+        Note note_test = new Note();
+        Oeuvre film = new Film();
+       /* ArrayList<Genre> genre = new ArrayList<Genre>();
         for (int i = 0; i<5 ; i++){
             genre.add(new Genre(i+1));
         }
 
 
         ArrayList<OeuvreAppartientAGenre> tableAssociative = CreateAssociativeTable.CreateAssociativeTable(film,genre);
+*/
+       ArrayList default_oeuvre = CreateDefaultOeuvre.getObjects_to_insert();
 
-        try {
-            getObjectModel(Oeuvre.class).insert(film);
+       try {
+           ArrayList<Categorie> categorie_list = new ArrayList<Categorie>();
+           for(int i = 0; i < 4; i++){
+               categorie_list.add(new Categorie());
+               categorie_list.get(i).setId_category(i);
+
+           }
+           categorie_list.get(0).setName_categorie("FILM");
+           categorie_list.get(1).setName_categorie("LIVRE");
+           categorie_list.get(2).setName_categorie("MUSIQUE");
+           categorie_list.get(3).setName_categorie("JEUX-VIDEO");
+
+           AcquisitionDate acquisition_date = new AcquisitionDate();
+           AcquisitionOrigine acquisition_origine = new AcquisitionOrigine();
+           MenuLangue menu_langue = new MenuLangue();
+           MenuStatut menu_statut = new MenuStatut();
+           Note note = new Note();
+           Support support = new Support();
+           Oeuvre oeuvre =  new Oeuvre();
+
+
+
+           for (Categorie item: categorie_list) {
+               getObjectModel(Categorie.class).insert(item);
+           }
+
+           getObjectModel(AcquisitionDate.class).insert(acquisition_date);
+           getObjectModel(AcquisitionOrigine.class).insert(acquisition_origine);
+           getObjectModel(MenuLangue.class).insert(menu_langue);
+           getObjectModel(MenuStatut.class).insert(menu_statut);
+           getObjectModel(Note.class).insert(note);
+           getObjectModel(Support.class).insert(support);
+           getObjectModel(Oeuvre.class).insert(oeuvre);
+
+
         } catch (SQLException e) {
             e.printStackTrace();
         }
-
+/*
 
         for (OeuvreAppartientAGenre item: tableAssociative) {
 
