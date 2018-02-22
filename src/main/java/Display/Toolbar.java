@@ -82,6 +82,7 @@ public class Toolbar extends JToolBar implements ActionListener {
 		itemBtn.setBackground(Color.WHITE);
 		itemBtn.setToolTipText("Ajouter item");
 		itemBtn.setIcon(new ImageIcon("C:\\Users\\danib\\Desktop\\Icons\\add2.png"));
+		itemBtn.addActionListener(this);
 		
 		/////Buttons Actions/////
 		homeBtn.addActionListener(this);
@@ -197,6 +198,9 @@ public class Toolbar extends JToolBar implements ActionListener {
 				toolbarListener.gameEventOccured();
 				//textPanel.appendText("Jeux Vid�os\n");
 				}
+		}
+		else if (clicked == itemBtn){
+			System.out.println("kabla");
 		}
 	}
 
