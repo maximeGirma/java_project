@@ -1,8 +1,10 @@
 import DataBaseModel.DataBaseController;
 import DataBaseModel.InsertValues;
+import Display.MainFrame;
 import SQLite_DataBase.SQLiteCreateDataBase;
 import SQLite_DataBase.SQLiteInsert;
 
+import javax.swing.*;
 import java.sql.Connection;
 import java.sql.SQLException;
 
@@ -41,6 +43,12 @@ public class Main {
             e1.printStackTrace();
         }
         InsertValues.insertObject(e);
+
+        SwingUtilities.invokeLater(new Runnable(){
+            public void run() {
+                new MainFrame();
+            }
+        });
     }
 
 
