@@ -1,4 +1,4 @@
-package Display; /**
+/**
  * 
  * Application Mainframe
  *
@@ -22,8 +22,6 @@ public class MainFrame extends JFrame {
 	private JButton btn;
 	private Toolbar toolbar;
 	private JSplitPane splitPane;
-	private JSplitPane splitPane1;
-	private SidePanel sidePanel;
 	private ViewPanel viewPanel;
 	private ItemPanel itemPanel;
 	private ItemPanel2 itemPanel2;
@@ -39,12 +37,9 @@ public class MainFrame extends JFrame {
 		setLayout (new BorderLayout());
 		
 		toolbar = new Toolbar(); //NORTH//
-		sidePanel= new SidePanel();//WEST//
-		splitPane = new JSplitPane(JSplitPane.HORIZONTAL_SPLIT);
-		splitPane1 = new JSplitPane(JSplitPane.HORIZONTAL_SPLIT);//CENTER//
-		viewPanel = new ViewPanel();//LEFT PANE SPLITï¿½PANE//
-		itemPanel = new ItemPanel();//RIGHT PANE SPLITï¿½PANE//
-		itemPanel2 = new ItemPanel2();//RIGHT PANE SPLITï¿½PANE//
+		splitPane = new JSplitPane(JSplitPane.HORIZONTAL_SPLIT);//CENTER
+		viewPanel = new ViewPanel();//LEFT PANE SPLIT¨PANE//
+		itemPanel = new ItemPanel();//RIGHT PANE SPLIT¨PANE//
 		alphabetbar = new AlphabetBar();//SOUTH//
 		label = new JLabel();
 		panel = new JPanel();
@@ -107,10 +102,10 @@ public class MainFrame extends JFrame {
 		//});//
 		
 		add(toolbar, BorderLayout.PAGE_START); 
-		add(viewPanel, BorderLayout.WEST);
+		//add(viewPanel, BorderLayout.WEST);
 		add(splitPane, BorderLayout.CENTER);
-		splitPane.setLeftComponent(itemPanel);//CENTER LEFT//
-		splitPane.setRightComponent(itemPanel2);//CENTER RIGHT//
+		splitPane.setLeftComponent(viewPanel);//CENTER LEFT//
+		splitPane.setRightComponent(itemPanel);//CENTER RIGHT//
 		splitPane.resetToPreferredSizes();
 		add(alphabetbar, BorderLayout.SOUTH);
 		//*** add(viewPanel, BorderLayout.CENTER);

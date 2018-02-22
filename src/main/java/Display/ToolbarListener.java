@@ -1,4 +1,3 @@
-package Display;
 
 public interface ToolbarListener {
 	

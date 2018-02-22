@@ -1,11 +1,8 @@
-package Display; /**
+/**
  * 
  * Application ToolBar 
  * The user can choose the category or search for the item of his choice.
  */
-
-import Display.ItemPanel;
-import Display.StringListener;
 
 import java.awt.Color;
 import java.awt.Container;
@@ -35,7 +32,7 @@ public class Toolbar extends JToolBar implements ActionListener {
 	
 	private ItemPanel itemPanel;
 	private ItemPanel itemPanel2;
-	private StringListener textListener;
+	private  StringListener textListener;
 	private JTextField txtSearch;
 	private ToolbarListener toolbarListener;
 	
@@ -82,7 +79,6 @@ public class Toolbar extends JToolBar implements ActionListener {
 		itemBtn.setBackground(Color.WHITE);
 		itemBtn.setToolTipText("Ajouter item");
 		itemBtn.setIcon(new ImageIcon("C:\\Users\\danib\\Desktop\\Icons\\add2.png"));
-		itemBtn.addActionListener(this);
 		
 		/////Buttons Actions/////
 		homeBtn.addActionListener(this);
@@ -167,10 +163,10 @@ public class Toolbar extends JToolBar implements ActionListener {
 	
 	/////Buttons Click Action/////
 	public void setToolbarListener(ToolbarListener listener){
-		this.toolbarListener = listener;
+		this.toolbarListener =listener;
 	}
 
-	JSplitPane splitPane = new JSplitPane();
+	//JSplitPane splitPane = new JSplitPane();
 	
 	public void actionPerformed(ActionEvent e) {
 		JButton clicked = (JButton)e.getSource();
@@ -198,9 +194,6 @@ public class Toolbar extends JToolBar implements ActionListener {
 				toolbarListener.gameEventOccured();
 				//textPanel.appendText("Jeux Vid�os\n");
 				}
-		}
-		else if (clicked == itemBtn){
-			System.out.println("kabla");
 		}
 	}
 

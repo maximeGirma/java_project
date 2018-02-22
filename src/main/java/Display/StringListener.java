@@ -1,4 +1,4 @@
-package Display;    /////Button Interface/////
+	/////Button Interface/////
 
 public interface StringListener {
 	public void textEmitted(String text);

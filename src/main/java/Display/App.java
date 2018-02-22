@@ -1,4 +1,4 @@
-package Display; /**
+/**
  * 
  * Launch the CollectBee application
  *
