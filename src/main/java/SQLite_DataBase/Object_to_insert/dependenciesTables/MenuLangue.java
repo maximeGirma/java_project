@@ -9,14 +9,14 @@ import za.co.neilson.sqlite.orm.annotations.PrimaryKey;
 
 public class MenuLangue {
     @PrimaryKey(autoIncrement = true)
-    private String id_langue;
+    private int id_langue;
     private String langue;
 
-    public String getId_langue() {
+    public int getId_langue() {
         return id_langue;
     }
 
-    public void setId_langue(String id_langue) {
+    public void setId_langue(int id_langue) {
         this.id_langue = id_langue;
     }
 

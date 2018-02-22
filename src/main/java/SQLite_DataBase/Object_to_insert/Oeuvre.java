@@ -24,8 +24,7 @@ public class Oeuvre{
     protected String duree;
 
     @ForeignKey(table = "Note", column = "id_note", childReference = "id_note")
-
-    protected int id_note = 1;
+    public int id_note = 1;
     protected int pegi;
 
     @ForeignKey(table = "AcquisitionDate", column = "id_acquisition_date", childReference = "id_acquisition_date")

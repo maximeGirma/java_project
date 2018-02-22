@@ -1,25 +1,27 @@
 package SQLite_DataBase.Object_to_insert;
 
+import SQLite_DataBase.Object_to_insert.dependenciesTables.CategorieList;
+
 public class Musique extends Oeuvre{
 
     public Musique(){
         setCategory();
     }
-    //@Override
+
     public void setCategory() {
 
-        //this.categorie = Categorie.MUSIQUE;
+        this.categorie = CategorieList.MUSIQUE.getId_categorie();
     }
 
-    //@Override
+
     public String getCategoryName() {
 
-        //return categorie.getName();
-        return "toto";
+        return CategorieList.MUSIQUE.getName();
+
     }
 
     public int getCategoryID(){
-        //return categorie.getId_categorie();
-        return 1;
+        return CategorieList.MUSIQUE.getId_categorie();
+
     }
 }

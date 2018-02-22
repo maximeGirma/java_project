@@ -9,21 +9,21 @@ public class Livre extends Oeuvre {
         setCategory();
     }
 
-
     public void setCategory() {
+
         this.categorie = CategorieList.LIVRE.getId_categorie();
     }
 
 
-
     public String getCategoryName() {
-        //return categorie.getName();
-    return "toto";
+
+        return CategorieList.LIVRE.getName();
+
     }
 
     public int getCategoryID(){
-        //return categorie.getId_categorie();
-        return 1;
+        return CategorieList.LIVRE.getId_categorie();
+
     }
 
 }

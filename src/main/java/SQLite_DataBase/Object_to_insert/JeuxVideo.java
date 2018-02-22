@@ -1,25 +1,27 @@
 package SQLite_DataBase.Object_to_insert;
 
+import SQLite_DataBase.Object_to_insert.dependenciesTables.CategorieList;
+
 public class JeuxVideo extends Oeuvre{
 
     public JeuxVideo(){
         setCategory();
     }
-    //@Override
-    public void setCategory() {
 
-        //this.categorie = Categorie.JEUXVIDEOS;
-    }
+        public void setCategory() {
 
-    //@Override
-    public String getCategoryName() {
+            this.categorie = CategorieList.JEUXVIDEOS.getId_categorie();
+        }
 
-        //return categorie.getName();
-        return "toto";
-    }
 
-    public int getCategoryID(){
-        //return categorie.getId_categorie();
-        return 1;
-    }
+        public String getCategoryName() {
+
+            return CategorieList.JEUXVIDEOS.getName();
+
+        }
+
+        public int getCategoryID(){
+            return CategorieList.JEUXVIDEOS.getId_categorie();
+
+        }
 }

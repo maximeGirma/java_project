@@ -4,14 +4,14 @@ import za.co.neilson.sqlite.orm.annotations.PrimaryKey;
 
 public class MenuStatut {
     @PrimaryKey(autoIncrement = true)
-    private String id_statut;
+    private int id_statut;
     private String menu_statut;
 
-    public String getId_statut() {
+    public int getId_statut() {
         return id_statut;
     }
 
-    public void setId_statut(String id_statut) {
+    public void setId_statut(int id_statut) {
         this.id_statut = id_statut;
     }
 

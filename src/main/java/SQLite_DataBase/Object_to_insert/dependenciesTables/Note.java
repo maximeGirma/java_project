@@ -7,8 +7,11 @@ public class Note {
     public int id_note;
     public String note;
 
+    public Note(){
+    }
 
     public int getId_note() {
+
         return id_note;
     }
 
