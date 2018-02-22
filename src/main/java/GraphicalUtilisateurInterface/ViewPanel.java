@@ -13,15 +13,17 @@ import javax.swing.JScrollPane;
 public class ViewPanel extends JPanel{
 	
 	private JList titleList;
-	
+	private JScrollPane scrollPane;
+	private DefaultListModel listModel;
+
 	public ViewPanel(){
 		
 		setBackground(Color.WHITE);
+
+		this.titleList = new JList();
+		this.scrollPane = new JScrollPane(titleList);
 		
-		JList titleList = new JList();
-		JScrollPane scrollPane = new JScrollPane(titleList);
-		
-		DefaultListModel listModel = new DefaultListModel();
+		this.listModel = new DefaultListModel();
 		listModel.addElement("The Dark Side of the Moon");
 		listModel.addElement("Unplugged");
 		listModel.addElement("The Best of Men at Work");
@@ -70,7 +72,8 @@ public class ViewPanel extends JPanel{
 		listModel.addElement("Sonic All Stars Racing");
 		listModel.addElement("Tomb Raider");
 		listModel.addElement("Mario Bros");
-		titleList.setModel(listModel);
+
+		this.titleList.setModel(listModel);
 		
 		
 		//titleList.setPreferredSize(new Dimension(300,800));
@@ -81,9 +84,9 @@ public class ViewPanel extends JPanel{
 		//String[] list_content = {"Titre1","Titre2","Titre3"};
 		//JList list = new JList(list_content);	
 		
-		setLayout(new BorderLayout());
+		this.setLayout(new BorderLayout());
 		
-		add(scrollPane, BorderLayout.CENTER);
+		this.add(scrollPane, BorderLayout.CENTER);
 		
 		//setLayout(new GridBagLayout());
 		 
@@ -104,4 +107,15 @@ public class ViewPanel extends JPanel{
 	return null;
 }
 
+	public void UpdateViewPanel(String[] title){
+		DefaultListModel temporary_list_model = new DefaultListModel();
+
+		for (String line : title) {
+
+			temporary_list_model.addElement(line);
+
+		}
+		this.titleList.setModel(temporary_list_model);
 	}
+
+}

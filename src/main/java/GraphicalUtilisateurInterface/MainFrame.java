@@ -33,7 +33,7 @@ public class MainFrame extends JFrame {
 		
 		setLayout (new BorderLayout());
 		
-		toolbar = new Toolbar(); //NORTH//
+		toolbar = new Toolbar(this); //NORTH//
 		splitPane = new JSplitPane(JSplitPane.HORIZONTAL_SPLIT);//CENTER
 		viewPanel = new ViewPanel();//LEFT PANE SPLIT�PANE//
 		itemPanel = new ItemPanel();//RIGHT PANE SPLIT�PANE//
@@ -117,8 +117,10 @@ public class MainFrame extends JFrame {
 		setVisible(true);
 		
 	}
-	
 
 
+	public ViewPanel getViewPanel() {
+		return viewPanel;
+	}
 }
  

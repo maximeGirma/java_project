@@ -4,6 +4,8 @@ package GraphicalUtilisateurInterface; /**
  * The user can choose the category or search for the item of his choice.
  */
 
+import GraphicalUtilisateurInterface.DisplayController.SearchDisplay;
+
 import java.awt.Color;
 import java.awt.Container;
 import java.awt.GridBagConstraints;
@@ -31,8 +33,11 @@ public class Toolbar extends JToolBar implements ActionListener {
 	private  StringListener textListener;
 	private JTextField txtSearch;
 	private ToolbarListener toolbarListener;
-	
-	public Toolbar(){
+	private MainFrame parent_main_frame;
+	public Toolbar(MainFrame parent){
+
+		parent_main_frame = parent;
+
 		
 		//setBorder(BorderFactory.createEtchedBorder());
 		setBackground(Color.WHITE);
@@ -168,27 +173,34 @@ public class Toolbar extends JToolBar implements ActionListener {
 		JButton clicked = (JButton)e.getSource();
 		
 		if(clicked == MusiqueButton){
-				if(toolbarListener !=null){
+			if(toolbarListener !=null){
 				toolbarListener.musicEventOccured();
 				//textPanel.appendText("Musique\n");
+				SearchDisplay.getTitleByCategory(3);
 				}
 		}		
 		else if (clicked == FilmsButton){
-				if(toolbarListener !=null){
+			if(toolbarListener !=null){
 				toolbarListener.movieEventOccured();
 				//textPanel.appendText("Films\n");
-				}
+				SearchDisplay.getTitleByCategory(1);
+			}
 		}		
 		else if (clicked == LivresButton){
-				if(toolbarListener !=null){
+			if(toolbarListener !=null){
 				toolbarListener.bookEventOccured();
 				//textPanel.appendText("Livres\n");
+				SearchDisplay.getTitleByCategory(2);
 				}
 		}
 		else if (clicked == JeuxButton){
-				if(toolbarListener !=null){
+			if(toolbarListener !=null){
 				toolbarListener.gameEventOccured();
 				//textPanel.appendText("Jeux Vid�os\n");
+				SearchDisplay.getTitleByCategory(4);
+				String[] temp = {"pouet","pouet2","pouet3"};
+				parent_main_frame.getViewPanel().UpdateViewPanel(temp);
+
 				}
 		}
 	}
