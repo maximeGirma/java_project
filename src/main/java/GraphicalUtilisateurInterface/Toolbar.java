@@ -56,31 +56,31 @@ public class Toolbar extends JToolBar implements ActionListener {
 		MusiqueButton.setForeground(Color.BLACK);
 		MusiqueButton.setBackground(Color.WHITE);
 		MusiqueButton.setToolTipText("Musique");
-		MusiqueButton.setIcon(new ImageIcon("C:\\Users\\danib\\Desktop\\Icons\\musicf.png"));
+		MusiqueButton.setIcon(new ImageIcon("src\\main\\java\\img\\music.png"));
 		
 		FilmsButton =new JButton("");
 		FilmsButton.setForeground(Color.BLACK);
 		FilmsButton.setBackground(Color.WHITE);
 		FilmsButton.setToolTipText("Films");
-		FilmsButton.setIcon(new ImageIcon("C:\\Users\\danib\\Desktop\\Icons\\movies4.png"));
+		FilmsButton.setIcon(new ImageIcon("src\\main\\java\\img\\movie.png"));
 	
 		LivresButton =new JButton("");
 		LivresButton.setForeground(Color.BLACK);
 		LivresButton.setBackground(Color.WHITE);
 		LivresButton.setToolTipText("Livres");
-		LivresButton.setIcon(new ImageIcon("C:\\Users\\danib\\Desktop\\Icons\\booksf.png"));
+		LivresButton.setIcon(new ImageIcon("src\\main\\java\\img\\book.png"));
 		
 		JeuxButton =new JButton("");
 		JeuxButton.setForeground(Color.BLACK);
 		JeuxButton.setBackground(Color.WHITE);
 		JeuxButton.setToolTipText("Jeux Videos");
-		JeuxButton.setIcon(new ImageIcon("C:\\Users\\danib\\Desktop\\Icons\\games4.png"));
+		JeuxButton.setIcon(new ImageIcon("src\\main\\java\\img\\game.png"));
 		
 		itemBtn = new JButton ("");
 		itemBtn.setForeground(Color.BLACK);
 		itemBtn.setBackground(Color.WHITE);
 		itemBtn.setToolTipText("Ajouter item");
-		itemBtn.setIcon(new ImageIcon("C:\\Users\\danib\\Desktop\\Icons\\add2.png"));
+		itemBtn.setIcon(new ImageIcon("src\\main\\java\\img\\add.png"));
 
 		GoButton = new JButton("");
 
@@ -91,6 +91,7 @@ public class Toolbar extends JToolBar implements ActionListener {
 		LivresButton.addActionListener(this); 
 		JeuxButton.addActionListener(this); 
 		GoButton.addActionListener(this);
+		itemBtn.addActionListener(this);
 		//setLayout(new GridLayout());
 		
 		GridBagConstraints gc = new GridBagConstraints();
@@ -155,7 +156,7 @@ public class Toolbar extends JToolBar implements ActionListener {
 
 		GoButton.setForeground(Color.BLACK);
 		GoButton.setBackground(Color.WHITE);
-		GoButton.setIcon(new ImageIcon("C:\\Users\\danib\\Desktop\\Icons\\search.png"));
+		GoButton.setIcon(new ImageIcon("src\\main\\java\\img\\search.png"));
 		
 		gc.gridx= 11;
 		gc.gridy= 0;
@@ -178,30 +179,21 @@ public class Toolbar extends JToolBar implements ActionListener {
 		if(clicked == MusiqueButton){
 			if(toolbarListener !=null){
 				toolbarListener.musicEventOccured();
-				//textPanel.appendText("Musique\n");
-
 				}
 		}		
 		else if (clicked == FilmsButton){
 			if(toolbarListener !=null){
 				toolbarListener.movieEventOccured();
-				//textPanel.appendText("Films\n");
-
 			}
 		}		
 		else if (clicked == LivresButton){
 			if(toolbarListener !=null){
 				toolbarListener.bookEventOccured();
-				//textPanel.appendText("Livres\n");
-
 				}
 		}
 		else if (clicked == JeuxButton){
 			if(toolbarListener !=null){
 				toolbarListener.gameEventOccured();
-				//textPanel.appendText("Jeux Vid�os\n");
-
-
 				}
 		}
 		else if (clicked == GoButton){
@@ -214,6 +206,12 @@ public class Toolbar extends JToolBar implements ActionListener {
 			test_table.put("test","petit_paquet_de_bn");
 			System.out.println(test_table.get("test"));
 		}
+		else if (clicked == itemBtn){
+			toolbarListener.itemEventOccured();
+		}
+
+
+
 	}
 
 	private Container getContentPane() {

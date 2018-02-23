@@ -16,8 +16,12 @@ import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 import javax.swing.JPanel;
 import javax.swing.JSplitPane;
+import java.awt.BorderLayout;
+import java.awt.Color;
+import javax.swing.*;
 
 public class MainFrame extends JFrame {
+
 
 	private JButton btn;
 	private Toolbar toolbar;
@@ -25,9 +29,9 @@ public class MainFrame extends JFrame {
 	private ViewPanel viewPanel;
 	private ItemPanel itemPanel;
 	private AlphabetBar alphabetbar;
-	private JLabel label;
-	private JPanel panel;
+	private AddItemPopup addItemPopup;
 
+	
 	/////Main Application Window/////
 	public MainFrame() {
 		super ("Bienvenue sur CollectBee!"); //Titre application//
@@ -40,13 +44,12 @@ public class MainFrame extends JFrame {
 		viewPanel = new ViewPanel();//LEFT PANE SPLIT PANE//
 		itemPanel = new ItemPanel();//RIGHT PANE SPLIT PANE//
 		alphabetbar = new AlphabetBar();//SOUTH//
-		label = new JLabel();
-		panel = new JPanel();
+		
 
 		/////Application Menu Bar/////
 		JMenuBar menuBar = new JMenuBar();
 		setJMenuBar(menuBar);
-
+		
 		JMenu fileMenu = new JMenu("Fichier");
 
 		JMenuItem exportDataItem = new JMenuItem("Exporter ");
@@ -73,27 +76,39 @@ public class MainFrame extends JFrame {
 
 		/////Buttons Links Method/////
 		toolbar.setToolbarListener( new ToolbarListener(){
-
+		
 			public void musicEventOccured() {
 				System.out.println("it works music");
+				SearchDisplay.getTitleByCategory(3);
+
 			}
 
 			public void movieEventOccured() {
 				System.out.println("it works movie");
+				SearchDisplay.getTitleByCategory(1);
 			}
 
 			public void bookEventOccured() {
 				System.out.println("it works book");
+				SearchDisplay.getTitleByCategory(2);
 			}
 
 			public void gameEventOccured() {
-				System.out.println("it works game");
-			}
 
+				System.out.println("it works game");
+				SearchDisplay.getTitleByCategory(4);
+				String[] temp = {"pouet","pouet2","pouet3"};
+				viewPanel.UpdateViewPanel(temp);
+
+			}
 			public void homeEventOccured(){
 				System.out.println("home clicked guys");
 				SearchDisplay.getTitleByCategory(0);
 			}
+			public void itemEventOccured(){
+				System.out.println("item clicked guys");
+			}
+
  		});
 
 		/////Bottom Button Link Method/////
@@ -104,6 +119,10 @@ public class MainFrame extends JFrame {
 		//});//
 
 		add(toolbar, BorderLayout.PAGE_START);
+
+
+		add(toolbar, BorderLayout.PAGE_START);
+		//add(viewPanel, BorderLayout.WEST);
 		add(splitPane, BorderLayout.CENTER);
 		splitPane.setLeftComponent(viewPanel);
 		splitPane.setRightComponent(itemPanel);
@@ -116,12 +135,12 @@ public class MainFrame extends JFrame {
 		setSize(1000, 580);
         setLocationRelativeTo(null);
 		setVisible(true);
-
+		
 	}
+
 
 	public ViewPanel getViewPanel() {
 		return viewPanel;
 	}
-
 }
  
