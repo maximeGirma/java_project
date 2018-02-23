@@ -16,6 +16,7 @@ import javax.swing.JScrollPane;
 public class ViewPanel extends JPanel{
 	
 	private JList titleList;
+	
 	private JScrollPane scrollPane;
 	private DefaultListModel listModel;
 	private DefaultListModel temporary_list_model;
@@ -27,6 +28,7 @@ public class ViewPanel extends JPanel{
 		this.titleList = new JList();
 		this.scrollPane = new JScrollPane(titleList);
 
+		
 		titleList.setBackground(Color.lightGray);
 		titleList.setFont(new Font("Dialog", Font.BOLD, 12));
 		
