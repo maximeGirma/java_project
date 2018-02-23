@@ -23,7 +23,7 @@ public class Main {
         }
 
 */
-        DataBaseController e = null;
+        /*DataBaseController e = null;
 
         try {
             e = new DataBaseController();
@@ -38,7 +38,7 @@ public class Main {
             e1.printStackTrace();
         }
         InsertValues.insertObject(e);
-
+*/
         SwingUtilities.invokeLater(new Runnable(){
             public void run() {
                 new MainFrame();

@@ -48,7 +48,7 @@ public class Toolbar extends JToolBar implements ActionListener {
 		homeBtn.setForeground(Color.BLACK);
 		homeBtn.setBackground(Color.WHITE);
 		homeBtn.setToolTipText("Accueil");
-		homeBtn.setIcon(new ImageIcon("C:\\Users\\danib\\Desktop\\Icons\\home2.png"));
+		homeBtn.setIcon(new ImageIcon("C:\\Users\\danib\\workspace\\collectbee\\java_project\\src\\main\\java\\img\\home.png"));
 		
 		/////Music button/////
 		MusiqueButton =new JButton("");
