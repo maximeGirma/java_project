@@ -12,6 +12,7 @@ import java.awt.GridBagConstraints;
 import java.awt.Insets;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.Hashtable;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JTextField;
@@ -209,6 +210,9 @@ public class Toolbar extends JToolBar implements ActionListener {
 		}
 		else if (clicked == homeBtn){
 			toolbarListener.homeEventOccured();
+			Hashtable test_table = new Hashtable();
+			test_table.put("test","petit_paquet_de_bn");
+			System.out.println(test_table.get("test"));
 		}
 	}
 

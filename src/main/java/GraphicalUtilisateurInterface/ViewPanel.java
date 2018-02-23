@@ -1,3 +1,5 @@
+package GraphicalUtilisateurInterface;
+
 import java.awt.*;
 
 import javax.swing.DefaultListModel;

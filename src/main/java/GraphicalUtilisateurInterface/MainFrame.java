@@ -1,4 +1,4 @@
-/**
+package GraphicalUtilisateurInterface; /**
  * 
  * Application Mainframe
  *
