@@ -1,3 +1,5 @@
+package GraphicalUtilisateurInterface;
+
 import java.awt.*;
 
 import javax.swing.DefaultListModel;
@@ -14,22 +16,21 @@ import javax.swing.JScrollPane;
 public class ViewPanel extends JPanel{
 	
 	private JList titleList;
-	
 	private JScrollPane scrollPane;
 	private DefaultListModel listModel;
-	DefaultListModel temporary_list_model;
+	private DefaultListModel temporary_list_model;
 	
 	public ViewPanel(){
 		
 		setBackground(Color.lightGray);
 
-		JScrollPane scrollPane = new JScrollPane();
-		JList titleList = new JList();
-		
+		this.titleList = new JList();
+		this.scrollPane = new JScrollPane(titleList);
+
 		titleList.setBackground(Color.lightGray);
 		titleList.setFont(new Font("Dialog", Font.BOLD, 12));
 		
-		DefaultListModel listModel = new DefaultListModel();
+		this.listModel = new DefaultListModel();
 		listModel.addElement("The Dark Side of the Moon");
 		listModel.addElement("Unplugged");
 		listModel.addElement("The Best of Men at Work");
@@ -70,10 +71,10 @@ public class ViewPanel extends JPanel{
 		listModel.addElement("Unplugged");
 		listModel.addElement("The Best of Men at Work");
 		listModel.addElement("Karajan: Beethoven Symphonies");
-		titleList.setModel(listModel);
+
 		
 		this.titleList.setModel(listModel);
-		scrollPane.add(titleList);
+
 
 		Dimension dim = getPreferredSize();
 		dim.width = 200;
@@ -84,14 +85,7 @@ public class ViewPanel extends JPanel{
 		
 		this.add(scrollPane, BorderLayout.CENTER);
 		 
-		GridBagConstraints gc = new GridBagConstraints();
-		
-	
-		gc.gridx= 0;
-		gc.gridy= 0;
-		gc.fill= GridBagConstraints.NONE;
-		gc.anchor= GridBagConstraints.NORTHWEST;
-		add(titleList, gc);
+
 		
 		
 	}
@@ -100,4 +94,32 @@ public class ViewPanel extends JPanel{
 	return null;
 }
 
+	public void UpdateViewPanel(String[] title){
+
+		this.listModel = new DefaultListModel();
+		for (String line : title) {
+
+			this.listModel.addElement(line);
+		}
+
+		this.titleList.setModel(this.listModel);
 	}
+
+	public void SearchTitle(String str_to_find){
+
+		this.temporary_list_model = new DefaultListModel();
+
+		for (int i = 0; i<listModel.getSize(); i++) {
+			String line = (String)listModel.get(i);
+			System.out.println(line);
+			if (line.contains(str_to_find)){
+				this.temporary_list_model.addElement(line);
+			}
+
+		}
+		this.titleList.setModel(this.temporary_list_model);
+		this.temporary_list_model = null;
+
+
+	}
+}

@@ -1,3 +1,5 @@
+package GraphicalUtilisateurInterface;
+
 import java.awt.*;
 
 import javax.swing.ImageIcon;
@@ -11,7 +13,6 @@ import javax.swing.JTextPane;
 
 public class ItemPanel extends JPanel {
 	
-	private JLabel idLabel;
 	private JLabel titleLabel;
 	private JLabel yearLabel;
 	private JLabel timeLabel;
@@ -24,8 +25,6 @@ public class ItemPanel extends JPanel {
 	private JLabel statusLabel;
 	private JComboBox statusCombo;
 	private JLabel trackLabel;
-	private JLabel diskLabel;
-	private JLabel ratingLabel;
 	private JComboBox ratingCombo;
 	private JLabel commentLabel;
 	private JLabel categoMusLabel;
@@ -45,6 +44,10 @@ public class ItemPanel extends JPanel {
 	private JButton delBtn;
 	private JButton addBtn;
 
+	private JLabel holdLabel1;
+	private JLabel holdLabel2;
+	private JLabel holdLabel3;
+
 	private JPanel TracksInnerPanel;
 
 		
@@ -59,16 +62,13 @@ public class ItemPanel extends JPanel {
 		setBackground(Color.WHITE);
 
 
-		categoMusLabel = new JLabel(new ImageIcon("Libapp0.2\\img\\music.png"));
-/*		categoMovLabel = new ImageIcon("Libapp0.2\\img\\movie.png");
-		categoBooLabel = new ImageIcon("Libapp0.2\\img\\book.png");
-		categoGamLabel = new ImageIcon("Libapp0.2\\img\\game.png");
+		categoMusLabel = new JLabel(new ImageIcon("src\\main\\java\\img\\album.png"));
+/*		categoMovLabel = new ImageIcon("src\\main\\java\img\\movie.png");
+		categoBooLabel = new ImageIcon("src\\main\\java\\book.png");
+		categoGamLabel = new ImageIcon("src\\main\\java\\img\\game.png");
 */
-		idLabel = new JLabel("Id: 1");
-		idLabel.setFont(new Font("Dialog", Font.ITALIC,9));
 
 		titleLabel = new JLabel("Titre: ");
-		titleLabel.setFont(new Font("Dialog", Font.BOLD,10));
 		titleField = new JTextField(30);
 		titleField.setFont(new Font("Dialog", Font.BOLD,18));
 
@@ -125,10 +125,8 @@ public class ItemPanel extends JPanel {
 		trackLabel= new JLabel("Nombre de pistes: ");
 		trackField = new JTextField(15);
 
-		diskLabel = new JLabel ("Nombre de disques: ");
 		diskField = new JTextField (15);
 
-		ratingLabel = new JLabel ("");
 		ratingCombo = new JComboBox();
 	//	ratingCombo.setMaximumSize(new Dimension(100, 20));
 		ratingCombo.setFont(new Font("Dialog", Font.PLAIN,14));
@@ -147,25 +145,32 @@ public class ItemPanel extends JPanel {
 		commentField.setBackground(Color.white);
 		
 		//SAVE BUTTON//
-		addBtn = new JButton("Sauvegarder");
+		addBtn = new JButton("");
 		addBtn.setForeground(Color.WHITE);
-		addBtn.setBackground(Color.DARK_GRAY);
+		addBtn.setBackground(new Color(240, 240, 240));
 		addBtn.setToolTipText("Sauvegarder");
-		addBtn.setIcon(new ImageIcon("C:\\Users\\danib\\Desktop\\Icons\\save.png"));
+		addBtn.setIcon(new ImageIcon("src\\main\\java\\img\\save.png"));
 	//	addBtn.setMaximumSize(new Dimension(100,20));
-		
+
+
 		//DELETE BUTTON//
-		delBtn = new JButton("Supprimer");
+		delBtn = new JButton("");
 		delBtn.setForeground(Color.WHITE);
-		delBtn.setBackground(Color.DARK_GRAY);
+		addBtn.setBackground(new Color(240, 240, 240));
 		delBtn.setToolTipText("Supprimer");
-		delBtn.setIcon(new ImageIcon("C:\\Users\\danib\\Desktop\\Icons\\trash.png"));
+		delBtn.setIcon(new ImageIcon("src\\main\\java\\img\\trash.png"));
 	//	delBtn.setMaximumSize(new Dimension(100,20));
 
 
-		//TRACKS//
+		//TRACKS PANEL//
 		TracksInnerPanel tracksInnerPanel = new TracksInnerPanel();
 		//	delBtn.setMaximumSize(new Dimension(100,20));
+
+
+		//PLACE HOLDER LABELs//
+		holdLabel1 = new JLabel ("");
+		holdLabel2 = new JLabel ("");
+		holdLabel3 = new JLabel ("");
 
 		//------------------------------------------
 		//// LAYOUT  //////////
@@ -178,32 +183,14 @@ public class ItemPanel extends JPanel {
 		gc.insets = new Insets(5, 5, 5, 5);
 
         //lgn 0-------------------------------------------
-		//ID LABEL 0,0//
+		//CATEGORY ARTWORK 0,0//
 		gc.weightx=1;
 		gc.weighty=0.1;
 		gc.gridx=0;
 		gc.gridy=0;
 		gc.fill=GridBagConstraints.NONE;
-		gc.anchor=GridBagConstraints.NORTHWEST;
-		add(idLabel,gc);
-
-		//CATEGORY ARTWORK FIELD 1,0//
-		gc.weightx=1;
-		gc.weighty=0.1;
-		gc.gridx=1;
-		gc.gridy=0;
-		gc.fill=GridBagConstraints.NONE;
-		gc.anchor=GridBagConstraints.LINE_START;
+		gc.anchor=GridBagConstraints.CENTER;
 		add(categoMusLabel,gc);
-
-		//RATING LABEL 2,0//
-		gc.weightx=1;
-		gc.weighty=0.1;
-		gc.gridx=2;
-		gc.gridy=0;
-		gc.fill=GridBagConstraints.NONE;
-		gc.anchor=GridBagConstraints.LINE_END;
-		add(ratingLabel,gc);
 
 		//RATING COMBO 4,0//
 		gc.weightx=1;
@@ -233,20 +220,8 @@ public class ItemPanel extends JPanel {
 		gc.fill=GridBagConstraints.HORIZONTAL;
 		gc.anchor=GridBagConstraints.LINE_START;
 		add(titleField,gc);
-		titleField.setText("tttt");
+		titleField.setText("");
 		gc.gridwidth = 1;
-
-		//TRACKS 4,1//
-		gc.weightx=1;
-		gc.weighty=0.1;
-		gc.gridx=4;
-		gc.gridy=1;
-		gc.gridwidth = 1;
-		gc.gridheight = 6;
-		gc.fill=GridBagConstraints.VERTICAL;
-		gc.anchor=GridBagConstraints.LINE_START;
-		add(tracksInnerPanel,gc);
-		gc.gridheight = 1;
 
 		//lgn 2-------------------------------------------
 		//YEAR LABEL 0,2//
@@ -285,6 +260,18 @@ public class ItemPanel extends JPanel {
 		gc.fill=GridBagConstraints.HORIZONTAL;
 		gc.anchor=GridBagConstraints.LINE_START;
 		add(artistNomField, gc);
+
+		//TRACKS LSIT 4,2-10//
+		gc.weightx=1;
+		gc.weighty=0.1;
+		gc.gridx=4;
+		gc.gridy=2;
+		gc.gridwidth = 1;
+		gc.gridheight = 8;
+		gc.fill=GridBagConstraints.VERTICAL;
+		gc.anchor=GridBagConstraints.LINE_END;
+		add(tracksInnerPanel,gc);
+		gc.gridheight = 1;
 
 		//lgn 3-------------------------------------------
 		//GENRE LABEL 0,3//
@@ -326,25 +313,25 @@ public class ItemPanel extends JPanel {
 		add(artist2NomField, gc);
 
 		//lgn 4-------------------------------------------
-		//DISK LABEL 2,4//
+		//DISK LABEL 1,4//
 		gc.weightx=1;
 		gc.weighty=0.1;
-		gc.gridx=2;
+		gc.gridx=1;
 		gc.gridy=4;
 		gc.fill=GridBagConstraints.NONE;
 		gc.anchor=GridBagConstraints.LINE_END;
-		add(diskLabel,gc);
-				
-		//DISK FIELD 3,4//
-		gc.weightx=1;
-		gc.weighty=0.1;
-		gc.gridx=3;
-		gc.gridy=4;
-		gc.fill=GridBagConstraints.HORIZONTAL;
-		gc.anchor=GridBagConstraints.LINE_START;
-		add(diskField,gc);
+		add(holdLabel1,gc);
+
 
 		//lgn 5-------------------------------------------
+		//RATING LABEL 1,5//
+		gc.weightx=1;
+		gc.weighty=0.1;
+		gc.gridx=1;
+		gc.gridy=5;
+		gc.fill=GridBagConstraints.NONE;
+		gc.anchor=GridBagConstraints.LINE_END;
+		add(holdLabel2,gc);
 
 
 		//lgn 6-------------------------------------------

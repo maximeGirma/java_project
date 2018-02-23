@@ -1,8 +1,10 @@
-/**
+package GraphicalUtilisateurInterface; /**
  * 
  * Application Mainframe
  *
  */
+import GraphicalUtilisateurInterface.DisplayController.SearchDisplay;
+
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -33,7 +35,7 @@ public class MainFrame extends JFrame {
 		setBackground(Color.lightGray);
 		getContentPane().setLayout (new BorderLayout());
 
-		toolbar = new Toolbar(); //NORTH//
+		toolbar = new Toolbar(this); //NORTH//
 		splitPane = new JSplitPane(JSplitPane.HORIZONTAL_SPLIT);//CENTER//
 		viewPanel = new ViewPanel();//LEFT PANE SPLIT PANE//
 		itemPanel = new ItemPanel();//RIGHT PANE SPLIT PANE//
@@ -87,6 +89,11 @@ public class MainFrame extends JFrame {
 			public void gameEventOccured() {
 				System.out.println("it works game");
 			}
+
+			public void homeEventOccured(){
+				System.out.println("home clicked guys");
+				SearchDisplay.getTitleByCategory(0);
+			}
  		});
 
 		/////Bottom Button Link Method/////
@@ -106,13 +113,15 @@ public class MainFrame extends JFrame {
 
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		/////Frame size and visibility/////
-		setSize(980, 560);
+		setSize(1000, 580);
         setLocationRelativeTo(null);
 		setVisible(true);
 
 	}
 
-
+	public ViewPanel getViewPanel() {
+		return viewPanel;
+	}
 
 }
  
