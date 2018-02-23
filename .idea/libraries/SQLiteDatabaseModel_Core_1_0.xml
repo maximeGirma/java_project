@@ -1,9 +1,6 @@
 <component name="libraryTable">
   <library name="SQLiteDatabaseModel-Core-1.0">
-    <CLASSES>
-      <root url="jar://$PROJECT_DIR$/src/main/resources/SQLiteDatabaseModel-Core-1.0.jar!/" />
-      <root url="jar://$PROJECT_DIR$/src/main/resources/SQLiteDatabaseModel-Jdbc-1.0.jar!/" />
-    </CLASSES>
+    <CLASSES />
     <JAVADOC />
     <SOURCES />
   </library>
