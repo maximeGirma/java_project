@@ -1,6 +1,5 @@
 package DataBaseModel;
 
-import SQLite_DataBase.Object_to_insert.Film;
 import SQLite_DataBase.Object_to_insert.Oeuvre;
 import SQLite_DataBase.Object_to_insert.dependenciesTables.*;
 import za.co.neilson.sqlite.orm.DatabaseDriverInterface;

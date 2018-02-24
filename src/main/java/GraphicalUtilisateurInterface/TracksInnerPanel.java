@@ -18,7 +18,7 @@ public class TracksInnerPanel extends JPanel{
 		this.trackList = new JList();
 		this.scrollPane = new JScrollPane(trackList);
 
-		trackList.setBackground(Color.lightGray);
+		trackList.setBackground(new Color(227,237,243));
 		trackList.setFont(new Font("Dialog", Font.PLAIN, 9));
 
 		this.listModel = new DefaultListModel();
@@ -43,8 +43,9 @@ public class TracksInnerPanel extends JPanel{
 
 		Dimension dim = getPreferredSize();
 		dim.width = 100;
-		setPreferredSize(dim);
-		setMinimumSize(dim);
+		scrollPane.setPreferredSize(dim);
+		scrollPane.setMinimumSize(dim);
+		scrollPane.setBackground(new Color(227,237,243));
 
 		this.setLayout(new GridBagLayout());
 

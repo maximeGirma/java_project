@@ -94,10 +94,10 @@ public class Main {
             e.printStackTrace();
         }*/
 
-       /* SwingUtilities.invokeLater(new Runnable(){
+        SwingUtilities.invokeLater(new Runnable(){
             public void run() {
                 new MainFrame(database);
             }
-        });*/
+        });
     }
 }

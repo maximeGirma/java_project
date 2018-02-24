@@ -1,18 +1,11 @@
 package GraphicalUtilisateurInterface;
 
+import javax.swing.*;
 import java.awt.*;
-
-import javax.swing.ImageIcon;
-import javax.swing.JButton;
-import javax.swing.JComboBox;
-import javax.swing.JLabel;
-import javax.swing.JPanel;
-import javax.swing.JTextField;
-import javax.swing.JTextPane;
 
 
 public class ItemPanel extends JPanel {
-	
+
 	private JLabel titleLabel;
 	private JLabel yearLabel;
 	private JLabel timeLabel;
@@ -21,7 +14,6 @@ public class ItemPanel extends JPanel {
 	private JLabel supportLabel;
 	private JLabel typeLabel;
 	private JTextField typeField;
-	private JComboBox typeCombo;
 	private JLabel statusLabel;
 	private JComboBox statusCombo;
 	private JLabel trackLabel;
@@ -39,7 +31,6 @@ public class ItemPanel extends JPanel {
 	private JTextField acquireField;
 	private JTextField supportField;
 	private JTextField trackField;
-	private JTextField diskField;
 	private JTextPane commentField;
 	private JButton delBtn;
 	private JButton addBtn;
@@ -48,123 +39,130 @@ public class ItemPanel extends JPanel {
 	private JLabel holdLabel2;
 	private JLabel holdLabel3;
 
-	private JPanel TracksInnerPanel;
+	private JPanel tracksInnerPanel;
 
-		
 	public ItemPanel(){
-		
+
 		Dimension dim = getPreferredSize();
 		dim.width = 680;
 		setPreferredSize(dim);
 		setMinimumSize(dim);
-		JLabel label = new JLabel();
-	
+
 		setBackground(Color.WHITE);
 
 
-		categoMusLabel = new JLabel(new ImageIcon("src\\main\\java\\img\\album.png"));
-/*		categoMovLabel = new ImageIcon("src\\main\\java\img\\movie.png");
-		categoBooLabel = new ImageIcon("src\\main\\java\\book.png");
-		categoGamLabel = new ImageIcon("src\\main\\java\\img\\game.png");
-*/
+		//CATEGOTY ARTWORK//
+		categoMusLabel = new JLabel(new ImageIcon("src\\main\\java\\img\\artMusique.png"));
 
+		//TITRE//
 		titleLabel = new JLabel("Titre: ");
 		titleField = new JTextField(30);
 		titleField.setFont(new Font("Dialog", Font.BOLD,18));
 
-	//	artistLabel = new JLabel("Artiste: ");
+		//ARTISTE 1//
+		//	artistLabel = new JLabel("Artiste: ");
 		artistTypeCombo = new JComboBox ();
-		artistTypeCombo.addItem("Artiste Type 1");
-		artistTypeCombo.addItem("Artiste Type 2");
-		artistTypeCombo.addItem("Artiste Type 3");
-		artistTypeCombo.addItem("Artiste Type 4");
-
-		artist2TypeCombo = new JComboBox ();
-		artist2TypeCombo.setVisible(false);
-		artist2TypeCombo.addItem("Artiste Type 1");
-		artist2TypeCombo.addItem("Artiste Type 2");
-		artist2TypeCombo.addItem("Artiste Type 3");
-		artist2TypeCombo.addItem("Artiste Type 4");
-
+		artistTypeCombo.addItem("Artiste");
+		artistTypeCombo.addItem("Interprète");
+		artistTypeCombo.addItem("Compositeur");
+		artistTypeCombo.addItem("Producteur");
 
 		artistNomField = new JTextField(15);
-		artist2NomField = new JTextField(15);
-		artist2NomField.setVisible(false);
 
-		yearLabel = new JLabel("Annee: ");
+		//ARTISTE 2//
+		artist2TypeCombo = new JComboBox ();
+		artist2TypeCombo.setVisible(true);
+		artist2TypeCombo.addItem("Artiste");
+		artist2TypeCombo.addItem("Interprète");
+		artist2TypeCombo.addItem("Compositeur");
+		artist2TypeCombo.addItem("Producteur");
+		artist2TypeCombo.setSelectedIndex(2);
+
+		artist2NomField = new JTextField(15);
+		artist2NomField.setVisible(true);
+
+		//ANNEE//
+		yearLabel = new JLabel("Année: ");
 		yearField = new JTextField(15);
 
-		timeLabel = new JLabel ("Duree: ");
+		//DUREE//
+		timeLabel = new JLabel ("Durée: ");
 		timeField = new JTextField (15);
 
+		//ORIGINE LIEU//
 		originLabel = new JLabel ("Lieu d'origine: ");
 		originField = new JTextField (15);
 
+		//ORIGINE DATE//
 		acquireLabel = new JLabel ("Date d'acquisition: ");
 		acquireField = new JTextField (15);
 
-		supportLabel = new JLabel ("Suppport: ");
+		//SUPPORT//
+		supportLabel = new JLabel ("Support: ");
 		supportField = new JTextField (15);
 
+		//GENRE//
 		typeLabel = new JLabel ("Genre: ");
 		typeField = new JTextField(15);
-		typeCombo = new JComboBox ();
-		typeCombo.addItem("Genre 1");
-		typeCombo.addItem("Genre 2");
-		typeCombo.addItem("Genre 3");
-		typeCombo.addItem("Genre 4");
 
-		statusLabel = new JLabel ("Status: ");
+		//STATUT AVANCEMENT//
+		statusLabel = new JLabel ("Avancement: ");
 		statusCombo = new JComboBox ();
+		statusCombo.addItem("");
 		statusCombo.addItem("Non commencé");
 		statusCombo.addItem("En cours");
 		statusCombo.addItem("Achevé");
 		statusCombo.addItem("Abandonné");
-		
 
+
+		//NBR PISTES//
 		trackLabel= new JLabel("Nombre de pistes: ");
 		trackField = new JTextField(15);
 
-		diskField = new JTextField (15);
-
+		//	NOTE	//
 		ratingCombo = new JComboBox();
-	//	ratingCombo.setMaximumSize(new Dimension(100, 20));
+		ratingCombo.setMaximumSize(new Dimension(100, 20));
+		ratingCombo.setToolTipText("Note");
 		ratingCombo.setFont(new Font("Dialog", Font.PLAIN,14));
+		ratingCombo.addItem("");
 		ratingCombo.addItem("☆☆☆☆☆");
 		ratingCombo.addItem("★☆☆☆☆");
 		ratingCombo.addItem("★★☆☆☆");
 		ratingCombo.addItem("★★★☆☆");
 		ratingCombo.addItem("★★★★☆");
 		ratingCombo.addItem("★★★★★");
-		
 
-		commentLabel = new JLabel("Commentaire: ");
+
+		//COMMENTAIRES//
+		commentLabel = new JLabel("Commentaires: ");
 		commentField = new JTextPane();
-	//	commentField.setPreferredSize(new Dimension(100,20));
-	//	commentField.setMaximumSize(new Dimension(100,120));
+		commentField.setPreferredSize(new Dimension(100,80));
+		commentField.setMaximumSize(new Dimension(100,80));
 		commentField.setBackground(Color.white);
-		
+
 		//SAVE BUTTON//
 		addBtn = new JButton("");
 		addBtn.setForeground(Color.WHITE);
-		addBtn.setBackground(new Color(240, 240, 240));
+		addBtn.setBackground(new Color(0,161,254));
 		addBtn.setToolTipText("Sauvegarder");
 		addBtn.setIcon(new ImageIcon("src\\main\\java\\img\\save.png"));
-	//	addBtn.setMaximumSize(new Dimension(100,20));
+		addBtn.setPreferredSize(new Dimension(240,24));
+		addBtn.setMaximumSize(new Dimension(240,24));
 
 
 		//DELETE BUTTON//
 		delBtn = new JButton("");
 		delBtn.setForeground(Color.WHITE);
-		addBtn.setBackground(new Color(240, 240, 240));
+		delBtn.setBackground(new Color(0,161,254));
 		delBtn.setToolTipText("Supprimer");
 		delBtn.setIcon(new ImageIcon("src\\main\\java\\img\\trash.png"));
-	//	delBtn.setMaximumSize(new Dimension(100,20));
+		delBtn.setPreferredSize(new Dimension(240,24));
+		delBtn.setMaximumSize(new Dimension(240,24));
 
 
 		//TRACKS PANEL//
-		TracksInnerPanel tracksInnerPanel = new TracksInnerPanel();
-		//	delBtn.setMaximumSize(new Dimension(100,20));
+		tracksInnerPanel = new TracksInnerPanel();
+		tracksInnerPanel.setBackground(new Color(243,245,247));
 
 
 		//PLACE HOLDER LABELs//
@@ -175,14 +173,14 @@ public class ItemPanel extends JPanel {
 		//------------------------------------------
 		//// LAYOUT  //////////
 		setLayout(new GridBagLayout());
-		
+
 		GridBagConstraints gc = new GridBagConstraints();
 
-		setBackground(new Color(240, 240, 240));
+		setBackground(new Color(243,245,247));
 		setFont(new Font("Dialog", Font.PLAIN, 10));
 		gc.insets = new Insets(5, 5, 5, 5);
 
-        //lgn 0-------------------------------------------
+		//lgn 0-------------------------------------------
 		//CATEGORY ARTWORK 0,0//
 		gc.weightx=1;
 		gc.weighty=0.1;
@@ -282,7 +280,7 @@ public class ItemPanel extends JPanel {
 		gc.fill=GridBagConstraints.NONE;
 		gc.anchor=GridBagConstraints.LINE_END;
 		add(typeLabel,gc);
-	
+
 		//GENRE COMBO 1,3//
 		gc.weightx=1;
 		gc.weighty=0.1;
@@ -494,22 +492,22 @@ public class ItemPanel extends JPanel {
 
 
 	}
-	
+
 	//public ItemPanel(Music object) {
-		//this();
-		
-		//setMusic(object);
+	//this();
+
+	//setMusic(object);
 	//}
-	
+
 	//public void setMusic(Music music) {
-		//titleLabel.setText(object.toString());
-		
+	//titleLabel.setText(object.toString());
+
 	//}
-	
-private LayoutManager newGridBagLayout() {
-return null;
-}
-	
-	
-	
+
+	private LayoutManager newGridBagLayout() {
+		return null;
+	}
+
+
+
 }

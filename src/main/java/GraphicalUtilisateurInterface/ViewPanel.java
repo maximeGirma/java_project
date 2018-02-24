@@ -1,16 +1,7 @@
 package GraphicalUtilisateurInterface;
 
 import java.awt.*;
-
-import javax.swing.DefaultListModel;
-import javax.swing.Icon;
-import javax.swing.ImageIcon;
-import javax.swing.JFrame;
-import javax.swing.JLabel;
-import javax.swing.JList;
-import javax.swing.JPanel;
-import javax.swing.JScrollBar;
-import javax.swing.JScrollPane;
+import javax.swing.*;
 
 
 public class ViewPanel extends JPanel{
@@ -22,14 +13,13 @@ public class ViewPanel extends JPanel{
 	private DefaultListModel temporary_list_model;
 	
 	public ViewPanel(){
-		
-		setBackground(Color.lightGray);
+
+		setBackground(new Color(227,237,243));
 
 		this.titleList = new JList();
 		this.scrollPane = new JScrollPane(titleList);
 
-		
-		titleList.setBackground(Color.lightGray);
+		titleList.setBackground(new Color(227,237,243));
 		titleList.setFont(new Font("Dialog", Font.BOLD, 12));
 		
 		this.listModel = new DefaultListModel();

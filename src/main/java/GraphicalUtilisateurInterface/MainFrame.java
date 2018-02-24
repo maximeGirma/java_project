@@ -37,7 +37,7 @@ public class MainFrame extends JFrame {
 		super ("Bienvenu sur CollectBee!"); //Titre application//
 		
 		setLayout (new BorderLayout());
-		
+
 		toolbar = new Toolbar(this); //NORTH//
 		splitPane = new JSplitPane(JSplitPane.HORIZONTAL_SPLIT);//CENTER
 		viewPanel = new ViewPanel();//LEFT PANE SPLIT�PANE//
@@ -46,7 +46,7 @@ public class MainFrame extends JFrame {
 		label = new JLabel();
 		panel = new JPanel();
 		//*** btn = new JButton("About this App");
-		//*** accordionPane = new AccordionPane();
+
 		this.library = library;
 		/////Application Menu Bar/////
 		JMenuBar menuBar = new JMenuBar();
@@ -132,11 +132,13 @@ public class MainFrame extends JFrame {
 		//*** add(accordionPane.getContent(), BorderLayout.CENTER);
 		//*** add(btn, BorderLayout.SOUTH);
 		
-		/////Frame size and visibility/////
-		setBounds(100, 100, 688, 480);
-		setBackground(Color.white);
-		//setSize(950, 550);
+		/////Frame theme, size and visibility/////
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setSize(1000, 600);
+		setBackground(new Color(243,245,247));
+		setResizable(false);
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setLocationRelativeTo(null);
 		setVisible(true);
 		
 	}
