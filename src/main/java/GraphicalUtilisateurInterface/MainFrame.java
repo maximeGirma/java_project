@@ -47,7 +47,7 @@ public class MainFrame extends JFrame {
 		panel = new JPanel();
 		//*** btn = new JButton("About this App");
 		//*** accordionPane = new AccordionPane();
-		
+		this.library = library;
 		/////Application Menu Bar/////
 		JMenuBar menuBar = new JMenuBar();
 		setJMenuBar(menuBar);
@@ -84,29 +84,29 @@ public class MainFrame extends JFrame {
 			public void musicEventOccured() {
 				System.out.println("it works music");
 
-				/*search.getTitleByCategory(3);*/
+				search.getTitleByCategory(3, library);
 			}
 
 			public void movieEventOccured() {
 				System.out.println("it works movie");
-				/*search.getTitleByCategory(1);*/
+				search.getTitleByCategory(1, library);
 			}
 
 			public void bookEventOccured() {
 				System.out.println("it works book");
-				/*search.getTitleByCategory(2);*/
+				search.getTitleByCategory(2, library);
 			}
 
 			public void gameEventOccured() {
 
 				System.out.println("it works game");
-				/*search.getTitleByCategory(4);*/
+				search.getTitleByCategory(4, library);
 				String[] temp = {"pouet","pouet2","pouet3"};
 				viewPanel.UpdateViewPanel(temp);
 			}
 			public void homeEventOccured(){
 				System.out.println("home clicked guys");
-				/*search.getTitleByCategory(0);*/
+				search.getTitleByCategory(0, library);
 			}
 
 			@Override

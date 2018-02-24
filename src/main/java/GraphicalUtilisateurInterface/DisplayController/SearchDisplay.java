@@ -12,8 +12,7 @@ import java.util.List;
 
 public class SearchDisplay {
 
-    public LibraryDatabaseModel oeuvres;
-    public HashMap<Long, String> oeuvreList = new HashMap<>();
+    public HashMap<Long, Oeuvre> oeuvreList = new HashMap<>();
 
 
     public SearchDisplay() { }
@@ -39,11 +38,11 @@ public class SearchDisplay {
         }
 
         for (Oeuvre oeuvre : list) {
-            oeuvreList.put(oeuvre.getId(), oeuvre.getTitre());
+            oeuvreList.put(oeuvre.getId(), oeuvre);
         }
     }
 
-    public HashMap<Long, String> getOeuvreList() {
+    public HashMap<Long, Oeuvre> getOeuvreList() {
         return oeuvreList;
     }
 
