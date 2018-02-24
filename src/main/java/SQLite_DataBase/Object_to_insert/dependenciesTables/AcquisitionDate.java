@@ -7,6 +7,7 @@ import java.sql.Date;
 public class AcquisitionDate {
     @PrimaryKey(autoIncrement = true)
     private int id_acquisition_date;
+
     private String acquisition_date;
 
     public AcquisitionDate() {

@@ -7,17 +7,17 @@ public class OeuvreAppartientAGenre {
     @PrimaryKey(autoIncrement = true)
     private int relation;
 
-    @ForeignKey(table = "Oeuvre", column = "id_oeuvre", childReference = "id_oeuvre")
-    private int id_oeuvre = 1;
+    @ForeignKey(table = "Oeuvre", column = "id")
+    private long id_oeuvre;
 
-    @ForeignKey(table = "Genre", column = "id_genre", childReference = "id_genre", parentReference = "id_genre")
+    @ForeignKey(table = "Genre", column = "id_genre")
     private int id_genre = 1;
 
-    public int getId_oeuvre() {
+    public long getId_oeuvre() {
         return id_oeuvre;
     }
 
-    public void setId_oeuvre(int id_oeuvre) {
+    public void setId_oeuvre(Long id_oeuvre) {
         this.id_oeuvre = id_oeuvre;
     }
 

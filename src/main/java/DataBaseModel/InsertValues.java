@@ -10,7 +10,7 @@ import java.sql.SQLException;
 
 public class InsertValues {
 
-    public static void insertObject(DataBaseController e) {
+    public static void insertObject(LibraryDatabaseModel e) {
 
         Oeuvre oeuvre =  new Musique();
         oeuvre.setTitre("plus jamais ca");
@@ -31,7 +31,7 @@ public class InsertValues {
             pouet = DataBaseSearch.IsHere(e,note,note.getNote());
         }
 
-        oeuvre.setId_note(pouet);
+       /* oeuvre.setId_note(pouet);*/
 
 
 
@@ -49,7 +49,7 @@ public class InsertValues {
             }
             pouet = DataBaseSearch.IsHere(e, acquisition_date, acquisition_date.getAcquisition_date());
         }
-        oeuvre.setId_acquisition_date(pouet);
+      /*  oeuvre.setId_acquisition_date(pouet);*/
 
 
         AcquisitionOrigine acquisition_origine = new AcquisitionOrigine();
@@ -66,7 +66,7 @@ public class InsertValues {
             }
             pouet = DataBaseSearch.IsHere(e,acquisition_origine,acquisition_origine.getLieu_d_acquisition());
         }
-        oeuvre.setId_acquisition_origine(pouet);
+  /*      oeuvre.setId_acquisition_origine(pouet);*/
 
 
         MenuLangue menu_langue = new MenuLangue();
@@ -82,7 +82,7 @@ public class InsertValues {
             }
             pouet = DataBaseSearch.IsHere(e, menu_langue, menu_langue.getLangue());
         }
-        oeuvre.setId_langue(pouet);
+    /*    oeuvre.setId_langue(pouet);*/
 
 
         MenuStatut menu_statut = new MenuStatut();
@@ -98,7 +98,7 @@ public class InsertValues {
             }
             pouet = DataBaseSearch.IsHere(e, menu_statut, menu_statut.getMenu_statut());
         }
-        oeuvre.setId_statut(pouet);
+ /*       oeuvre.setId_statut(pouet);*/
 
 
         Support support = new Support();
@@ -115,7 +115,7 @@ public class InsertValues {
             }
             pouet = DataBaseSearch.IsHere(e,support, support.getSupport_type());;
         }
-        oeuvre.setId_support(pouet);
+    /*    oeuvre.setId_support(pouet);*/
 
 
         try {

@@ -1,6 +1,6 @@
 package DataBaseModel.DataBaseTools;
 
-import DataBaseModel.DataBaseController;
+import DataBaseModel.LibraryDatabaseModel;
 import SQLite_DataBase.Object_to_insert.dependenciesTables.*;
 
 import java.sql.SQLException;
@@ -9,7 +9,7 @@ import java.sql.SQLException;
 public class DataBaseSearch {
 
 
-    public static int IsHere(DataBaseController e,Object a,String str) {
+    public static int IsHere(LibraryDatabaseModel e, Object a, String str) {
 
         if(a.getClass() == Note.class){
             Note is_here = null;

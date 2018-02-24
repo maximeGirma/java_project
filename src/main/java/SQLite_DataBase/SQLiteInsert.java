@@ -13,7 +13,7 @@ public class SQLiteInsert {
         Film film1 = new Film();
         film1.setTitre("Gravvvvve");
 
-        film1.setId_oeuvre(3);
+        film1.setId(3);
 
         String requete;
         requete = "INSERT INTO oeuvre(titre,id_categorie) VALUES(?,?)";

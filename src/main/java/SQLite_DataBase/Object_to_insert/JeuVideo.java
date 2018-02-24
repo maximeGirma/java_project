@@ -1,16 +1,16 @@
 package SQLite_DataBase.Object_to_insert;
 
-import SQLite_DataBase.Object_to_insert.dependenciesTables.CategorieList;
-
-public class JeuxVideo extends Oeuvre{
-
-    public JeuxVideo(){
+public class JeuVideo extends Oeuvre{
+    public JeuVideo() {
+        this.id_category = 4;
+    }
+    /*   public JeuVideo(){
         setCategory();
     }
 
         public void setCategory() {
 
-            this.categorie = CategorieList.JEUXVIDEOS.getId_categorie();
+            this.id_categorie = CategorieList.JEUXVIDEOS.getId_categorie();
         }
 
 
@@ -23,5 +23,5 @@ public class JeuxVideo extends Oeuvre{
         public int getCategoryID(){
             return CategorieList.JEUXVIDEOS.getId_categorie();
 
-        }
+        }*/
 }

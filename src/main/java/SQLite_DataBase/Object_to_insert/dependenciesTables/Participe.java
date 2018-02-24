@@ -6,24 +6,24 @@ import za.co.neilson.sqlite.orm.annotations.PrimaryKey;
 public class Participe {
     @PrimaryKey(autoIncrement = true)
     private int id_participe;
-    @ForeignKey(table = "Oeuvre", column = "id_oeuvre", childReference = "id_oeuvre")
-    private String id_oeuvre;
-    @ForeignKey(table = "Personne", column = "id_personne", childReference = "id_personne")
-    private String id_personne;
+    @ForeignKey(table = "Oeuvre", column = "id")
+    private long id_oeuvre;
+    @ForeignKey(table = "Personne", column = "id_personne")
+    private int id_personne;
 
-    public String getId_oeuvre() {
+    public long getId_oeuvre() {
         return id_oeuvre;
     }
 
-    public void setId_oeuvre(String id_oeuvre) {
+    public void setId_oeuvre(long id_oeuvre) {
         this.id_oeuvre = id_oeuvre;
     }
 
-    public String getId_personne() {
+    public int getId_personne() {
         return id_personne;
     }
 
-    public void setId_personne(String id_personne) {
+    public void setId_personne(int id_personne) {
         this.id_personne = id_personne;
     }
 }
