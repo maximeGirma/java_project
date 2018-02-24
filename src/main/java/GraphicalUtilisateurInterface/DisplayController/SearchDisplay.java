@@ -12,7 +12,7 @@ import java.util.List;
 
 public class SearchDisplay {
 
-    public HashMap<Long, Oeuvre> oeuvreList = new HashMap<>();
+    private HashMap<Long, Oeuvre> oeuvreList = new HashMap<>();
 
 
     public SearchDisplay() { }
@@ -43,8 +43,7 @@ public class SearchDisplay {
     }
 
     public HashMap<Long, Oeuvre> getOeuvreList() {
+
         return oeuvreList;
     }
-
-
 }

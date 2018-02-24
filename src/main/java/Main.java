@@ -25,10 +25,10 @@ public class Main {
         Film film2 = new Film();
         film2.setTitre("Shrek");
 
-
         Musique music1 = new Musique();
         music1.setTitre("Smoke on the water");
         music1.setId_note(1);
+
         try {
             database.getObjectModel(Oeuvre.class).insert(film1);
             database.getObjectModel(Oeuvre.class).insert(film2);
@@ -37,7 +37,7 @@ public class Main {
             e.printStackTrace();
         }
 
-        try {
+        /*try {
             List<Oeuvre> oeuvres = database.getObjectModel(Oeuvre.class).getAll();
 
             for (Oeuvre oeuvre : oeuvres) {
@@ -46,13 +46,16 @@ public class Main {
             }
         } catch (SQLException e) {
             e.printStackTrace();
+        }*/
+
+        SearchDisplay search = new SearchDisplay();
+        search.getTitleByCategory(1, database);
+
+        HashMap<Long, Oeuvre> results = search.getOeuvreList();
+
+        for (Map.Entry<Long, Oeuvre> entry : results.entrySet()) {
+            System.out.println("Key : " + entry.getKey() + " Value : " + entry.getValue().toString());
         }
-
-        /*SearchDisplay search = new SearchDisplay();
-        search.getTitleByCategory(0, database);
-
-        HashMap<Long, String> results = search.oeuvreList;*/
-
 
 
 
@@ -91,10 +94,10 @@ public class Main {
             e.printStackTrace();
         }*/
 
-        SwingUtilities.invokeLater(new Runnable(){
+       /* SwingUtilities.invokeLater(new Runnable(){
             public void run() {
                 new MainFrame(database);
             }
-        });
+        });*/
     }
 }
