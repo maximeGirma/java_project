@@ -4,7 +4,7 @@ package GraphicalUtilisateurInterface; /**
  * The user can choose the category or search for the item of his choice.
  */
 
-import GraphicalUtilisateurInterface.DisplayController.SearchDisplay;
+import GraphicalUtilisateurInterface.ItemPanels.ItemPanel;
 
 import java.awt.Color;
 import java.awt.Container;

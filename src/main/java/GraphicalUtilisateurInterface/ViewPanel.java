@@ -37,6 +37,7 @@ public class ViewPanel extends JPanel{
 		titleList.setFont(new Font("Dialog", Font.BOLD, 12));
 		
 		this.listModel = new DefaultListModel();
+/*
 		listModel.addElement("The Dark Side of the Moon");
 		listModel.addElement("Unplugged");
 		listModel.addElement("The Best of Men at Work");
@@ -77,7 +78,7 @@ public class ViewPanel extends JPanel{
 		listModel.addElement("Unplugged");
 		listModel.addElement("The Best of Men at Work");
 		listModel.addElement("Karajan: Beethoven Symphonies");
-
+*/
 		
 		this.titleList.setModel(listModel);
 		 list_to_listen = this.titleList.getSelectionModel();

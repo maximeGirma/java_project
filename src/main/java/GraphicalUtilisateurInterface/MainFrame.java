@@ -3,23 +3,16 @@ package GraphicalUtilisateurInterface; /**
  * Application Mainframe
  *
  */
-import DataBaseModel.DatabaseController;
 import DataBaseModel.LibraryDatabaseModel;
 import GraphicalUtilisateurInterface.DisplayController.SearchDisplay;
+import GraphicalUtilisateurInterface.ItemPanels.*;
 import SQLite_DataBase.Object_to_insert.Oeuvre;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
-import java.awt.event.MouseEvent;
-import java.awt.event.MouseListener;
-import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.Enumeration;
 import java.util.HashMap;
 import java.util.Map;
 import javax.swing.*;
-import javax.swing.event.ListDataEvent;
-import javax.swing.event.ListDataListener;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
 
@@ -31,6 +24,22 @@ public class MainFrame extends JFrame implements ListSelectionListener{
 	private JSplitPane splitPane;
 	private ViewPanel viewPanel;
 	private ItemPanel itemPanel;
+
+	private ItemNewPanel itemNewPanel;
+
+	private ItemFilmPanel itemFilmPanel;
+	private ItemMusiquePanel itemMusiquePanel;
+	private ItemLivrePanel itemLivrePanel;
+	private ItemJeuPanel itemJeuPanel;
+
+
+	private UpdateFilmPanel updateFilmPanel;
+	private UpdateMusiquePanel updateMusiquePanel;
+	private UpdateLivrePanel updateLivrePanel;
+	private UpdateJeuVideoPanel updateJeuPanel;
+
+
+
 	/*private ItemPanel2 itemPanel2;*/
 	private AlphabetBar alphabetbar;
 	private JLabel label;
@@ -49,10 +58,21 @@ public class MainFrame extends JFrame implements ListSelectionListener{
 		splitPane = new JSplitPane(JSplitPane.HORIZONTAL_SPLIT);//CENTER
 		viewPanel = new ViewPanel(this);//LEFT PANE SPLIT�PANE//
 		itemPanel = new ItemPanel();//RIGHT PANE SPLIT�PANE//
+		itemNewPanel = new ItemNewPanel(this);
 		alphabetbar = new AlphabetBar();//SOUTH//
 		label = new JLabel();
 		panel = new JPanel();
 		//*** btn = new JButton("About this App");
+
+		itemFilmPanel = new ItemFilmPanel();
+		itemMusiquePanel = new ItemMusiquePanel();
+		itemLivrePanel = new ItemLivrePanel();
+		itemJeuPanel = new ItemJeuPanel();
+
+		updateFilmPanel = new UpdateFilmPanel();
+		updateJeuPanel = new UpdateJeuVideoPanel();
+		updateLivrePanel =new UpdateLivrePanel();
+		updateMusiquePanel = new UpdateMusiquePanel();
 
 		this.library = library;
 		/////Application Menu Bar/////
@@ -127,8 +147,9 @@ public class MainFrame extends JFrame implements ListSelectionListener{
 			@Override
 			public void itemEventOccured() {
 
-				ItemFilmPanel filmPanel = new ItemFilmPanel();
-				splitPane.setRightComponent(filmPanel);//CENTER RIGHT//
+				splitPane.setRightComponent(itemNewPanel);
+				//ItemFilmPanel filmPanel = new ItemFilmPanel();
+				//splitPane.setRightComponent(filmPanel);//CENTER RIGHT//
 			}
 		});
 		/////Bottom Button Link Method/////
@@ -142,7 +163,8 @@ public class MainFrame extends JFrame implements ListSelectionListener{
 		//add(viewPanel, BorderLayout.WEST);
 		add(splitPane, BorderLayout.CENTER);
 		splitPane.setLeftComponent(viewPanel);//CENTER LEFT//
-		splitPane.setRightComponent(itemPanel);//CENTER RIGHT//
+		//splitPane.setRightComponent(itemNewPanel);
+		//splitPane.setRightComponent(itemPanel);//CENTER RIGHT//
 		splitPane.resetToPreferredSizes();
 		add(alphabetbar, BorderLayout.SOUTH);
 		//*** add(viewPanel, BorderLayout.CENTER);
@@ -179,7 +201,7 @@ public class MainFrame extends JFrame implements ListSelectionListener{
 
 						if(i == (int)viewPanel.indice_list.get(i)) {
 							//L'indice list sert à verifier que les indices match bien
-							itemPanel.updateItemPanel(entry.getValue());
+							UpdateOeuvreRedirection.ByCategorie(this, entry.getValue());
 
 						}else if (i != (int)viewPanel.indice_list.get(i)){
 
@@ -189,8 +211,8 @@ public class MainFrame extends JFrame implements ListSelectionListener{
 
 								if(item.getKey() == (int)viewPanel.indice_list.get(i)){
 									//Quand on a trouvé la bonne oeuvre avec le bon indice on peut l'envoyer à l'update
-									itemPanel.updateItemPanel(item.getValue());
-									System.out.println(item.getValue().getTitre()+"aaaaaaaaaaaaaaaaaaa");
+									UpdateOeuvreRedirection.ByCategorie(this, entry.getValue());
+
 									//	itemPanel.updateItemPanel(this.list_oeuvre.get((int)viewPanel.indice_list.get(i)));
 								}
 							}
@@ -203,8 +225,88 @@ public class MainFrame extends JFrame implements ListSelectionListener{
 		}
 	}
 
+	public JSplitPane getSplitPane() {
+		return splitPane;
+	}
+
+	public void setSplitPane(JSplitPane splitPane) {
+		this.splitPane = splitPane;
+	}
+
+	public ItemNewPanel getItemNewPanel() {
+		return itemNewPanel;
+	}
+
+	public void setItemNewPanel(ItemNewPanel itemNewPanel) {
+		this.itemNewPanel = itemNewPanel;
+	}
+
+	public ItemFilmPanel getItemFilmPanel() {
+		return itemFilmPanel;
+	}
+
+	public void setItemFilmPanel(ItemFilmPanel itemFilmPanel) {
+		this.itemFilmPanel = itemFilmPanel;
+	}
+
+	public ItemMusiquePanel getItemMusiquePanel() {
+		return itemMusiquePanel;
+	}
+
+	public void setItemMusiquePanel(ItemMusiquePanel itemMusiquePanel) {
+		this.itemMusiquePanel = itemMusiquePanel;
+	}
+
+	public ItemLivrePanel getItemLivrePanel() {
+		return itemLivrePanel;
+	}
+
+	public void setItemLivrePanel(ItemLivrePanel itemLivrePanel) {
+		this.itemLivrePanel = itemLivrePanel;
+	}
+
+	public ItemJeuPanel getItemJeuPanel() {
+		return itemJeuPanel;
+	}
+
+	public void setItemJeuPanel(ItemJeuPanel itemJeuPanel) {
+		this.itemJeuPanel = itemJeuPanel;
+	}
+
 	public ViewPanel getViewPanel() {
 		return viewPanel;
+	}
+
+	public UpdateFilmPanel getUpdateFilmPanel() {
+		return updateFilmPanel;
+	}
+
+	public void setUpdateFilmPanel(UpdateFilmPanel updateFilmPanel) {
+		this.updateFilmPanel = updateFilmPanel;
+	}
+
+	public UpdateMusiquePanel getUpdateMusiquePanel() {
+		return updateMusiquePanel;
+	}
+
+	public void setUpdateMusiquePanel(UpdateMusiquePanel updateMusiquePanel) {
+		this.updateMusiquePanel = updateMusiquePanel;
+	}
+
+	public UpdateLivrePanel getUpdateLivrePanel() {
+		return updateLivrePanel;
+	}
+
+	public void setUpdateLivrePanel(UpdateLivrePanel updateLivrePanel) {
+		this.updateLivrePanel = updateLivrePanel;
+	}
+
+	public UpdateJeuVideoPanel getUpdateJeuPanel() {
+		return updateJeuPanel;
+	}
+
+	public void setUpdateJeuPanel(UpdateJeuVideoPanel updateJeuPanel) {
+		this.updateJeuPanel = updateJeuPanel;
 	}
 }
  

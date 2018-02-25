@@ -3,6 +3,8 @@ package GraphicalUtilisateurInterface;
 import SQLite_DataBase.Object_to_insert.Oeuvre;
 
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -22,14 +24,14 @@ public class ItemNewPanel extends JPanel {
 	private JLabel holdLabel1;
 	private JLabel holdLabel2;
 	private JLabel holdLabel3;
-
+	private MainFrame main_frame_parent;
 
 	private JTextField titleField;
 
 
 
-	public ItemNewPanel(){
-
+	public ItemNewPanel(MainFrame parent){
+		main_frame_parent = parent;
 		Dimension dim = getPreferredSize();
 		dim.width = 680;
 		setPreferredSize(dim);
@@ -48,7 +50,13 @@ public class ItemNewPanel extends JPanel {
 		addMusiqueBtn.setToolTipText("Album de Musique");
 		addMusiqueBtn.setIcon(new ImageIcon("src\\main\\java\\img\\artMusique.png"));
 		addMusiqueBtn.setPreferredSize(new Dimension(260,100));
-//		addMusiqueBtn.addMouseListener(new addMusListener());
+		addMusiqueBtn.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent actionEvent) {
+				main_frame_parent.getSplitPane().setRightComponent(main_frame_parent.getItemMusiquePanel());
+
+			}
+		});
 
 
 		//FILM BUTTON//
@@ -59,7 +67,13 @@ public class ItemNewPanel extends JPanel {
 		addFilmBtn.setToolTipText("Film");
 		addFilmBtn.setIcon(new ImageIcon("src\\main\\java\\img\\artFilm.png"));
 		addFilmBtn.setPreferredSize(new Dimension(260,100));
-//		addFilmBtn.addMouseListener(new addFilListener());
+		addFilmBtn.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent actionEvent) {
+				main_frame_parent.getSplitPane().setRightComponent(main_frame_parent.getItemFilmPanel());
+
+			}
+		});
 
 
 		//LIVRE BUTTON//
@@ -70,7 +84,13 @@ public class ItemNewPanel extends JPanel {
 		addLivreBtn.setToolTipText("Livre");
 		addLivreBtn.setIcon(new ImageIcon("src\\main\\java\\img\\artLivre.png"));
 		addLivreBtn.setPreferredSize(new Dimension(260,100));
-//		addLivreBtn.addMouseListener(new addLivListener());
+		addLivreBtn.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent actionEvent) {
+				main_frame_parent.getSplitPane().setRightComponent(main_frame_parent.getItemLivrePanel());
+
+			}
+		});
 
 
 		//JEU BUTTON//
@@ -81,7 +101,13 @@ public class ItemNewPanel extends JPanel {
 		addJeuBtn.setToolTipText("Jeu Video");
 		addJeuBtn.setIcon(new ImageIcon("src\\main\\java\\img\\artJeux.png"));
 		addJeuBtn.setPreferredSize(new Dimension(260,100));
-//		addJeuBtn.addMouseListener(new addJeuListener());
+		addJeuBtn.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent actionEvent) {
+				main_frame_parent.getSplitPane().setRightComponent(main_frame_parent.getItemJeuPanel());
+
+			}
+		});
 
 
 

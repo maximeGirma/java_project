@@ -76,8 +76,18 @@ public class LibraryDatabaseModel extends DatabaseModel<ResultSet, HashMap<Strin
             category_list.get(2).setName_category("LIVRE");
             category_list.get(3).setName_category("JEU-VIDEO");
 
-            Note note = new Note();
-            note.setNote("Non précisée");
+            ArrayList<Note> note_list = new ArrayList<Note>();
+            for (int i = 0; i < 7 ; i++){
+                note_list.add(new Note());
+            }
+
+            note_list.get(0).setNote("Non défini");
+            note_list.get(1).setNote("☆☆☆☆☆");
+            note_list.get(2).setNote("★☆☆☆☆");
+            note_list.get(3).setNote("★★☆☆☆");
+            note_list.get(4).setNote("★★★☆☆");
+            note_list.get(5).setNote("★★★★☆");
+            note_list.get(6).setNote("★★★★★");
 
             Genre genre = new Genre();
             genre.setLabel("Indéfini");
@@ -100,7 +110,10 @@ public class LibraryDatabaseModel extends DatabaseModel<ResultSet, HashMap<Strin
                 getObjectModel(Category.class).insert(item);
             }
 
-            getObjectModel(Note.class).insert(note);
+            for (Note note : note_list){
+                getObjectModel(Note.class).insert(note);
+            }
+
             getObjectModel(Genre.class).insert(genre);
             getObjectModel(Oeuvre.class).insert(film);
             getObjectModel(OeuvreAppartientAGenre.class).insert(default_relationship);
