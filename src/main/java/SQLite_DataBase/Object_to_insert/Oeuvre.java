@@ -16,7 +16,7 @@ public class Oeuvre{
     protected long id;
     protected int reference;
     protected String titre;
-    protected int dateEdition;
+    protected String dateEdition;
     protected String commentaire;
     protected int nbrepages;
     protected int isbn;
@@ -100,11 +100,11 @@ public class Oeuvre{
         this.titre = titre;
     }
 
-    public int getDateEdition() {
+    public String getDateEdition() {
         return dateEdition;
     }
 
-    public void setDateEdition(int dateEdition) {
+    public void setDateEdition(String dateEdition) {
         this.dateEdition = dateEdition;
     }
 
@@ -140,14 +140,14 @@ public class Oeuvre{
         this.duree = duree;
     }
 
-    /*public int getPegi() {
+    public int getPegi() {
         return pegi;
     }
 
     public void setPegi(int pegi) {
         this.pegi = pegi;
     }
-
+/*
     public int getId_acquisition_date() {
         return id_acquisition_date;
     }

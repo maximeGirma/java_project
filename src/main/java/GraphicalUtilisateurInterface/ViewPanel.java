@@ -4,6 +4,7 @@ import SQLite_DataBase.Object_to_insert.Oeuvre;
 
 import java.awt.*;
 import javax.swing.*;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -19,6 +20,7 @@ public class ViewPanel extends JPanel{
 	private DefaultListModel listModel;
 	private DefaultListModel temporary_list_model;
 	private ListSelectionModel list_to_listen;
+	ArrayList indice_list;
 	public ViewPanel(MainFrame parent){
 		this.parent_mainframe = parent;
 
@@ -100,12 +102,14 @@ public class ViewPanel extends JPanel{
 }
 
 	public void UpdateViewPanel(HashMap entry_oeuvre_hash){
-
+		indice_list = new ArrayList();
 		this.listModel = new DefaultListModel();
+		int compteur =0;
 		HashMap<Long, Oeuvre> oeuvre_hash = entry_oeuvre_hash;
 
 		for (Map.Entry<Long, Oeuvre> entry : oeuvre_hash.entrySet()) {
-
+			indice_list.add(compteur);
+			compteur++;
 			this.listModel.addElement(entry.getValue().getTitre());
 		}
 
@@ -117,16 +121,18 @@ public class ViewPanel extends JPanel{
 	public void SearchTitle(String str_to_find){
 
 		this.temporary_list_model = new DefaultListModel();
-
+		indice_list = new ArrayList();
 		for (int i = 0; i<listModel.getSize(); i++) {
 			String line = (String)listModel.get(i);
 			System.out.println(line);
 			if (line.contains(str_to_find)){
+				indice_list.add(i);
 				this.temporary_list_model.addElement(line);
 			}
 
 		}
 		this.titleList.setModel(this.temporary_list_model);
+
 		this.temporary_list_model = null;
 
 

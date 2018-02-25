@@ -2,17 +2,20 @@ import DataBaseModel.DatabaseController;
 import DataBaseModel.LibraryDatabaseModel;
 import GraphicalUtilisateurInterface.DisplayController.SearchDisplay;
 import GraphicalUtilisateurInterface.MainFrame;
+import SQLite_DataBase.JDBCController;
 import SQLite_DataBase.Object_to_insert.Film;
 import SQLite_DataBase.Object_to_insert.Musique;
 import SQLite_DataBase.Object_to_insert.Oeuvre;
 import SQLite_DataBase.Object_to_insert.dependenciesTables.Category;
 import SQLite_DataBase.Object_to_insert.dependenciesTables.Note;
+import SQLite_DataBase.SQLite_connect;
 
 import javax.swing.*;
 import java.sql.SQLException;
 import java.util.*;
 
 public class Main {
+
 
     public static void main(String[] args) {
 
@@ -99,5 +102,6 @@ public class Main {
                 new MainFrame(database);
             }
         });
+        JDBCController.searchAllEntry();
     }
 }

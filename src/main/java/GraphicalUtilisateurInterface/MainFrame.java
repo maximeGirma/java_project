@@ -12,6 +12,7 @@ import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Enumeration;
 import java.util.HashMap;
@@ -126,6 +127,8 @@ public class MainFrame extends JFrame implements ListSelectionListener{
 			@Override
 			public void itemEventOccured() {
 
+				ItemFilmPanel filmPanel = new ItemFilmPanel();
+				splitPane.setRightComponent(filmPanel);//CENTER RIGHT//
 			}
 		});
 		/////Bottom Button Link Method/////
@@ -165,10 +168,35 @@ public class MainFrame extends JFrame implements ListSelectionListener{
 		for (int i = e.getFirstIndex(); i<= e.getLastIndex();i++) {
 			if (a.isSelectedIndex(i)){
 
+				//Mes excuses pour cet algo illisible...
+				//Il permet de prendre en compte les changements effectués par l'action recherche
+				//iteration sur le Hashmap contenant la liste d'oeuvre
+				//i correspond à l'indice de l'item selectionné dans la liste du viewpanel
 
 				for (Map.Entry<Long, Oeuvre> entry : this.list_oeuvre.entrySet()) {
 					if (entry.getKey() == i && e.getValueIsAdjusting() == true){
-						itemPanel.updateItemPanel(entry.getValue());
+						//si l'indice de l'objet courant du hash map == indice selectionné:
+
+						if(i == (int)viewPanel.indice_list.get(i)) {
+							//L'indice list sert à verifier que les indices match bien
+							itemPanel.updateItemPanel(entry.getValue());
+
+						}else if (i != (int)viewPanel.indice_list.get(i)){
+
+						//si les indices ne matchent pas on va chercher le bon indice dans indice_list
+						//Pour recuperer la bonne oeuvre on est obligé d'iterer à nouveau
+							for (Map.Entry<Long, Oeuvre> item : this.list_oeuvre.entrySet()) {
+
+								if(item.getKey() == (int)viewPanel.indice_list.get(i)){
+									//Quand on a trouvé la bonne oeuvre avec le bon indice on peut l'envoyer à l'update
+									itemPanel.updateItemPanel(item.getValue());
+									System.out.println(item.getValue().getTitre()+"aaaaaaaaaaaaaaaaaaa");
+									//	itemPanel.updateItemPanel(this.list_oeuvre.get((int)viewPanel.indice_list.get(i)));
+								}
+							}
+
+
+						}
 					}
 				}
 			}

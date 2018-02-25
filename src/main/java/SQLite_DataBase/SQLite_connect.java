@@ -15,7 +15,7 @@ public class SQLite_connect {
             Class.forName("org.sqlite.JDBC");
 
             // db parameters
-            String url = "jdbc:sqlite:/home/maxime/Documents/projet_3/java_library/java_project/src/main/resources/library_database";
+            String url = "jdbc:sqlite:/home/maxime/Documents/projet_3/java_library/java_project/library.db";
             // create a connection to the database
             conn = DriverManager.getConnection(url);
 

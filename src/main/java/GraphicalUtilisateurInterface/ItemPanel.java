@@ -539,6 +539,7 @@ public class ItemPanel extends JPanel {
 
 
 	public void updateItemPanel(Oeuvre oeuvre){
+		titleField.setText(null);
 		titleField.setText(oeuvre.getTitre());
 
 	}
