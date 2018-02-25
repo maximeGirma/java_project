@@ -213,7 +213,7 @@ public class ItemLivrePanel extends JPanel {
 		gc.fill=GridBagConstraints.HORIZONTAL;
 		gc.anchor=GridBagConstraints.LINE_START;
 		add(titleField,gc);
-		titleField.setText("");
+//		titleField.setText("");
 		gc.gridwidth = 1;
 
 		//lgn 2-------------------------------------------
