@@ -48,7 +48,7 @@ public class Main {
             e.printStackTrace();
         }*/
 
-        SearchDisplay search = new SearchDisplay();
+       /* SearchDisplay search = new SearchDisplay();
         search.getTitleByCategory(1, database);
 
         HashMap<Long, Oeuvre> results = search.getOeuvreList();
@@ -56,7 +56,7 @@ public class Main {
         for (Map.Entry<Long, Oeuvre> entry : results.entrySet()) {
             System.out.println("Key : " + entry.getKey() + " Value : " + entry.getValue().toString());
         }
-
+*/
 
 
 

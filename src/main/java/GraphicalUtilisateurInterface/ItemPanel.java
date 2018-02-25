@@ -1,11 +1,23 @@
 package GraphicalUtilisateurInterface;
 
+import GraphicalUtilisateurInterface.MouseListeners.DeleteListener;
+import GraphicalUtilisateurInterface.MouseListeners.SaveListener;
+import SQLite_DataBase.Object_to_insert.Oeuvre;
+
 import javax.swing.*;
 import java.awt.*;
 
+import javax.swing.ImageIcon;
+import javax.swing.JButton;
+import javax.swing.JComboBox;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JTextField;
+import javax.swing.JTextPane;
+
 
 public class ItemPanel extends JPanel {
-
+	
 	private JLabel titleLabel;
 	private JLabel yearLabel;
 	private JLabel timeLabel;
@@ -14,6 +26,7 @@ public class ItemPanel extends JPanel {
 	private JLabel supportLabel;
 	private JLabel typeLabel;
 	private JTextField typeField;
+	private JComboBox typeCombo;
 	private JLabel statusLabel;
 	private JComboBox statusCombo;
 	private JLabel trackLabel;
@@ -31,6 +44,7 @@ public class ItemPanel extends JPanel {
 	private JTextField acquireField;
 	private JTextField supportField;
 	private JTextField trackField;
+	private JTextField diskField;
 	private JTextPane commentField;
 	private JButton delBtn;
 	private JButton addBtn;
@@ -41,13 +55,15 @@ public class ItemPanel extends JPanel {
 
 	private JPanel tracksInnerPanel;
 
+		
 	public ItemPanel(){
-
+		
 		Dimension dim = getPreferredSize();
 		dim.width = 680;
 		setPreferredSize(dim);
 		setMinimumSize(dim);
-
+		JLabel label = new JLabel();
+	
 		setBackground(Color.WHITE);
 
 
@@ -57,7 +73,8 @@ public class ItemPanel extends JPanel {
 		//TITRE//
 		titleLabel = new JLabel("Titre: ");
 		titleField = new JTextField(30);
-		titleField.setFont(new Font("Dialog", Font.BOLD,18));
+		titleField.setFont(new Font("Dialog", Font.BOLD,16));
+
 
 		//ARTISTE 1//
 		//	artistLabel = new JLabel("Artiste: ");
@@ -104,6 +121,11 @@ public class ItemPanel extends JPanel {
 		//GENRE//
 		typeLabel = new JLabel ("Genre: ");
 		typeField = new JTextField(15);
+		typeCombo = new JComboBox ();
+		typeCombo.addItem("Genre 1");
+		typeCombo.addItem("Genre 2");
+		typeCombo.addItem("Genre 3");
+		typeCombo.addItem("Genre 4");
 
 		//STATUT AVANCEMENT//
 		statusLabel = new JLabel ("Avancement: ");
@@ -113,7 +135,7 @@ public class ItemPanel extends JPanel {
 		statusCombo.addItem("En cours");
 		statusCombo.addItem("Achevé");
 		statusCombo.addItem("Abandonné");
-
+		
 
 		//NBR PISTES//
 		trackLabel= new JLabel("Nombre de pistes: ");
@@ -131,7 +153,7 @@ public class ItemPanel extends JPanel {
 		ratingCombo.addItem("★★★☆☆");
 		ratingCombo.addItem("★★★★☆");
 		ratingCombo.addItem("★★★★★");
-
+		
 
 		//COMMENTAIRES//
 		commentLabel = new JLabel("Commentaires: ");
@@ -139,7 +161,7 @@ public class ItemPanel extends JPanel {
 		commentField.setPreferredSize(new Dimension(100,80));
 		commentField.setMaximumSize(new Dimension(100,80));
 		commentField.setBackground(Color.white);
-
+		
 		//SAVE BUTTON//
 		addBtn = new JButton("");
 		addBtn.setForeground(Color.WHITE);
@@ -148,6 +170,8 @@ public class ItemPanel extends JPanel {
 		addBtn.setIcon(new ImageIcon("src\\main\\java\\img\\save.png"));
 		addBtn.setPreferredSize(new Dimension(240,24));
 		addBtn.setMaximumSize(new Dimension(240,24));
+		addBtn.addMouseListener(new SaveListener());
+	//	addBtn.setMaximumSize(new Dimension(100,20));
 
 
 		//DELETE BUTTON//
@@ -156,6 +180,8 @@ public class ItemPanel extends JPanel {
 		delBtn.setBackground(new Color(0,161,254));
 		delBtn.setToolTipText("Supprimer");
 		delBtn.setIcon(new ImageIcon("src\\main\\java\\img\\trash.png"));
+		delBtn.addMouseListener(new DeleteListener());
+		// delBtn.setMaximumSize(new Dimension(100,20));
 		delBtn.setPreferredSize(new Dimension(240,24));
 		delBtn.setMaximumSize(new Dimension(240,24));
 
@@ -173,7 +199,7 @@ public class ItemPanel extends JPanel {
 		//------------------------------------------
 		//// LAYOUT  //////////
 		setLayout(new GridBagLayout());
-
+		
 		GridBagConstraints gc = new GridBagConstraints();
 
 		setBackground(new Color(243,245,247));
@@ -218,7 +244,7 @@ public class ItemPanel extends JPanel {
 		gc.fill=GridBagConstraints.HORIZONTAL;
 		gc.anchor=GridBagConstraints.LINE_START;
 		add(titleField,gc);
-		titleField.setText("");
+		//titleField.setText("");
 		gc.gridwidth = 1;
 
 		//lgn 2-------------------------------------------
@@ -280,7 +306,7 @@ public class ItemPanel extends JPanel {
 		gc.fill=GridBagConstraints.NONE;
 		gc.anchor=GridBagConstraints.LINE_END;
 		add(typeLabel,gc);
-
+	
 		//GENRE COMBO 1,3//
 		gc.weightx=1;
 		gc.weighty=0.1;
@@ -492,20 +518,29 @@ public class ItemPanel extends JPanel {
 
 
 	}
-
+	
 	//public ItemPanel(Music object) {
-	//this();
-
-	//setMusic(object);
+		//this();
+		
+		//setMusic(object);
 	//}
-
+	
 	//public void setMusic(Music music) {
-	//titleLabel.setText(object.toString());
-
+		//titleLabel.setText(object.toString());
+		
 	//}
 
 	private LayoutManager newGridBagLayout() {
 		return null;
+	}
+
+
+
+
+
+	public void updateItemPanel(Oeuvre oeuvre){
+		titleField.setText(oeuvre.getTitre());
+
 	}
 
 

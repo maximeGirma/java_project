@@ -12,13 +12,17 @@ import java.util.List;
 
 public class SearchDisplay {
 
-    private HashMap<Long, Oeuvre> oeuvreList = new HashMap<>();
+    private HashMap<Long, Oeuvre> oeuvreList;
 
 
-    public SearchDisplay() { }
+    public SearchDisplay() {
+
+        System.out.println("ceci est un test");
+    }
 
     public void getTitleByCategory(int category, LibraryDatabaseModel library) {
         List<Oeuvre> list = null;
+        oeuvreList = new HashMap<>();
 
         if (category == 0) {
             try {
@@ -36,9 +40,10 @@ public class SearchDisplay {
         } else {
             System.out.println("HOUSTON WE GOT A PROBLEM!");
         }
-
+        long i = 0;
         for (Oeuvre oeuvre : list) {
-            oeuvreList.put(oeuvre.getId(), oeuvre);
+            oeuvreList.put(i, oeuvre);
+            i++;
         }
     }
 

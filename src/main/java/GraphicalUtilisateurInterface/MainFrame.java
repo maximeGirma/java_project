@@ -6,20 +6,25 @@ package GraphicalUtilisateurInterface; /**
 import DataBaseModel.DatabaseController;
 import DataBaseModel.LibraryDatabaseModel;
 import GraphicalUtilisateurInterface.DisplayController.SearchDisplay;
+import SQLite_DataBase.Object_to_insert.Oeuvre;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
-import javax.swing.JButton;
-import javax.swing.JFrame;
-import javax.swing.JLabel;
-import javax.swing.JMenu;
-import javax.swing.JMenuBar;
-import javax.swing.JMenuItem;
-import javax.swing.JPanel;
-import javax.swing.JSplitPane;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
+import java.util.ArrayList;
+import java.util.Enumeration;
+import java.util.HashMap;
+import java.util.Map;
+import javax.swing.*;
+import javax.swing.event.ListDataEvent;
+import javax.swing.event.ListDataListener;
+import javax.swing.event.ListSelectionEvent;
+import javax.swing.event.ListSelectionListener;
 
-public class MainFrame extends JFrame {
-	
+public class MainFrame extends JFrame implements ListSelectionListener{
+	private String output;
+	private int compteur = 0;
 	private JButton btn;
 	private Toolbar toolbar;
 	private JSplitPane splitPane;
@@ -30,17 +35,18 @@ public class MainFrame extends JFrame {
 	private JLabel label;
 	private JPanel panel;
 	public LibraryDatabaseModel library;
+	HashMap<Long, Oeuvre> list_oeuvre;
 	//***private AccordionPane accordionPane;
 	
 	/////Main Application Window/////
 	public MainFrame(LibraryDatabaseModel library) {
 		super ("Bienvenu sur CollectBee!"); //Titre application//
-		
+
 		setLayout (new BorderLayout());
 
 		toolbar = new Toolbar(this); //NORTH//
 		splitPane = new JSplitPane(JSplitPane.HORIZONTAL_SPLIT);//CENTER
-		viewPanel = new ViewPanel();//LEFT PANE SPLIT�PANE//
+		viewPanel = new ViewPanel(this);//LEFT PANE SPLIT�PANE//
 		itemPanel = new ItemPanel();//RIGHT PANE SPLIT�PANE//
 		alphabetbar = new AlphabetBar();//SOUTH//
 		label = new JLabel();
@@ -79,34 +85,42 @@ public class MainFrame extends JFrame {
 		/////Buttons Links Method/////
 		toolbar.setToolbarListener( new ToolbarListener(){
 
+
 			SearchDisplay search = new SearchDisplay();
 		
 			public void musicEventOccured() {
 				System.out.println("it works music");
 
-				search.getTitleByCategory(3, library);
+				search.getTitleByCategory(2, library);
+				list_oeuvre = search.getOeuvreList();
+				viewPanel.UpdateViewPanel(list_oeuvre);
 			}
 
 			public void movieEventOccured() {
-				System.out.println("it works movie");
 				search.getTitleByCategory(1, library);
+				System.out.println("it works movie");
+				list_oeuvre = search.getOeuvreList();
+				viewPanel.UpdateViewPanel(list_oeuvre);
 			}
 
 			public void bookEventOccured() {
+				search.getTitleByCategory(3, library);
 				System.out.println("it works book");
-				search.getTitleByCategory(2, library);
+				list_oeuvre = search.getOeuvreList();
+				viewPanel.UpdateViewPanel(list_oeuvre);
 			}
 
 			public void gameEventOccured() {
-
-				System.out.println("it works game");
 				search.getTitleByCategory(4, library);
-				String[] temp = {"pouet","pouet2","pouet3"};
-				viewPanel.UpdateViewPanel(temp);
+				System.out.println("it works game");
+				list_oeuvre = search.getOeuvreList();
+				viewPanel.UpdateViewPanel(list_oeuvre);
 			}
 			public void homeEventOccured(){
 				System.out.println("home clicked guys");
 				search.getTitleByCategory(0, library);
+				list_oeuvre = search.getOeuvreList();
+				viewPanel.UpdateViewPanel(list_oeuvre);
 			}
 
 			@Override
@@ -143,6 +157,23 @@ public class MainFrame extends JFrame {
 		
 	}
 
+	@Override
+	public void valueChanged(ListSelectionEvent e) {
+
+		ListSelectionModel a = (ListSelectionModel)e.getSource();
+
+		for (int i = e.getFirstIndex(); i<= e.getLastIndex();i++) {
+			if (a.isSelectedIndex(i)){
+
+
+				for (Map.Entry<Long, Oeuvre> entry : this.list_oeuvre.entrySet()) {
+					if (entry.getKey() == i && e.getValueIsAdjusting() == true){
+						itemPanel.updateItemPanel(entry.getValue());
+					}
+				}
+			}
+		}
+	}
 
 	public ViewPanel getViewPanel() {
 		return viewPanel;
