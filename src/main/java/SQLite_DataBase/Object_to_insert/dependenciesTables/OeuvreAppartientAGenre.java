@@ -3,15 +3,29 @@ package SQLite_DataBase.Object_to_insert.dependenciesTables;
 import za.co.neilson.sqlite.orm.annotations.ForeignKey;
 import za.co.neilson.sqlite.orm.annotations.PrimaryKey;
 
+import java.util.ArrayList;
+import java.util.Collection;
+
 public class OeuvreAppartientAGenre {
+
     @PrimaryKey(autoIncrement = true)
     private int relation;
 
-    @ForeignKey(table = "Oeuvre", column = "id")
+    @ForeignKey(table = "Oeuvre", column = "id", parentReference = "genres")
     private long id_oeuvre;
 
-    @ForeignKey(table = "Genre", column = "id_genre")
-    private int id_genre = 1;
+    @ForeignKey(table = "Genre", column = "id", parentReference = "oeuvres")
+    private long id_genre;
+
+    public OeuvreAppartientAGenre() {
+        this.id_oeuvre = 1;
+        this.id_genre = 1;
+    }
+
+    public OeuvreAppartientAGenre(long oeuvre_id, long genre_id) {
+        this.id_oeuvre = oeuvre_id;
+        this.id_genre = genre_id;
+    }
 
     public long getId_oeuvre() {
         return id_oeuvre;
@@ -21,11 +35,17 @@ public class OeuvreAppartientAGenre {
         this.id_oeuvre = id_oeuvre;
     }
 
-    public int getId_genre() {
+    public long getId_genre() {
         return id_genre;
     }
 
     public void setId_genre(int id_genre) {
         this.id_genre = id_genre;
+    }
+
+    @Override
+    public String toString() {
+        return "Relation [idO = " + id_oeuvre + " idG = " +  id_genre +"]";
+        /*" + category.getName_category() +"*/
     }
 }

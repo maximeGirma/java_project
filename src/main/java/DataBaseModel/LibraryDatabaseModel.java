@@ -44,11 +44,10 @@ public class LibraryDatabaseModel extends DatabaseModel<ResultSet, HashMap<Strin
         objectModels.put(Support.class, new JdbcObjectModel<Support>(this) {});
         objectModels.put(MenuStatut.class, new JdbcObjectModel<MenuStatut>(this) {});
         objectModels.put(MenuLangue.class, new JdbcObjectModel<MenuLangue>(this) {});
-
         objectModels.put(Genre.class, new JdbcObjectModel<Genre>(this) {});
         objectModels.put(Oeuvre.class, new JdbcObjectModel<Oeuvre>(this) {});
-        objectModels.put(OeuvreAppartientAGenre.class, new JdbcObjectModel<OeuvreAppartientAGenre>(this) {});
         objectModels.put(Participe.class, new JdbcObjectModel<Participe>(this) {});
+        objectModels.put(OeuvreAppartientAGenre.class, new JdbcObjectModel<OeuvreAppartientAGenre>(this) {});
     }
 
     @Override
@@ -64,8 +63,6 @@ public class LibraryDatabaseModel extends DatabaseModel<ResultSet, HashMap<Strin
 
     @Override
     public void onInsertDefaultValues() {
-       /* Film film = new Film();
-        film.setTitre("Pulp Fiction");*/
 
         try {
             ArrayList<Category> category_list = new ArrayList<Category>();
@@ -81,6 +78,15 @@ public class LibraryDatabaseModel extends DatabaseModel<ResultSet, HashMap<Strin
             Note note = new Note();
             note.setNote("Non précisée");
 
+            Genre genre = new Genre();
+            genre.setLabel("Indéfini");
+
+            Film film = new Film();
+
+            OeuvreAppartientAGenre default_relationship = new OeuvreAppartientAGenre();
+
+            /*OeuvreAppartientAGenre rel = new OeuvreAppartientAGenre(1, null);*/
+
             /*AcquisitionDate acquisition_date = new AcquisitionDate();
             AcquisitionOrigine acquisition_origine = new AcquisitionOrigine();
             MenuLangue menu_langue = new MenuLangue();
@@ -94,6 +100,9 @@ public class LibraryDatabaseModel extends DatabaseModel<ResultSet, HashMap<Strin
             }
 
             getObjectModel(Note.class).insert(note);
+            getObjectModel(Genre.class).insert(genre);
+            getObjectModel(Oeuvre.class).insert(film);
+            getObjectModel(OeuvreAppartientAGenre.class).insert(default_relationship);
             /*getObjectModel(AcquisitionDate.class).insert(acquisition_date);
             getObjectModel(AcquisitionOrigine.class).insert(acquisition_origine);
             getObjectModel(MenuLangue.class).insert(menu_langue);

@@ -2,10 +2,13 @@ package SQLite_DataBase.Object_to_insert;
 
 import DataBaseModel.LibraryDatabaseModel;
 import SQLite_DataBase.Object_to_insert.dependenciesTables.Category;
+import SQLite_DataBase.Object_to_insert.dependenciesTables.Genre;
+import SQLite_DataBase.Object_to_insert.dependenciesTables.OeuvreAppartientAGenre;
 import za.co.neilson.sqlite.orm.annotations.ForeignKey;
 import za.co.neilson.sqlite.orm.annotations.PrimaryKey;
 
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Hashtable;
 import java.util.List;
@@ -13,10 +16,12 @@ import java.util.List;
 public class Oeuvre{
 
     @PrimaryKey(autoIncrement = true)
-    protected long id;
+    public long id;
+
     protected int reference;
     protected String titre;
-    protected String dateEdition;
+
+    protected int dateEdition;
     protected String commentaire;
     protected int nbrepages;
     protected int isbn;
@@ -27,6 +32,9 @@ public class Oeuvre{
     public int id_category;
     Category category;
     public String category_name;
+
+    public Collection<Genre> genres;
+    public ArrayList<String> genres_label_list;
 
     @ForeignKey(table = "Note", column = "id_note")
     public int id_note;
@@ -47,8 +55,25 @@ public class Oeuvre{
     protected int id_langue;*/
 
     public Oeuvre() {
+        this.genres_label_list = null;
         this.id_note = 1;
     }
+
+    public Oeuvre(ArrayList<String> genres, int note) {
+        this.genres_label_list = genres;
+        this.id_note = note;
+    }
+
+    /*public void setRelationships(ArrayList<String> genres_list, LibraryDatabaseModel library) {
+        this.genres_label_list = genres_list;
+        OeuvreAppartientAGenre relationship = new OeuvreAppartientAGenre(this.id, genres_list);
+        System.out.println(relationship);
+        try {
+            library.getObjectModel(OeuvreAppartientAGenre.class).insert(relationship);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }*/
 
     public long getId() {
         return id;
@@ -100,11 +125,11 @@ public class Oeuvre{
         this.titre = titre;
     }
 
-    public String getDateEdition() {
+    public int getDateEdition() {
         return dateEdition;
     }
 
-    public void setDateEdition(String dateEdition) {
+    public void setDateEdition(int dateEdition) {
         this.dateEdition = dateEdition;
     }
 
@@ -140,14 +165,14 @@ public class Oeuvre{
         this.duree = duree;
     }
 
-    public int getPegi() {
+    /*public int getPegi() {
         return pegi;
     }
 
     public void setPegi(int pegi) {
         this.pegi = pegi;
     }
-/*
+
     public int getId_acquisition_date() {
         return id_acquisition_date;
     }
