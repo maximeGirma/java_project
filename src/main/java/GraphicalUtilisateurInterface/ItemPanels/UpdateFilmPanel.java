@@ -31,8 +31,12 @@ public class UpdateFilmPanel extends AbstractItemFilmPanel {
     }
 
     public void updateItem(Oeuvre oeuvre){
-        titleField.setText(null);
+
         titleField.setText(oeuvre.getTitre());
+        yearField.setText(oeuvre.getDateEdition());
+        commentField.setText(oeuvre.getCommentaire());
+        timeField.setText(oeuvre.getDuree());
+
 
     }
 

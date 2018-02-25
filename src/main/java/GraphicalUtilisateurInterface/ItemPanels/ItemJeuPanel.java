@@ -29,6 +29,7 @@ public class ItemJeuPanel extends AbstractItemJeuVideoPanel {
         public void mouseClicked(MouseEvent mouseEvent) {
             super.mouseClicked(mouseEvent);
 
+            //Oeuvre oeuvre = new
         }
     }
 }

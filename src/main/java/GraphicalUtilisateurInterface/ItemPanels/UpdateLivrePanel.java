@@ -31,6 +31,10 @@ public class UpdateLivrePanel extends AbstractItemLivrePanel{
     public void updateItem(Oeuvre oeuvre){
         titleField.setText(null);
         titleField.setText(oeuvre.getTitre());
+        yearField.setText(oeuvre.getDateEdition());
+        commentField.setText(oeuvre.getCommentaire());
+        pagesField.setText(Integer.toString(oeuvre.getNbrepages()));
+        refField.setText(Integer.toString(oeuvre.getReference()));
 
     }
 

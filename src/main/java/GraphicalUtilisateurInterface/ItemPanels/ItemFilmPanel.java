@@ -27,18 +27,13 @@ public class ItemFilmPanel extends AbstractItemFilmPanel {
 		@Override
 		public void mouseClicked(MouseEvent mouseEvent) {
 			super.mouseClicked(mouseEvent);
-			Oeuvre film_to_insert = new Film();
-			film_to_insert.setTitre(titleField.getText());
-			film_to_insert.setCommentaire(commentField.getText());
-			film_to_insert.setDuree(timeField.getText());
-			film_to_insert.setDateEdition(yearField.getText());
+			Oeuvre oeuvre_to_insert = new Film();
+			oeuvre_to_insert.setTitre(titleField.getText());
+			oeuvre_to_insert.setCommentaire(commentField.getText());
 
-			LibraryDatabaseModel database = DatabaseController.getInstance().init();
-			try {
-				database.getObjectModel(Oeuvre.class).insert(film_to_insert);
-			} catch (SQLException e) {
-				e.printStackTrace();
-			}
+			oeuvre_to_insert.setDateEdition(yearField.getText());
+
+
 			System.out.println("insertion mon gars!");
 		}
 	}

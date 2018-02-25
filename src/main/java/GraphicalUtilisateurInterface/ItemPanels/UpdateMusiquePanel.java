@@ -18,7 +18,7 @@ public class UpdateMusiquePanel extends AbstractItemMusiquePanel {
         delBtn.setMaximumSize(new Dimension(240,24));
         delBtn.addMouseListener(new DeleteListener());
 
-        
+
         //DELETE BUTTON 3,11//
         gc.weightx = 1;
         gc.weighty = 0.1;
@@ -33,6 +33,9 @@ public class UpdateMusiquePanel extends AbstractItemMusiquePanel {
     public void updateItem(Oeuvre oeuvre){
         titleField.setText(null);
         titleField.setText(oeuvre.getTitre());
+        yearField.setText(oeuvre.getDateEdition());
+        commentField.setText(oeuvre.getCommentaire());
+        timeField.setText(oeuvre.getDuree());
 
     }
 }

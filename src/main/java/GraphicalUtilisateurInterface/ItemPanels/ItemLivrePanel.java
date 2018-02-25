@@ -5,6 +5,7 @@ import DataBaseModel.DatabaseController;
 import DataBaseModel.LibraryDatabaseModel;
 import GraphicalUtilisateurInterface.MouseListeners.AbstractCreateListener;
 import SQLite_DataBase.Object_to_insert.Film;
+import SQLite_DataBase.Object_to_insert.Livre;
 import SQLite_DataBase.Object_to_insert.Oeuvre;
 
 import javax.swing.*;
@@ -26,7 +27,11 @@ public class ItemLivrePanel extends AbstractItemLivrePanel {
         @Override
         public void mouseClicked(MouseEvent mouseEvent) {
             super.mouseClicked(mouseEvent);
+            Oeuvre oeuvre_to_insert = new Livre();
+            oeuvre_to_insert.setTitre(titleField.getText());
+            oeuvre_to_insert.setCommentaire(commentField.getText());
 
+            oeuvre_to_insert.setDateEdition(yearField.getText());
         }
     }
 }

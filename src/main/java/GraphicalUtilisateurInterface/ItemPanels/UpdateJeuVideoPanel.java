@@ -31,6 +31,9 @@ public class UpdateJeuVideoPanel extends AbstractItemJeuVideoPanel {
     public void updateItem(Oeuvre oeuvre){
         titleField.setText(null);
         titleField.setText(oeuvre.getTitre());
+        yearField.setText(oeuvre.getDateEdition());
+        commentField.setText(oeuvre.getCommentaire());
+        refField.setText(Integer.toString(oeuvre.getPegi()));
 
     }
 
