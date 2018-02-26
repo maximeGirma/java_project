@@ -25,13 +25,22 @@ public class ItemMusiquePanel extends AbstractItemMusiquePanel {
         @Override
         public void mouseClicked(MouseEvent mouseEvent) {
             super.mouseClicked(mouseEvent);
-            
+            super.mouseClicked(mouseEvent);
             Oeuvre oeuvre_to_insert = new Musique();
-
             oeuvre_to_insert.setTitre(titleField.getText());
             oeuvre_to_insert.setCommentaire(commentField.getText());
 
             oeuvre_to_insert.setDateEdition(yearField.getText());
+
+            System.out.println("save button");
+            JOptionPane jop1 = new JOptionPane();
+            if (oeuvre_to_insert.getTitre().isEmpty()){
+                jop1.showMessageDialog(null, "Titre non renseigné", "Information", JOptionPane.INFORMATION_MESSAGE);
+            }else {
+
+                jop1.showMessageDialog(null, "Oeuvre Sauvegardée !", "Information", JOptionPane.INFORMATION_MESSAGE);
+            }
+
 
         }
     }

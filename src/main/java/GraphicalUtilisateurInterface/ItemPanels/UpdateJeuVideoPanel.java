@@ -5,8 +5,12 @@ import SQLite_DataBase.Object_to_insert.Oeuvre;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 
 public class UpdateJeuVideoPanel extends AbstractItemJeuVideoPanel {
+    Oeuvre oeuvre_to_update;
+
     public UpdateJeuVideoPanel() {
         //DELETE BUTTON//
         delBtn = new JButton("");
@@ -26,9 +30,41 @@ public class UpdateJeuVideoPanel extends AbstractItemJeuVideoPanel {
         gc.fill = GridBagConstraints.NONE;
         gc.anchor = GridBagConstraints.CENTER;
         add(delBtn, gc);
+
+        addBtn.addMouseListener(new MouseListener() {
+            @Override
+            public void mouseClicked(MouseEvent mouseEvent) {
+
+                oeuvre_to_update.setTitre(titleField.getText());
+
+            }
+
+            @Override
+            public void mousePressed(MouseEvent mouseEvent) {
+
+            }
+
+            @Override
+            public void mouseReleased(MouseEvent mouseEvent) {
+
+            }
+
+            @Override
+            public void mouseEntered(MouseEvent mouseEvent) {
+
+            }
+
+            @Override
+            public void mouseExited(MouseEvent mouseEvent) {
+
+            }
+        });
     }
 
     public void updateItem(Oeuvre oeuvre){
+
+        oeuvre_to_update = oeuvre;
+
         titleField.setText(null);
         titleField.setText(oeuvre.getTitre());
         yearField.setText(oeuvre.getDateEdition());

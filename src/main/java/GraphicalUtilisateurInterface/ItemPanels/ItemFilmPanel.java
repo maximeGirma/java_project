@@ -26,6 +26,7 @@ public class ItemFilmPanel extends AbstractItemFilmPanel {
 
 		@Override
 		public void mouseClicked(MouseEvent mouseEvent) {
+
 			super.mouseClicked(mouseEvent);
 			Oeuvre oeuvre_to_insert = new Film();
 			oeuvre_to_insert.setTitre(titleField.getText());
@@ -33,8 +34,16 @@ public class ItemFilmPanel extends AbstractItemFilmPanel {
 
 			oeuvre_to_insert.setDateEdition(yearField.getText());
 
+			System.out.println("save button");
+			JOptionPane jop1 = new JOptionPane();
+			if (oeuvre_to_insert.getTitre().isEmpty()){
+				jop1.showMessageDialog(null, "Titre non renseigné", "Information", JOptionPane.INFORMATION_MESSAGE);
+			}else {
+				
+				jop1.showMessageDialog(null, "Oeuvre Sauvegardée !", "Information", JOptionPane.INFORMATION_MESSAGE);
+			}
 
-			System.out.println("insertion mon gars!");
+
 		}
 	}
 }

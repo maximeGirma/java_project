@@ -13,7 +13,7 @@ public class UpdateOeuvreRedirection {
                 parent.getUpdateFilmPanel().updateItem(oeuvre_to_update);
                 break;
             case 2:
-                parent.getSplitPane().setRightComponent(parent.getUpdateFilmPanel());
+                parent.getSplitPane().setRightComponent(parent.getUpdateMusiquePanel());
                 parent.getUpdateMusiquePanel().updateItem(oeuvre_to_update);
                 break;
             case 3:
