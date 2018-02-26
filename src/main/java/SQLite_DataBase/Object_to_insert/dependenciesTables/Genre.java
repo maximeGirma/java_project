@@ -6,7 +6,7 @@ import za.co.neilson.sqlite.orm.annotations.PrimaryKey;
 
 import java.util.Collection;
 
-public class Genre {
+public class Genre extends OeuvreAppartientAGenre {
     @PrimaryKey(autoIncrement=true)
     private long id;
     private String label;

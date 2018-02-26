@@ -1,9 +1,7 @@
 package SQLite_DataBase.Object_to_insert;
 
 import DataBaseModel.LibraryDatabaseModel;
-import SQLite_DataBase.Object_to_insert.dependenciesTables.Category;
-import SQLite_DataBase.Object_to_insert.dependenciesTables.Genre;
-import SQLite_DataBase.Object_to_insert.dependenciesTables.OeuvreAppartientAGenre;
+import SQLite_DataBase.Object_to_insert.dependenciesTables.*;
 import za.co.neilson.sqlite.orm.annotations.ForeignKey;
 import za.co.neilson.sqlite.orm.annotations.PrimaryKey;
 
@@ -30,13 +28,16 @@ public class Oeuvre{
 
     @ForeignKey(table = "Category", column = "id", childReference = "category", parentReference = "oeuvres")
     public int id_category;
-    Category category;
-    public String category_name;
+    public Category category;
+    protected String category_name;
 
     public Collection<Genre> genres;
     public ArrayList<String> genres_label_list;
 
-    @ForeignKey(table = "Note", column = "id_note")
+    private Collection<Personne> personnes;
+    public ArrayList<String> personnes_name_list;
+
+    @ForeignKey(table = "Note", column = "id", parentReference = "oeuvres")
     public int id_note;
 
   /*  @ForeignKey(table = "AcquisitionDate", column = "id_acquisition_date")
@@ -56,24 +57,15 @@ public class Oeuvre{
 
     public Oeuvre() {
         this.genres_label_list = null;
+        this.personnes_name_list = null;
         this.id_note = 1;
     }
 
-    public Oeuvre(ArrayList<String> genres, int note) {
+    public Oeuvre(ArrayList<String> personnes_name_list, ArrayList<String> genres, int note) {
+        this.personnes_name_list = personnes_name_list;
         this.genres_label_list = genres;
         this.id_note = note;
     }
-
-    /*public void setRelationships(ArrayList<String> genres_list, LibraryDatabaseModel library) {
-        this.genres_label_list = genres_list;
-        OeuvreAppartientAGenre relationship = new OeuvreAppartientAGenre(this.id, genres_list);
-        System.out.println(relationship);
-        try {
-            library.getObjectModel(OeuvreAppartientAGenre.class).insert(relationship);
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-    }*/
 
     public long getId() {
         return id;
@@ -83,14 +75,36 @@ public class Oeuvre{
         this.id = id;
     }
 
-    public void getCategoryName(LibraryDatabaseModel library) {
-        List<Category> listC = null;
+    /* trouver la categorie d'une oeuvre */
+    public String getCategoryName(LibraryDatabaseModel library) {
+        List<Category> list_categories = null;
         try {
-            listC = library.getObjectModel(Category.class).getAll("id = ?", this.id_category);
-            this.category_name = listC.get(0).getName_category();
+            list_categories = library.getObjectModel(Category.class).getAll("id = ?", this.id_category);
+            this.category_name = list_categories.get(0).getName_category();
         } catch (SQLException e) {
             e.printStackTrace();
         }
+        return this.category_name;
+    }
+
+    public ArrayList<Personne> getPersonnes(LibraryDatabaseModel library) throws SQLException {
+
+        ArrayList<Personne> personnes_list = new ArrayList<>();
+        List<Long> personnes_id_list = null;
+
+        for (Participe relation : library.getObjectModel(Participe.class).getAll("id_oeuvre = ?", this.id))
+            personnes_id_list.add(relation.getId_personne());
+
+        if (personnes_id_list != null) {
+            for (Long id_personne : personnes_id_list) {
+                personnes_list.add(library.getObjectModel(Personne.class).getAll("id = ?", id_personne).get(0));
+            }
+        }
+        return personnes_list;
+    }
+
+    public ArrayList<String> getGenresLabelList() {
+        return genres_label_list;
     }
 
     /*public int getId_category() {
@@ -217,10 +231,8 @@ public class Oeuvre{
     @Override
     public String toString() {
         return "Oeuvre [titre = " + titre + " categorie = " +  category.toString() +"]";
-        /*" + category.getName_category() +"*/
+
     }
-
-
 }
 
 

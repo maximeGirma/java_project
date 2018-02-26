@@ -1,5 +1,6 @@
 package SQLite_DataBase.Object_to_insert.dependenciesTables;
 
+import SQLite_DataBase.Object_to_insert.Oeuvre;
 import za.co.neilson.sqlite.orm.annotations.ForeignKey;
 import za.co.neilson.sqlite.orm.annotations.PrimaryKey;
 
@@ -9,7 +10,7 @@ import java.util.Collection;
 public class OeuvreAppartientAGenre {
 
     @PrimaryKey(autoIncrement = true)
-    private int relation;
+    private int id;
 
     @ForeignKey(table = "Oeuvre", column = "id", parentReference = "genres")
     private long id_oeuvre;
@@ -45,7 +46,6 @@ public class OeuvreAppartientAGenre {
 
     @Override
     public String toString() {
-        return "Relation [idO = " + id_oeuvre + " idG = " +  id_genre +"]";
-        /*" + category.getName_category() +"*/
+        return "idO" + id_oeuvre + " idG = " +  id_genre;
     }
 }

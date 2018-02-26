@@ -2,14 +2,8 @@ import DataBaseModel.DatabaseController;
 import DataBaseModel.LibraryDatabaseModel;
 import GraphicalUtilisateurInterface.DisplayController.SearchDisplay;
 import GraphicalUtilisateurInterface.MainFrame;
-import SQLite_DataBase.Object_to_insert.Film;
-import SQLite_DataBase.Object_to_insert.Musique;
-import SQLite_DataBase.Object_to_insert.Oeuvre;
-import SQLite_DataBase.Object_to_insert.OeuvreController;
-import SQLite_DataBase.Object_to_insert.dependenciesTables.Category;
-import SQLite_DataBase.Object_to_insert.dependenciesTables.Genre;
-import SQLite_DataBase.Object_to_insert.dependenciesTables.Note;
-import SQLite_DataBase.Object_to_insert.dependenciesTables.OeuvreAppartientAGenre;
+import SQLite_DataBase.Object_to_insert.*;
+import SQLite_DataBase.Object_to_insert.dependenciesTables.*;
 
 import javax.swing.*;
 import java.sql.SQLException;
@@ -17,113 +11,75 @@ import java.util.*;
 
 public class Main {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws SQLException {
 
         LibraryDatabaseModel database = DatabaseController.getInstance().init();
 
-        ArrayList<String> genres = new ArrayList<>();
-        genres.add("Drame");
-        genres.add("Policier");
+        ArrayList<String> genres1 = new ArrayList<>();
+        genres1.add("Drame");
+        genres1.add("Policier");
 
-        Film film1 = new Film(genres, 1);
+        ArrayList<String> genres2 = new ArrayList<>();
+        genres2.add("Science-Fiction");
+        genres2.add("Policier");
+
+        ArrayList<String> personne_name_list = new ArrayList<>();
+        personne_name_list.add("Quentin Tarantino");
+        personne_name_list.add("Samuel Lee Jackson, John Travolta, Bruce Willis");
+
+        ArrayList<String> personne_name_list2 = new ArrayList<>();
+        personne_name_list2.add("Un type sympa");
+        personne_name_list2.add("Will Smith");
+
+        ArrayList<String> genres3 = new ArrayList<>();
+        genres3.add("Rock");
+
+        Film film1 = new Film(personne_name_list, genres1, 2);
         film1.setTitre("Pulp Fiction");
 
-        OeuvreController.addOeuvre(film1, film1.genres_label_list, database);
+        Film film2 = new Film(personne_name_list2, genres2, 3);
+        film2.setTitre("Men in Black");
 
-       /*try {
-            Hashtable results = new Hashtable();
+        /*Film film3 = new Film();
 
-            List<Genre> genre_list = database.getObjectModel(Genre.class).getAll("label = ?", "Drame");
-            for (Genre genres1 : genre_list) {
-                System.out.println(genres1);
-                for (Oeuvre oeuvre : genres1.getOeuvres()) {
-                    results.put(oeuvre.getId(), oeuvre.getTitre());
-                    System.out.println(oeuvre.getId() +": "+ oeuvre.getTitre());
-                }
-            }
-
-            Enumeration e = results.elements();
-
-            while(e.hasMoreElements())
-                System.out.println(e.nextElement());
-
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }*/
-
-       /*try {
-            Hashtable results = new Hashtable();
-
-            List<Category> categoryList = database.getObjectModel(Category.class).getAll("name_category = ?", "FILM");
-            for (Category category : categoryList) {
-                System.out.println(category);
-                for (Oeuvre oeuvre : category.getOeuvres()) {
-                    results.put(oeuvre.getId(), oeuvre.getTitre());
-                    System.out.println(oeuvre.getId() +": "+ oeuvre.getTitre());
-                }
-            }
-
-            Enumeration e = results.elements();
-
-            while(e.hasMoreElements())
-                System.out.println(e.nextElement());
-
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }*/
-
-        /*Film film2 = new Film();
-        film2.setTitre("Shrek");
-
-        Musique music1 = new Musique();
+        Musique music1 = new Musique(genres3, 2);
         music1.setTitre("Smoke on the water");
-        music1.setId_note(1);*/
-         /*    database.getObjectModel(Oeuvre.class).insert(film2);
-            database.getObjectModel(Oeuvre.class).insert(music1);*/
 
-        /*try {
-            List<Oeuvre> oeuvres = database.getObjectModel(Oeuvre.class).getAll();
+        JeuVideo jeu1 = new JeuVideo();
+        jeu1.setTitre("Zelda - Ocarina of time");*/
 
-            for (Oeuvre oeuvre : oeuvres) {
-                oeuvre.getCategoryName(database);
-                System.out.println(oeuvre.category_name);
-            }
+
+
+        OeuvreController.addOeuvre(film1, film1.personnes_name_list, "Inconnu",  film1.genres_label_list, database);
+        OeuvreController.addOeuvre(film2, film2.personnes_name_list, "Inconnu", film2.genres_label_list, database);
+        /*OeuvreController.addOeuvre(music1, music1.genres_label_list, database);
+        OeuvreController.addOeuvre(jeu1, jeu1.genres_label_list, database);*/
+
+
+        /*HashMap<Long, Oeuvre> results = null;
+        HashMap<Long, Oeuvre> results2 = null;
+        try {
+            results = SearchDisplay.getOeuvresByGenre("Indéfini", database);
+            results2 = SearchDisplay.getOeuvresByNote("2", database);
         } catch (SQLException e) {
             e.printStackTrace();
         }*/
 
-        /*SearchDisplay search = new SearchDisplay();
-        search.getTitleByCategory(1, database);
+        ArrayList<Personne> result = film1.getPersonnes(database);
 
-        HashMap<Long, Oeuvre> results = search.getOeuvreList();
-
-        for (Map.Entry<Long, Oeuvre> entry : results.entrySet()) {
-            System.out.println("Key : " + entry.getKey() + " Value : " + entry.getValue().toString());
-        }*/
+        for (Personne personne : result) {
+            System.out.println(personne.getPersonne_name());
+        }
 
 
 
 
 
-
-
-        /*try {
-            List<Note> noteList = database.getObjectModel(Note.class).getAll("Note = ?", "5");
-            for (Note note : noteList) {
-                System.out.println(note);
-                for (Oeuvre oeuvre : note.getOeuvres()) {
-                    System.out.println(oeuvre);
-                }
-            }
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }*/
-
-        SwingUtilities.invokeLater(new Runnable(){
+       /* SwingUtilities.invokeLater(new Runnable(){
             public void run() {
                 new MainFrame(database);
             }
-        });
+        });*/
     }
 
 }

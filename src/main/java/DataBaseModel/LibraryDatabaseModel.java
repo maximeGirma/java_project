@@ -1,6 +1,5 @@
 package DataBaseModel;
 
-import SQLite_DataBase.Object_to_insert.Film;
 import SQLite_DataBase.Object_to_insert.Oeuvre;
 import SQLite_DataBase.Object_to_insert.dependenciesTables.*;
 import za.co.neilson.sqlite.orm.DatabaseDriverInterface;
@@ -38,13 +37,13 @@ public class LibraryDatabaseModel extends DatabaseModel<ResultSet, HashMap<Strin
 
         objectModels.put(Category.class, new JdbcObjectModel<Category>(this) {});
         objectModels.put(Note.class, new JdbcObjectModel<Note>(this) {});
-        objectModels.put(PersonneType.class, new JdbcObjectModel<PersonneType>(this) {});
-        objectModels.put(Personne.class, new JdbcObjectModel<Personne>(this) {});
         objectModels.put(AcquisitionDate.class, new JdbcObjectModel<AcquisitionDate>(this) {});
         objectModels.put(AcquisitionOrigine.class, new JdbcObjectModel<AcquisitionOrigine>(this) {});
         objectModels.put(Support.class, new JdbcObjectModel<Support>(this) {});
         objectModels.put(MenuStatut.class, new JdbcObjectModel<MenuStatut>(this) {});
         objectModels.put(MenuLangue.class, new JdbcObjectModel<MenuLangue>(this) {});
+        objectModels.put(PersonneType.class, new JdbcObjectModel<PersonneType>(this) {});
+        objectModels.put(Personne.class, new JdbcObjectModel<Personne>(this) {});
         objectModels.put(Genre.class, new JdbcObjectModel<Genre>(this) {});
         objectModels.put(Oeuvre.class, new JdbcObjectModel<Oeuvre>(this) {});
         objectModels.put(Participe.class, new JdbcObjectModel<Participe>(this) {});
@@ -76,47 +75,36 @@ public class LibraryDatabaseModel extends DatabaseModel<ResultSet, HashMap<Strin
             category_list.get(2).setName_category("LIVRE");
             category_list.get(3).setName_category("JEU-VIDEO");
 
-            ArrayList<Note> note_list = new ArrayList<Note>();
-            for (int i = 0; i < 7 ; i++){
-                note_list.add(new Note());
-            }
+            ArrayList<Note> note_list = new ArrayList<>();
+            note_list.add(new Note("Non attribuée"));
+            note_list.add(new Note("☆☆☆☆☆"));
+            note_list.add(new Note("★☆☆☆☆"));
+            note_list.add(new Note("★★☆☆☆"));
+            note_list.add(new Note("★★★☆☆"));
+            note_list.add(new Note("★★★★☆"));
+            note_list.add(new Note("★★★★★"));
 
-            note_list.get(0).setNote("Non défini");
-            note_list.get(1).setNote("☆☆☆☆☆");
-            note_list.get(2).setNote("★☆☆☆☆");
-            note_list.get(3).setNote("★★☆☆☆");
-            note_list.get(4).setNote("★★★☆☆");
-            note_list.get(5).setNote("★★★★☆");
-            note_list.get(6).setNote("★★★★★");
+            Personne personne = new Personne();
+            personne.setPersonneName("Inconnu");
+
+            PersonneType personne_type = new PersonneType();
+            personne_type.setPersonneType("Inconnu");
 
             Genre genre = new Genre();
             genre.setLabel("Indéfini");
-
-            Film film = new Film();
-
-            OeuvreAppartientAGenre default_relationship = new OeuvreAppartientAGenre();
-
-            /*OeuvreAppartientAGenre rel = new OeuvreAppartientAGenre(1, null);*/
-
-            /*AcquisitionDate acquisition_date = new AcquisitionDate();
-            AcquisitionOrigine acquisition_origine = new AcquisitionOrigine();
-            MenuLangue menu_langue = new MenuLangue();
-            MenuStatut menu_statut = new MenuStatut();
-
-            Support support = new Support();
-            Oeuvre oeuvre =  new Oeuvre();*/
 
             for (Category item: category_list) {
                 getObjectModel(Category.class).insert(item);
             }
 
-            for (Note note : note_list){
+            for (Note note: note_list) {
                 getObjectModel(Note.class).insert(note);
             }
 
             getObjectModel(Genre.class).insert(genre);
-            getObjectModel(Oeuvre.class).insert(film);
-            getObjectModel(OeuvreAppartientAGenre.class).insert(default_relationship);
+            getObjectModel(PersonneType.class).insert(personne_type);
+            getObjectModel(Personne.class).insert(personne);
+
             /*getObjectModel(AcquisitionDate.class).insert(acquisition_date);
             getObjectModel(AcquisitionOrigine.class).insert(acquisition_origine);
             getObjectModel(MenuLangue.class).insert(menu_langue);

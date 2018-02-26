@@ -6,7 +6,7 @@ import java.sql.*;
 
 public class JDBCController {
 
-    public static void update(Oeuvre oeuvre){
+  /*  public static void update(Oeuvre oeuvre){
 
 
 
@@ -60,5 +60,5 @@ public class JDBCController {
         } catch (SQLException e) {
             System.out.println(e.getMessage());
         }
-    }
+    }*/
 }

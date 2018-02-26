@@ -2,30 +2,31 @@ package SQLite_DataBase.Object_to_insert.dependenciesTables;
 
 import za.co.neilson.sqlite.orm.annotations.PrimaryKey;
 
-public class PersonneType{
+import java.util.Collection;
+
+public class PersonneType {
 
     @PrimaryKey(autoIncrement = true)
-    public int id_personne_type;
-    public String personne_type;
+    public int id;
+    public String personne_type_name;
+    private Collection<Personne> personnes;
 
-    public PersonneType(int id_personne_type, String personne_type) {
-        this.id_personne_type = id_personne_type;
-        this.personne_type = personne_type;
+    public PersonneType() {
     }
 
-    public int getId_personne_type() {
-        return id_personne_type;
+    public int getId() {
+        return id;
     }
 
-    public void setId_personne_type(int id_personne_type) {
-        this.id_personne_type = id_personne_type;
+    public void setId(int id) {
+        this.id = id;
     }
 
-    public String getPersonne_type() {
-        return personne_type;
+    public String getPersonne_type_name() {
+        return personne_type_name;
     }
 
-    public void setPersonne_type(String personne_type) {
-        this.personne_type = personne_type;
+    public void setPersonneType(String personne_type) {
+        this.personne_type_name = personne_type;
     }
 }

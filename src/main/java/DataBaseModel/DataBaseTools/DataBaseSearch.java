@@ -28,7 +28,7 @@ public class DataBaseSearch {
                 return 0;
             }else{
 
-                return is_here.getId_note();
+                return is_here.getId();
 
             }
 

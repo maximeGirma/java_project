@@ -13,8 +13,8 @@ public class Film extends Oeuvre {
         this.id_category = 1;
     }
 
-    public Film(ArrayList<String> genres, int note) {
-        super(genres, note);
+    public Film(ArrayList<String> personnes, ArrayList<String> genres, int note) {
+        super(personnes, genres, note);
         this.id_category = 1;
     }
 
