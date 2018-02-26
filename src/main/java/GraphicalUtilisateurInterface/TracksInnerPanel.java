@@ -6,58 +6,34 @@ import java.awt.*;
 
 public class TracksInnerPanel extends JPanel{
 
-	private JList trackList;
+	private JTextPane trackList;
 	private JScrollPane scrollPane;
 	private DefaultListModel listModel;
-	private DefaultListModel temporary_list_model;
 
 	public TracksInnerPanel(){
 		
-		setBackground(Color.lightGray);
+		setBackground(new Color(227,237,243));
 
-		this.trackList = new JList();
+		this.trackList = new JTextPane();
 		this.scrollPane = new JScrollPane(trackList);
 
+//		this.trackList.setVisibleRowCount(10);
 		trackList.setBackground(new Color(227,237,243));
 		trackList.setFont(new Font("Dialog", Font.PLAIN, 9));
+		trackList.setPreferredSize(new Dimension(90,240));
 
-		this.listModel = new DefaultListModel();
-		listModel.addElement("The Dark Side of the Moon");
-		listModel.addElement("Unplugged");
-		listModel.addElement("The Best of Men at Work");
-		listModel.addElement("Karajan: Beethoven Symphonies");
-		listModel.addElement("The Dark Side of the Moon");
-		listModel.addElement("Unplugged");
-		listModel.addElement("The Dark Side of the Moon");
-		listModel.addElement("Unplugged");
-		listModel.addElement("The Best of Men at Work");
-		listModel.addElement("Karajan: Beethoven Symphonies");
-		listModel.addElement("The Dark Side of the Moon");
-		listModel.addElement("Unplugged");
-		listModel.addElement("The Best of Men at Work");
-		listModel.addElement("Karajan: Beethoven Symphonies");
 
-		this.trackList.setModel(listModel);
-		
 		scrollPane.add(trackList);
-
-		Dimension dim = getPreferredSize();
-		dim.width = 100;
-		scrollPane.setPreferredSize(dim);
-		scrollPane.setMinimumSize(dim);
 		scrollPane.setBackground(new Color(227,237,243));
 
 		this.setLayout(new GridBagLayout());
 
 		GridBagConstraints gc = new GridBagConstraints();
 
-		gc.weightx= 1;
-		gc.weighty= 0.1;
-
 		gc.gridx= 0;
 		gc.gridy= 0;
 		gc.fill= GridBagConstraints.NONE;
-		gc.anchor= GridBagConstraints.NORTHWEST;
+		gc.anchor= GridBagConstraints.CENTER;
 		add(trackList, gc);
 
 		

@@ -50,7 +50,7 @@ public abstract class  AbstractItemFilmPanel extends JPanel{
         setPreferredSize(dim);
         setMinimumSize(dim);
 
-        setBackground(Color.WHITE);
+        setBackground(new Color(243,245,247));
 
 
         //CATEGOTY ARTWORK//
@@ -121,7 +121,7 @@ public abstract class  AbstractItemFilmPanel extends JPanel{
 
         //	NOTE	//
         ratingCombo = new JComboBox();
-        ratingCombo.setMaximumSize(new Dimension(100, 20));
+        ratingCombo.setPreferredSize(new Dimension(90, 18));
         ratingCombo.setToolTipText("Note");
         ratingCombo.setFont(new Font("Dialog", Font.PLAIN, 14));
 
@@ -149,14 +149,12 @@ public abstract class  AbstractItemFilmPanel extends JPanel{
         addBtn.setMaximumSize(new Dimension(240, 24));
 
 
-
-
-
-
-        //PLACE HOLDER LABELS//
-        holdLabel1 = new JLabel("");
-        holdLabel2 = new JLabel("");
-        holdLabel3 = new JLabel("");
+        //PLACE HOLDER LABELs//
+        holdLabel1 = new JLabel ("");
+        holdLabel2 = new JLabel ("");
+        holdLabel2.setPreferredSize(new Dimension(40,40));
+        holdLabel3 = new JLabel ("");
+        holdLabel3.setPreferredSize(new Dimension(10,10));
 
         //------------------------------------------
         //// LAYOUT  //////////
@@ -187,6 +185,15 @@ public abstract class  AbstractItemFilmPanel extends JPanel{
         gc.anchor = GridBagConstraints.LINE_START;
         add(ratingCombo, gc);
 
+        //hold 5,0//
+        gc.weightx=1;
+        gc.weighty=0.1;
+        gc.gridx=5;
+        gc.gridy=2;
+        gc.fill=GridBagConstraints.NONE;
+        gc.anchor=GridBagConstraints.LINE_END;
+        add(holdLabel3,gc);
+
         //lgn 1-------------------------------------------
         //TITLE LABEL 0,1//
         gc.weightx = 1;
@@ -206,7 +213,6 @@ public abstract class  AbstractItemFilmPanel extends JPanel{
         gc.fill = GridBagConstraints.HORIZONTAL;
         gc.anchor = GridBagConstraints.LINE_START;
         add(titleField, gc);
-//		titleField.setText("");
         gc.gridwidth = 1;
 
         //lgn 2-------------------------------------------

@@ -49,7 +49,7 @@ public class MainFrame extends JFrame implements ListSelectionListener{
 	public LibraryDatabaseModel library;
 	HashMap<Long, Oeuvre> list_oeuvre;
 	//***private AccordionPane accordionPane;
-	
+
 	/////Main Application Window/////
 	public MainFrame(LibraryDatabaseModel library) {
 		super ("Bienvenu sur CollectBee!"); //Titre application//
@@ -185,7 +185,7 @@ public class MainFrame extends JFrame implements ListSelectionListener{
 		//*** add(viewPanel, BorderLayout.CENTER);
 		//*** add(accordionPane.getContent(), BorderLayout.CENTER);
 		//*** add(btn, BorderLayout.SOUTH);
-		
+
 		/////Frame theme, size and visibility/////
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setSize(1000, 600);
