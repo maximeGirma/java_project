@@ -28,6 +28,7 @@ public class MainFrame extends JFrame implements ListSelectionListener{
 
 
 	private ItemNewPanel itemNewPanel;
+	private ItemHomePanel itemHomePanel;
 
 	private ItemFilmPanel itemFilmPanel;
 	private ItemMusiquePanel itemMusiquePanel;
@@ -42,7 +43,6 @@ public class MainFrame extends JFrame implements ListSelectionListener{
 
 
 
-	/*private ItemPanel2 itemPanel2;*/
 	private AlphabetBar alphabetbar;
 
 	public LibraryDatabaseModel library;
@@ -57,8 +57,9 @@ public class MainFrame extends JFrame implements ListSelectionListener{
 
 		toolbar = new Toolbar(this); //NORTH//
 		splitPane = new JSplitPane(JSplitPane.HORIZONTAL_SPLIT);//CENTER
-		viewPanel = new ViewPanel(this);//LEFT PANE SPLIT�PANE//
+		viewPanel = new ViewPanel(this);//LEFT PANE SPLIT PANE//
 
+		itemHomePanel = new ItemHomePanel(this);
 		itemNewPanel = new ItemNewPanel(this);
 		alphabetbar = new AlphabetBar();//SOUTH//
 		//*** btn = new JButton("About this App");
@@ -175,7 +176,7 @@ public class MainFrame extends JFrame implements ListSelectionListener{
 		//add(viewPanel, BorderLayout.WEST);
 		add(splitPane, BorderLayout.CENTER);
 		splitPane.setLeftComponent(viewPanel);//CENTER LEFT//
-		//splitPane.setRightComponent(itemNewPanel);
+		splitPane.setRightComponent(itemHomePanel);
 		//splitPane.setRightComponent(itemPanel);//CENTER RIGHT//
 		splitPane.resetToPreferredSizes();
 		add(alphabetbar, BorderLayout.SOUTH);

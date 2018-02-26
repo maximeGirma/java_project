@@ -1,7 +1,8 @@
-package GraphicalUtilisateurInterface;
+package GraphicalUtilisateurInterface.ItemPanels;
 
 
 import Database.Model.Oeuvre;
+import GraphicalUtilisateurInterface.MainFrame;
 
 import javax.swing.*;
 import java.awt.*;
@@ -52,7 +53,7 @@ public class ItemNoPanel extends JPanel {
 		gc.gridx=0;
 		gc.gridy=0;
 		gc.gridheight = 1;
-		gc.gridwidth = 5;
+		gc.gridwidth = 1;
 		gc.fill=GridBagConstraints.NONE;
 		gc.anchor=GridBagConstraints.CENTER;
 		add(holdLabel1,gc);
