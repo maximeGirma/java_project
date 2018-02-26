@@ -2,6 +2,7 @@ import DataBaseModel.DatabaseController;
 import DataBaseModel.LibraryDatabaseModel;
 import GraphicalUtilisateurInterface.DisplayController.SearchDisplay;
 import GraphicalUtilisateurInterface.MainFrame;
+import SQLite_DataBase.JDBCController;
 import SQLite_DataBase.Object_to_insert.*;
 import SQLite_DataBase.Object_to_insert.dependenciesTables.*;
 
@@ -75,11 +76,11 @@ public class Main {
 
 
 
-       /* SwingUtilities.invokeLater(new Runnable(){
+        SwingUtilities.invokeLater(new Runnable(){
             public void run() {
                 new MainFrame(database);
             }
-        });*/
+        });
     }
 
 }

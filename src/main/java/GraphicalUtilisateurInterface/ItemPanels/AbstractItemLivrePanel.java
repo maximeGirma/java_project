@@ -1,9 +1,12 @@
 package GraphicalUtilisateurInterface.ItemPanels;
 
+import SQLite_DataBase.JDBCController;
+
 import javax.swing.*;
 import java.awt.*;
+import java.util.ArrayList;
 
-public class AbstractItemLivrePanel extends JPanel{
+public abstract class AbstractItemLivrePanel extends JPanel{
 
     protected JLabel titleLabel;
     protected JLabel yearLabel;
@@ -122,13 +125,13 @@ public class AbstractItemLivrePanel extends JPanel{
         ratingCombo.setMaximumSize(new Dimension(100, 20));
         ratingCombo.setToolTipText("Note");
         ratingCombo.setFont(new Font("Dialog", Font.PLAIN,14));
-        ratingCombo.addItem("");
-        ratingCombo.addItem("☆☆☆☆☆");
-        ratingCombo.addItem("★☆☆☆☆");
-        ratingCombo.addItem("★★☆☆☆");
-        ratingCombo.addItem("★★★☆☆");
-        ratingCombo.addItem("★★★★☆");
-        ratingCombo.addItem("★★★★★");
+
+        ArrayList list_note = JDBCController.get_notes();
+        for (int i =0 ; i< list_note.size();i++) {
+
+            ratingCombo.addItem(list_note.get(i));
+        }
+
 
 
         //COMMENTAIRES//

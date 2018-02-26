@@ -3,6 +3,7 @@ package GraphicalUtilisateurInterface.ItemPanels;
 import DataBaseModel.DatabaseController;
 import DataBaseModel.LibraryDatabaseModel;
 import GraphicalUtilisateurInterface.MouseListeners.AbstractCreateListener;
+import SQLite_DataBase.JDBCController;
 import SQLite_DataBase.Object_to_insert.Film;
 import SQLite_DataBase.Object_to_insert.Oeuvre;
 
@@ -10,6 +11,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.MouseEvent;
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 public abstract class  AbstractItemFilmPanel extends JPanel{
     protected JLabel titleLabel;
@@ -127,13 +129,12 @@ public abstract class  AbstractItemFilmPanel extends JPanel{
         ratingCombo.setMaximumSize(new Dimension(100, 20));
         ratingCombo.setToolTipText("Note");
         ratingCombo.setFont(new Font("Dialog", Font.PLAIN, 14));
-        ratingCombo.addItem("");
-        ratingCombo.addItem("☆☆☆☆☆");
-        ratingCombo.addItem("★☆☆☆☆");
-        ratingCombo.addItem("★★☆☆☆");
-        ratingCombo.addItem("★★★☆☆");
-        ratingCombo.addItem("★★★★☆");
-        ratingCombo.addItem("★★★★★");
+
+        ArrayList list_note = JDBCController.get_notes();
+        for (int i =0 ; i< list_note.size();i++) {
+
+            ratingCombo.addItem(list_note.get(i));
+        }
 
 
         //COMMENTAIRES//

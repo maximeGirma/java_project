@@ -22,7 +22,7 @@ public class Oeuvre{
     protected String dateEdition;
     protected String commentaire;
     protected int nbrepages;
-    protected int isbn;
+    protected String isbn;
     protected String duree;
     protected int pegi;
 
@@ -163,11 +163,11 @@ public class Oeuvre{
         this.nbrepages = nbrepages;
     }
 
-    public int getIsbn() {
+    public String getIsbn() {
         return isbn;
     }
 
-    public void setIsbn(int isbn) {
+    public void setIsbn(String isbn) {
         this.isbn = isbn;
     }
 
@@ -226,6 +226,22 @@ public class Oeuvre{
 
     public void setId_note(int id_note) {
         this.id_note = id_note;
+    }
+
+    public ArrayList<String> getPersonnes_name_list() {
+        return personnes_name_list;
+    }
+
+    public void setPersonnes_name_list(ArrayList<String> personnes_name_list) {
+        this.personnes_name_list = personnes_name_list;
+    }
+
+    public ArrayList<String> getGenres_label_list() {
+        return genres_label_list;
+    }
+
+    public void setGenres_label_list(ArrayList<String> genres_label_list) {
+        this.genres_label_list = genres_label_list;
     }
 
     @Override

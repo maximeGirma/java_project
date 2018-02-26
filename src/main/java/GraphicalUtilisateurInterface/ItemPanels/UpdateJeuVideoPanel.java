@@ -7,6 +7,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import java.util.ArrayList;
 
 public class UpdateJeuVideoPanel extends AbstractItemJeuVideoPanel {
     Oeuvre oeuvre_to_update;
@@ -36,6 +37,19 @@ public class UpdateJeuVideoPanel extends AbstractItemJeuVideoPanel {
             public void mouseClicked(MouseEvent mouseEvent) {
 
                 oeuvre_to_update.setTitre(titleField.getText());
+                oeuvre_to_update.setPegi(Integer.parseInt(refField.getText()));
+                oeuvre_to_update.setDateEdition(yearField.getText());
+                oeuvre_to_update.setCommentaire(commentField.getText());
+
+                String[] temp_genres;
+                ArrayList<String> genres = new ArrayList<>();
+
+
+                temp_genres = typeField.getText().split(",");
+                for (String genre : temp_genres
+                        ) {
+                    genres.add(genre);
+                }
 
             }
 
@@ -65,11 +79,23 @@ public class UpdateJeuVideoPanel extends AbstractItemJeuVideoPanel {
 
         oeuvre_to_update = oeuvre;
 
-        titleField.setText(null);
+
         titleField.setText(oeuvre.getTitre());
         yearField.setText(oeuvre.getDateEdition());
         commentField.setText(oeuvre.getCommentaire());
         refField.setText(Integer.toString(oeuvre.getPegi()));
+        ratingCombo.setSelectedIndex(oeuvre.getId_note());
+
+        if(oeuvre_to_update.getGenres_label_list() != null) {
+            String concat_genres = "";
+            for (String item : oeuvre_to_update.getGenres_label_list()) {
+                concat_genres += item;
+                concat_genres += ", ";
+            }
+            typeField.setText(concat_genres);
+        }
+
+
 
     }
 

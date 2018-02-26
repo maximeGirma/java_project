@@ -7,6 +7,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import java.util.ArrayList;
 
 public class UpdateLivrePanel extends AbstractItemLivrePanel{
 
@@ -36,7 +37,20 @@ public class UpdateLivrePanel extends AbstractItemLivrePanel{
             public void mouseClicked(MouseEvent mouseEvent) {
 
                 oeuvre_to_update.setTitre(titleField.getText());
+                oeuvre_to_update.setIsbn(refField.getText());
+                oeuvre_to_update.setNbrepages(Integer.parseInt(pagesField.getText()));
+                oeuvre_to_update.setDateEdition(yearField.getText());
+                oeuvre_to_update.setCommentaire(commentField.getText());
 
+                String[] temp_genres;
+                ArrayList<String> genres = new ArrayList<>();
+
+
+                temp_genres = typeField.getText().split(",");
+                for (String genre : temp_genres
+                        ) {
+                    genres.add(genre);
+                }
             }
 
             @Override
@@ -71,6 +85,16 @@ public class UpdateLivrePanel extends AbstractItemLivrePanel{
         commentField.setText(oeuvre.getCommentaire());
         pagesField.setText(Integer.toString(oeuvre.getNbrepages()));
         refField.setText(Integer.toString(oeuvre.getReference()));
+        ratingCombo.setSelectedIndex(oeuvre.getId_note());
+
+        if(oeuvre_to_update.getGenres_label_list() != null) {
+            String concat_genres = "";
+            for (String item : oeuvre_to_update.getGenres_label_list()) {
+                concat_genres += item;
+                concat_genres += ", ";
+            }
+            typeField.setText(concat_genres);
+        }
 
     }
 

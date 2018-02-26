@@ -3,10 +3,32 @@ package SQLite_DataBase;
 import SQLite_DataBase.Object_to_insert.Oeuvre;
 
 import java.sql.*;
+import java.util.ArrayList;
 
 public class JDBCController {
 
-  /*  public static void update(Oeuvre oeuvre){
+
+    public static ArrayList get_notes(){
+
+        String sql = "SELECT * FROM Note ;";
+        ArrayList return_note = new ArrayList();
+
+        try (Connection conn = SQLite_connect.connect();
+             Statement stmt  = conn.createStatement();
+             ResultSet rs    = stmt.executeQuery(sql)){
+
+            // loop through the result set
+            while (rs.next()) {
+                return_note.add(rs.getString("note"));
+            }
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+        return return_note;
+    }
+
+
+    public static void update(Oeuvre oeuvre){
 
 
 
@@ -30,7 +52,7 @@ public class JDBCController {
             pstmt.setInt(3, oeuvre.getReference());
             pstmt.setString(4, oeuvre.getDateEdition());
             pstmt.setInt(5, oeuvre.getNbrepages());
-            pstmt.setInt(6, oeuvre.getIsbn());
+            pstmt.setString(6, oeuvre.getIsbn());
             pstmt.setString(7, oeuvre.getDuree());
             pstmt.setInt(8, oeuvre.getPegi());
             pstmt.setLong(9, oeuvre.getId());
@@ -60,5 +82,5 @@ public class JDBCController {
         } catch (SQLException e) {
             System.out.println(e.getMessage());
         }
-    }*/
+    }
 }
