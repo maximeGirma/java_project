@@ -14,6 +14,10 @@ public class PersonneType {
     public PersonneType() {
     }
 
+    public PersonneType(String personne_type_name) {
+        this.personne_type_name = personne_type_name;
+    }
+
     public int getId() {
         return id;
     }

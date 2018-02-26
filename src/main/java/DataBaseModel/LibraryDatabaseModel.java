@@ -75,6 +75,24 @@ public class LibraryDatabaseModel extends DatabaseModel<ResultSet, HashMap<Strin
             category_list.get(2).setName_category("LIVRE");
             category_list.get(3).setName_category("JEU-VIDEO");
 
+            ArrayList<PersonneType> personne_types_list = new ArrayList<>();
+            personne_types_list.add(new PersonneType("Inconnu"));
+            personne_types_list.add(new PersonneType("Réalisateur"));
+            personne_types_list.add(new PersonneType("Acteur"));
+            personne_types_list.add(new PersonneType("Producteur"));
+            personne_types_list.add(new PersonneType("Scénariste"));
+            personne_types_list.add(new PersonneType("Artiste"));
+            personne_types_list.add(new PersonneType("Compositeur"));
+            personne_types_list.add(new PersonneType("Interprète"));
+            personne_types_list.add(new PersonneType("Editeur"));
+            personne_types_list.add(new PersonneType("Nom de Plume"));
+            personne_types_list.add(new PersonneType("Nègre"));
+            personne_types_list.add(new PersonneType("Studio"));
+            personne_types_list.add(new PersonneType("Distributeur"));
+
+
+
+
             ArrayList<Note> note_list = new ArrayList<>();
             note_list.add(new Note("Non attribuée"));
             note_list.add(new Note("☆☆☆☆☆"));
@@ -87,14 +105,15 @@ public class LibraryDatabaseModel extends DatabaseModel<ResultSet, HashMap<Strin
             Personne personne = new Personne();
             personne.setPersonneName("Inconnu");
 
-            PersonneType personne_type = new PersonneType();
-            personne_type.setPersonneType("Inconnu");
-
             Genre genre = new Genre();
             genre.setLabel("Indéfini");
 
-            for (Category item: category_list) {
+            for (Category item : category_list) {
                 getObjectModel(Category.class).insert(item);
+            }
+
+            for (PersonneType personne_type : personne_types_list) {
+                getObjectModel(PersonneType.class).insert(personne_type);
             }
 
             for (Note note: note_list) {
@@ -102,7 +121,6 @@ public class LibraryDatabaseModel extends DatabaseModel<ResultSet, HashMap<Strin
             }
 
             getObjectModel(Genre.class).insert(genre);
-            getObjectModel(PersonneType.class).insert(personne_type);
             getObjectModel(Personne.class).insert(personne);
 
             /*getObjectModel(AcquisitionDate.class).insert(acquisition_date);

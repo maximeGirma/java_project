@@ -7,6 +7,7 @@ import SQLite_DataBase.Object_to_insert.*;
 import SQLite_DataBase.Object_to_insert.dependenciesTables.*;
 
 import javax.swing.*;
+
 import java.sql.SQLException;
 import java.util.*;
 
@@ -24,6 +25,9 @@ public class Main {
         genres2.add("Science-Fiction");
         genres2.add("Policier");
 
+        ArrayList<String> genres3 = new ArrayList<>();
+        genres3.add("Rock");
+
         ArrayList<String> personne_name_list = new ArrayList<>();
         personne_name_list.add("Quentin Tarantino");
         personne_name_list.add("Samuel Lee Jackson, John Travolta, Bruce Willis");
@@ -32,8 +36,9 @@ public class Main {
         personne_name_list2.add("Un type sympa");
         personne_name_list2.add("Will Smith");
 
-        ArrayList<String> genres3 = new ArrayList<>();
-        genres3.add("Rock");
+        ArrayList<String> personne_type_list = new ArrayList<>();
+        personne_type_list.add("Producteur");
+        personne_type_list.add("Acteur");
 
         Film film1 = new Film(personne_name_list, genres1, 2);
         film1.setTitre("Pulp Fiction");
@@ -51,8 +56,8 @@ public class Main {
 
 
 
-        OeuvreController.addOeuvre(film1, film1.personnes_name_list, "Inconnu",  film1.genres_label_list, database);
-        OeuvreController.addOeuvre(film2, film2.personnes_name_list, "Inconnu", film2.genres_label_list, database);
+        OeuvreController.addOeuvre(film1, film1.personnes_name_list, personne_type_list, film1.genres_label_list, database);
+        OeuvreController.addOeuvre(film2, film2.personnes_name_list, personne_type_list, film2.genres_label_list, database);
         /*OeuvreController.addOeuvre(music1, music1.genres_label_list, database);
         OeuvreController.addOeuvre(jeu1, jeu1.genres_label_list, database);*/
 
@@ -65,13 +70,15 @@ public class Main {
         } catch (SQLException e) {
             e.printStackTrace();
         }*/
-
-        ArrayList<Personne> result = film1.getPersonnes(database);
-
-        for (Personne personne : result) {
-            System.out.println(personne.getPersonne_name());
+    /*ArrayList<String> genrelist = new ArrayList<>();
+        for (Oeuvre oeuvre : database.getObjectModel(Oeuvre.class).getAll("titre = ?", "Pulp Fiction")) {
+            genrelist.add(oeuvre.genres_label_list.get(0));
         }
 
+        for (String genre : genrelist) {
+            System.out.println(genre);
+        }
+*/
 
 
 

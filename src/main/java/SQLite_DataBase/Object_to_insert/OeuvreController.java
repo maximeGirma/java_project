@@ -14,8 +14,8 @@ public class OeuvreController {
     public OeuvreController() {
     }
 
-public static void addOeuvre(Oeuvre oeuvre, ArrayList<String> input_personnes_name, String personne_type_name
-                             , ArrayList<String> input_labels, LibraryDatabaseModel library) {
+    public static void addOeuvre(Oeuvre oeuvre, ArrayList<String> input_personnes_name, ArrayList<String> personne_type_name,
+                                 ArrayList<String> input_labels, LibraryDatabaseModel library) {
 
         try {
             /* GESTION DES PERSONNES */
@@ -35,22 +35,24 @@ public static void addOeuvre(Oeuvre oeuvre, ArrayList<String> input_personnes_na
                 input_personnes_name.add("Inconnu");
             }
 
-            for (String name : input_personnes_name) {
-                if (!existing_personnes_name.contains(name)) {
+            String name;
+            String type_name;
+            for (int i = 0; i<input_personnes_name.size(); i++) {
+                name = input_personnes_name.get(i);
+                type_name = personne_type_name.get(i);
+                /*if (!existing_personnes_name.contains(name)) {*/
                     Personne personne = new Personne();
                     personne.setPersonneName(name);
                     personne.setId_personne_type(library.getObjectModel(PersonneType.class)
-                            .getAll("personne_type_name= ?", personne_type_name)
+                            .getAll("personne_type_name= ?", type_name)
                             .get(0).getId());
                     library.getObjectModel(Personne.class).insert(personne);
-                }
             }
             /* recup la liste des id des personnes créées */
             ArrayList<Long> personne_id_list = new ArrayList<>();
-            List<Personne> personne_list;
-            for (String name : input_personnes_name) {
+            for (String personne_name : input_personnes_name) {
                 personne_id_list.add(library.getObjectModel(Personne.class)
-                        .getAll("personne_name = ?", name).get(0).getId());
+                        .getAll("personne_name = ?", personne_name).get(0).getId());
             }
 
             /* GESTION DES GENRES */
@@ -91,13 +93,13 @@ public static void addOeuvre(Oeuvre oeuvre, ArrayList<String> input_personnes_na
             System.out.println(id_oeuvre);
             System.out.println(genres_id_list);
 
-             /*CREATION RELATION OEUVRE/PERSONNES */
+             /*CREATION RELATIONS OEUVRE/PERSONNES */
             for (Long id_personne : personne_id_list) {
                Participe participe_relationship = new Participe(id_oeuvre, id_personne);
                 library.getObjectModel(Participe.class).insert(participe_relationship);
             }
 
-            /* CREATION RELATION OEUVRE/GENRES */
+            /* CREATION RELATIONS OEUVRE/GENRES */
             for (Long genre_id : genres_id_list) {
                 OeuvreAppartientAGenre relationship = new OeuvreAppartientAGenre(id_oeuvre, genre_id);
                 library.getObjectModel(OeuvreAppartientAGenre.class).insert(relationship);
