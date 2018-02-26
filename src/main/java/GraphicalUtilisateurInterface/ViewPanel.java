@@ -1,15 +1,12 @@
 package GraphicalUtilisateurInterface;
 
-import SQLite_DataBase.Object_to_insert.Oeuvre;
+import Database.Model.Oeuvre;
 
 import java.awt.*;
 import javax.swing.*;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
-
-import javax.swing.*;
-import javax.swing.event.ListSelectionEvent;
 
 
 public class ViewPanel extends JPanel{

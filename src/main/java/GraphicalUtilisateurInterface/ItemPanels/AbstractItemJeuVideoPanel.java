@@ -1,6 +1,6 @@
 package GraphicalUtilisateurInterface.ItemPanels;
 
-import SQLite_DataBase.JDBCController;
+import Database.JDBC.JDBCController;
 
 import javax.swing.*;
 import java.awt.*;

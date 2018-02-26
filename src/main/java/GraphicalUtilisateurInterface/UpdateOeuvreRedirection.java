@@ -1,6 +1,6 @@
 package GraphicalUtilisateurInterface;
 
-import SQLite_DataBase.Object_to_insert.Oeuvre;
+import Database.Model.Oeuvre;
 
 public class UpdateOeuvreRedirection {
     public static void ByCategorie(MainFrame caller, Oeuvre oeuvre){

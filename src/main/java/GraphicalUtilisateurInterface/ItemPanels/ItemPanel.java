@@ -3,9 +3,8 @@ package GraphicalUtilisateurInterface.ItemPanels;
 import GraphicalUtilisateurInterface.MouseListeners.DeleteListener;
 import GraphicalUtilisateurInterface.MouseListeners.SaveListener;
 import GraphicalUtilisateurInterface.TracksInnerPanel;
-import SQLite_DataBase.Object_to_insert.Oeuvre;
+import Database.Model.Oeuvre;
 
-import javax.swing.*;
 import java.awt.*;
 
 import javax.swing.ImageIcon;

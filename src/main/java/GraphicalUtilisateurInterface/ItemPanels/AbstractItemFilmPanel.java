@@ -1,16 +1,11 @@
 package GraphicalUtilisateurInterface.ItemPanels;
 
-import DataBaseModel.DatabaseController;
-import DataBaseModel.LibraryDatabaseModel;
 import GraphicalUtilisateurInterface.MouseListeners.AbstractCreateListener;
-import SQLite_DataBase.JDBCController;
-import SQLite_DataBase.Object_to_insert.Film;
-import SQLite_DataBase.Object_to_insert.Oeuvre;
+import Database.JDBC.JDBCController;
 
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.MouseEvent;
-import java.sql.SQLException;
 import java.util.ArrayList;
 
 public abstract class  AbstractItemFilmPanel extends JPanel{

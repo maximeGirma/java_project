@@ -1,6 +1,6 @@
 package GraphicalUtilisateurInterface;
 
-import SQLite_DataBase.Object_to_insert.Oeuvre;
+import Database.Model.Oeuvre;
 
 import java.awt.*;
 import java.awt.event.ActionEvent;

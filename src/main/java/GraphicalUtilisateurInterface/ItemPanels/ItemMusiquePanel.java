@@ -1,16 +1,12 @@
 package GraphicalUtilisateurInterface.ItemPanels;
 
 
-import DataBaseModel.DatabaseController;
-import DataBaseModel.LibraryDatabaseModel;
 import GraphicalUtilisateurInterface.MouseListeners.AbstractCreateListener;
-import SQLite_DataBase.Object_to_insert.Film;
-import SQLite_DataBase.Object_to_insert.Musique;
-import SQLite_DataBase.Object_to_insert.Oeuvre;
+import Database.Model.Musique;
+import Database.Model.Oeuvre;
 
 import javax.swing.*;
 import java.awt.event.MouseEvent;
-import java.sql.SQLException;
 import java.util.ArrayList;
 
 public class ItemMusiquePanel extends AbstractItemMusiquePanel {

@@ -1,10 +1,8 @@
-import DataBaseModel.DatabaseController;
-import DataBaseModel.LibraryDatabaseModel;
-import GraphicalUtilisateurInterface.DisplayController.SearchDisplay;
+import Database.Controller.DatabaseController;
+import Database.Model.Film;
+import Database.Model.LibraryDatabaseModel;
+import Database.Controller.OeuvreController;
 import GraphicalUtilisateurInterface.MainFrame;
-import SQLite_DataBase.JDBCController;
-import SQLite_DataBase.Object_to_insert.*;
-import SQLite_DataBase.Object_to_insert.dependenciesTables.*;
 
 import javax.swing.*;
 

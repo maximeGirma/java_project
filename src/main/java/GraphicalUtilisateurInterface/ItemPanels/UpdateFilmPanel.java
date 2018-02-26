@@ -1,8 +1,7 @@
 package GraphicalUtilisateurInterface.ItemPanels;
 
-import DataBaseModel.LibraryDatabaseModel;
 import GraphicalUtilisateurInterface.MouseListeners.DeleteListener;
-import SQLite_DataBase.Object_to_insert.Oeuvre;
+import Database.Model.Oeuvre;
 
 import javax.swing.*;
 import java.awt.*;

@@ -1,9 +1,5 @@
 package GraphicalUtilisateurInterface.MouseListeners;
 
-import SQLite_DataBase.Object_to_insert.Film;
-import SQLite_DataBase.Object_to_insert.Oeuvre;
-import com.sun.xml.internal.ws.api.server.AbstractServerAsyncTransport;
-
 import javax.swing.*;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;

@@ -3,10 +3,10 @@ package GraphicalUtilisateurInterface; /**
  * Application Mainframe
  *
  */
-import DataBaseModel.LibraryDatabaseModel;
-import GraphicalUtilisateurInterface.DisplayController.SearchDisplay;
+import Database.Model.LibraryDatabaseModel;
+import Database.Controller.SearchDisplay;
 import GraphicalUtilisateurInterface.ItemPanels.*;
-import SQLite_DataBase.Object_to_insert.Oeuvre;
+import Database.Model.Oeuvre;
 
 import java.awt.BorderLayout;
 import java.awt.Color;

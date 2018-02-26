@@ -1,7 +1,7 @@
 package GraphicalUtilisateurInterface.ItemPanels;
 
 import GraphicalUtilisateurInterface.TracksInnerPanel;
-import SQLite_DataBase.JDBCController;
+import Database.JDBC.JDBCController;
 
 import javax.swing.*;
 import java.awt.*;
