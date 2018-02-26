@@ -5,6 +5,11 @@ import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
 public class DeleteListener implements MouseListener{
+    private JPanel parent_frame;
+
+    public DeleteListener(JPanel parent){
+        parent_frame = parent;
+    }
     @Override
     public void mouseClicked(MouseEvent mouseEvent) {
         System.out.println("delete button");

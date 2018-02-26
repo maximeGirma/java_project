@@ -1,5 +1,8 @@
 package GraphicalUtilisateurInterface.ItemPanels;
 
+
+import Database.Model.LibraryDatabaseModel;
+
 import Database.JDBC.JDBCController;
 
 import javax.swing.*;
@@ -39,9 +42,11 @@ public abstract class AbstractItemJeuVideoPanel extends JPanel{
     protected JLabel holdLabel2;
     protected JLabel holdLabel3;
     protected GridBagConstraints gc;
+    protected LibraryDatabaseModel library;
 
-    public AbstractItemJeuVideoPanel(){
+    public AbstractItemJeuVideoPanel(LibraryDatabaseModel parent_library){
 
+        library = parent_library;
         Dimension dim = getPreferredSize();
         dim.width = 680;
         setPreferredSize(dim);

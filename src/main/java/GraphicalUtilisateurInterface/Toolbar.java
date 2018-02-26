@@ -4,8 +4,6 @@ package GraphicalUtilisateurInterface; /**
  * The user can choose the category or search for the item of his choice.
  */
 
-import GraphicalUtilisateurInterface.ItemPanels.ItemPanel;
-
 import java.awt.Color;
 import java.awt.Container;
 import java.awt.GridBagConstraints;
@@ -29,8 +27,7 @@ public class Toolbar extends JToolBar implements ActionListener {
 	private JButton homeBtn;
 	private JButton itemBtn;
 	
-	private ItemPanel itemPanel;
-	private ItemPanel itemPanel2;
+
 	private  StringListener textListener;
 	private JTextField txtSearch;
 	private ToolbarListener toolbarListener;

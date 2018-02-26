@@ -1,5 +1,6 @@
 package GraphicalUtilisateurInterface.ItemPanels;
 
+import Database.Model.LibraryDatabaseModel;
 import GraphicalUtilisateurInterface.MouseListeners.AbstractCreateListener;
 import Database.JDBC.JDBCController;
 
@@ -42,8 +43,11 @@ public abstract class  AbstractItemFilmPanel extends JPanel{
     protected JLabel holdLabel2;
     protected JLabel holdLabel3;
     protected GridBagConstraints gc;
+    protected LibraryDatabaseModel library;
 
-    public AbstractItemFilmPanel() {
+    public AbstractItemFilmPanel(LibraryDatabaseModel parent_library) {
+
+        library = parent_library;
 
         Dimension dim = getPreferredSize();
         dim.width = 680;

@@ -1,6 +1,7 @@
 package GraphicalUtilisateurInterface.ItemPanels;
 
 
+import Database.Model.LibraryDatabaseModel;
 import GraphicalUtilisateurInterface.MouseListeners.AbstractCreateListener;
 import Database.Model.Livre;
 import Database.Model.Oeuvre;
@@ -11,7 +12,8 @@ import java.util.ArrayList;
 
 public class ItemLivrePanel extends AbstractItemLivrePanel {
 
-    public ItemLivrePanel() {
+    public ItemLivrePanel(LibraryDatabaseModel parent_library) {
+        super(parent_library);
         addBtn.addMouseListener(new CreateLivreListener(this));
     }
 

@@ -1,5 +1,7 @@
 package GraphicalUtilisateurInterface.ItemPanels;
 
+
+import Database.Model.LibraryDatabaseModel;
 import GraphicalUtilisateurInterface.TracksInnerPanel;
 import Database.JDBC.JDBCController;
 
@@ -8,6 +10,8 @@ import java.awt.*;
 import java.util.ArrayList;
 
 public abstract class AbstractItemMusiquePanel extends JPanel{
+
+
 
     protected JLabel titleLabel;
     protected JLabel yearLabel;
@@ -47,8 +51,11 @@ public abstract class AbstractItemMusiquePanel extends JPanel{
     protected JPanel tracksInnerPanel;
 
     protected GridBagConstraints gc;
+    protected LibraryDatabaseModel library;
 
-    public AbstractItemMusiquePanel(){
+    public AbstractItemMusiquePanel(LibraryDatabaseModel parent_library){
+
+        library = parent_library;
 
         Dimension dim = getPreferredSize();
         dim.width = 680;

@@ -1,5 +1,8 @@
 package GraphicalUtilisateurInterface.ItemPanels;
 
+
+import Database.Model.LibraryDatabaseModel;
+
 import Database.JDBC.JDBCController;
 
 import javax.swing.*;
@@ -7,6 +10,7 @@ import java.awt.*;
 import java.util.ArrayList;
 
 public abstract class AbstractItemLivrePanel extends JPanel{
+
 
     protected JLabel titleLabel;
     protected JLabel yearLabel;
@@ -42,7 +46,12 @@ public abstract class AbstractItemLivrePanel extends JPanel{
     protected JLabel holdLabel3;
 
     protected GridBagConstraints gc;
-    public AbstractItemLivrePanel(){
+    protected LibraryDatabaseModel library;
+
+    public AbstractItemLivrePanel(LibraryDatabaseModel parent_library){
+
+        library = parent_library;
+
 
         Dimension dim = getPreferredSize();
         dim.width = 680;

@@ -1,5 +1,6 @@
 package GraphicalUtilisateurInterface.ItemPanels;
 
+import Database.Model.LibraryDatabaseModel;
 import GraphicalUtilisateurInterface.MouseListeners.AbstractCreateListener;
 import Database.Model.Film;
 import Database.Model.Oeuvre;
@@ -11,7 +12,9 @@ import java.util.ArrayList;
 
 public class ItemFilmPanel extends AbstractItemFilmPanel {
 
-	public ItemFilmPanel(){
+	public ItemFilmPanel(LibraryDatabaseModel parent_library){
+
+		super(parent_library);
 		addBtn.addMouseListener(new CreateFilmListener(this));
 	}
 

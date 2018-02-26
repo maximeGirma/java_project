@@ -1,5 +1,6 @@
 package GraphicalUtilisateurInterface.ItemPanels;
 
+import Database.Model.LibraryDatabaseModel;
 import GraphicalUtilisateurInterface.MouseListeners.AbstractCreateListener;
 import Database.Model.JeuVideo;
 import Database.Model.Oeuvre;
@@ -11,7 +12,8 @@ import java.util.ArrayList;
 
 public class ItemJeuPanel extends AbstractItemJeuVideoPanel {
 
-    public ItemJeuPanel() {
+    public ItemJeuPanel(LibraryDatabaseModel parent_library) {
+        super(parent_library);
         addBtn.addMouseListener(new CreateJeuListener(this));
     }
 

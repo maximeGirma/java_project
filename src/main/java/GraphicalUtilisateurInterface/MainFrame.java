@@ -25,7 +25,7 @@ public class MainFrame extends JFrame implements ListSelectionListener{
 	private Toolbar toolbar;
 	private JSplitPane splitPane;
 	private ViewPanel viewPanel;
-	private ItemPanel itemPanel;
+
 
 	private ItemNewPanel itemNewPanel;
 
@@ -44,8 +44,7 @@ public class MainFrame extends JFrame implements ListSelectionListener{
 
 	/*private ItemPanel2 itemPanel2;*/
 	private AlphabetBar alphabetbar;
-	private JLabel label;
-	private JPanel panel;
+
 	public LibraryDatabaseModel library;
 	HashMap<Long, Oeuvre> list_oeuvre;
 	//***private AccordionPane accordionPane;
@@ -59,22 +58,20 @@ public class MainFrame extends JFrame implements ListSelectionListener{
 		toolbar = new Toolbar(this); //NORTH//
 		splitPane = new JSplitPane(JSplitPane.HORIZONTAL_SPLIT);//CENTER
 		viewPanel = new ViewPanel(this);//LEFT PANE SPLIT�PANE//
-		itemPanel = new ItemPanel();//RIGHT PANE SPLIT�PANE//
+
 		itemNewPanel = new ItemNewPanel(this);
 		alphabetbar = new AlphabetBar();//SOUTH//
-		label = new JLabel();
-		panel = new JPanel();
 		//*** btn = new JButton("About this App");
 
-		itemFilmPanel = new ItemFilmPanel();
-		itemMusiquePanel = new ItemMusiquePanel();
-		itemLivrePanel = new ItemLivrePanel();
-		itemJeuPanel = new ItemJeuPanel();
+		itemFilmPanel = new ItemFilmPanel(library);
+		itemMusiquePanel = new ItemMusiquePanel(library);
+		itemLivrePanel = new ItemLivrePanel(library);
+		itemJeuPanel = new ItemJeuPanel(library);
 
-		updateFilmPanel = new UpdateFilmPanel();
-		updateJeuPanel = new UpdateJeuVideoPanel();
-		updateLivrePanel =new UpdateLivrePanel();
-		updateMusiquePanel = new UpdateMusiquePanel();
+		updateFilmPanel = new UpdateFilmPanel(library);
+		updateJeuPanel = new UpdateJeuVideoPanel(library);
+		updateLivrePanel =new UpdateLivrePanel(library);
+		updateMusiquePanel = new UpdateMusiquePanel(library);
 
 		this.library = library;
 		/////Application Menu Bar/////

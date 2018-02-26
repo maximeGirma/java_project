@@ -1,5 +1,6 @@
 package GraphicalUtilisateurInterface.ItemPanels;
 
+import Database.Model.LibraryDatabaseModel;
 import GraphicalUtilisateurInterface.MouseListeners.DeleteListener;
 import Database.Model.Oeuvre;
 
@@ -11,9 +12,9 @@ import java.util.ArrayList;
 
 public class UpdateFilmPanel extends AbstractItemFilmPanel {
     Oeuvre oeuvre_to_update;
-    public UpdateFilmPanel() {
+    public UpdateFilmPanel(LibraryDatabaseModel parent_library) {
 
-
+        super(parent_library);
 
         addBtn.addMouseListener(new MouseListener() {
             @Override
@@ -66,7 +67,7 @@ public class UpdateFilmPanel extends AbstractItemFilmPanel {
         delBtn.setIcon(new ImageIcon("src\\main\\java\\img\\trash.png"));
         delBtn.setPreferredSize(new Dimension(240, 24));
         delBtn.setMaximumSize(new Dimension(240, 24));
-        delBtn.addMouseListener(new DeleteListener());
+        delBtn.addMouseListener(new DeleteListener(this));
 
         //DELETE BUTTON 3,11//
         gc.weightx = 1;
@@ -103,7 +104,7 @@ public class UpdateFilmPanel extends AbstractItemFilmPanel {
 
         try {//////////TO FINISH -> WAITING FOR PERSONNE TYPE GETTERS
             artistNomField.setText(name_list.get(0));
-            artistTypeCombo.setSelectedIndex(0);
+            artistTypeCombo.setSelectedIndex(1);
 
             artist2NomField.setText(name_list.get(1));    ;
             artist2TypeCombo.setSelectedIndex(1);

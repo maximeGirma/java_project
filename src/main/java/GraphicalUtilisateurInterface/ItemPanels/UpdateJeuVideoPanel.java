@@ -1,5 +1,7 @@
 package GraphicalUtilisateurInterface.ItemPanels;
 
+
+import Database.Model.LibraryDatabaseModel;
 import GraphicalUtilisateurInterface.MouseListeners.DeleteListener;
 import Database.Model.Oeuvre;
 
@@ -12,7 +14,9 @@ import java.util.ArrayList;
 public class UpdateJeuVideoPanel extends AbstractItemJeuVideoPanel {
     Oeuvre oeuvre_to_update;
 
-    public UpdateJeuVideoPanel() {
+    public UpdateJeuVideoPanel(LibraryDatabaseModel parent_library) {
+
+        super(parent_library);
         //DELETE BUTTON//
         delBtn = new JButton("");
         delBtn.setForeground(Color.WHITE);
@@ -21,7 +25,7 @@ public class UpdateJeuVideoPanel extends AbstractItemJeuVideoPanel {
         delBtn.setIcon(new ImageIcon("src\\main\\java\\img\\trash.png"));
         delBtn.setPreferredSize(new Dimension(240,24));
         delBtn.setMaximumSize(new Dimension(240,24));
-        delBtn.addMouseListener(new DeleteListener());
+        delBtn.addMouseListener(new DeleteListener(this));
 
         //DELETE BUTTON 3,11//
         gc.weightx = 1;
@@ -93,6 +97,20 @@ public class UpdateJeuVideoPanel extends AbstractItemJeuVideoPanel {
                 concat_genres += ", ";
             }
             typeField.setText(concat_genres);
+        }
+
+
+        ArrayList<String> name_list = oeuvre.getPersonnes_name_list();
+
+
+        try {//////////TO FINISH -> WAITING FOR PERSONNE TYPE GETTERS
+            artistNomField.setText(name_list.get(0));
+            artistTypeCombo.setSelectedIndex(0);
+
+            artist2NomField.setText(name_list.get(1));    ;
+            artist2TypeCombo.setSelectedIndex(1);
+        } catch (NullPointerException e) {
+            e.printStackTrace();
         }
 
 
