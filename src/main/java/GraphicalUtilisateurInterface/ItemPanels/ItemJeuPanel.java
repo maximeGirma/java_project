@@ -29,7 +29,7 @@ public class ItemJeuPanel extends AbstractItemJeuVideoPanel {
         public void mouseClicked(MouseEvent mouseEvent) {
             super.mouseClicked(mouseEvent);
 
-            super.mouseClicked(mouseEvent);
+
             Oeuvre oeuvre_to_insert = new Film();
             oeuvre_to_insert.setTitre(titleField.getText());
             oeuvre_to_insert.setCommentaire(commentField.getText());

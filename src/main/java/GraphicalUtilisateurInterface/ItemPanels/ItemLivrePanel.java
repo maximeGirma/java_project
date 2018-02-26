@@ -27,6 +27,7 @@ public class ItemLivrePanel extends AbstractItemLivrePanel {
         @Override
         public void mouseClicked(MouseEvent mouseEvent) {
             super.mouseClicked(mouseEvent);
+
             Oeuvre oeuvre_to_insert = new Livre();
             oeuvre_to_insert.setTitre(titleField.getText());
             oeuvre_to_insert.setCommentaire(commentField.getText());

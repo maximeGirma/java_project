@@ -19,6 +19,12 @@ public class UpdateFilmPanel extends AbstractItemFilmPanel {
             public void mouseClicked(MouseEvent mouseEvent) {
 
                 oeuvre_to_update.setTitre(titleField.getText());
+                oeuvre_to_update.setDateEdition(yearField.getText());
+                oeuvre_to_update.setDuree(timeField.getText());
+                oeuvre_to_update.setCommentaire(commentField.getText());
+
+
+                
 
             }
 

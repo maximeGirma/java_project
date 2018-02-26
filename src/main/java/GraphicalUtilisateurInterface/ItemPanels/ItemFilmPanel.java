@@ -28,6 +28,7 @@ public class ItemFilmPanel extends AbstractItemFilmPanel {
 		public void mouseClicked(MouseEvent mouseEvent) {
 
 			super.mouseClicked(mouseEvent);
+
 			Oeuvre oeuvre_to_insert = new Film();
 			oeuvre_to_insert.setTitre(titleField.getText());
 			oeuvre_to_insert.setCommentaire(commentField.getText());
@@ -39,7 +40,7 @@ public class ItemFilmPanel extends AbstractItemFilmPanel {
 			if (oeuvre_to_insert.getTitre().isEmpty()){
 				jop1.showMessageDialog(null, "Titre non renseigné", "Information", JOptionPane.INFORMATION_MESSAGE);
 			}else {
-				
+
 				jop1.showMessageDialog(null, "Oeuvre Sauvegardée !", "Information", JOptionPane.INFORMATION_MESSAGE);
 			}
 

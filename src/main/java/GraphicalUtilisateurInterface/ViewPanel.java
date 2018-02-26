@@ -123,9 +123,17 @@ public class ViewPanel extends JPanel{
 
 		this.temporary_list_model = new DefaultListModel();
 		indice_list = new ArrayList();
-		for (int i = 0; i<listModel.getSize(); i++) {
-			String line = (String)listModel.get(i);
-			System.out.println(line);
+		for (int i = 0; i< this.listModel.getSize(); i++) {
+			String line = (String)this.listModel.get(i);
+			System.out.println(line + i);
+			System.out.println(line + i);
+			System.out.println(line + i);
+			System.out.println(line + i);
+			System.out.println(line + i);
+			System.out.println(line + i);
+			System.out.println(line + i);
+			System.out.println(line + i);
+			System.out.println(line + i);
 			if (line.contains(str_to_find)){
 				indice_list.add(i);
 				this.temporary_list_model.addElement(line);

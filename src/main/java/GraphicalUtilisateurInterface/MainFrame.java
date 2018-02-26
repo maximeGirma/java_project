@@ -10,6 +10,8 @@ import SQLite_DataBase.Object_to_insert.Oeuvre;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.util.HashMap;
 import java.util.Map;
 import javax.swing.*;
@@ -95,7 +97,20 @@ public class MainFrame extends JFrame implements ListSelectionListener{
 		JMenu helpMenu = new JMenu("Aide");
 		
 		JMenuItem verItem = new JMenuItem("Collect Bee v1.0 ");
-		
+		verItem.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent actionEvent) {
+				JOptionPane jop1 = new JOptionPane();
+					jop1.showMessageDialog(null, "Dev Team : Code Solution\n" +
+							"Ibran Danielle \n" +
+							"Kevin Georget \n" +
+							"Girma Maxime \n" +
+							"Bocquenet Peter\n" +
+							"Version 1.0\n\n\n" +
+							"Thanks for using our product!", "Collect Bee 1.0", JOptionPane.INFORMATION_MESSAGE);
+
+			}
+		});
 		helpMenu.add(verItem);
 		
 		menuBar.add(helpMenu);

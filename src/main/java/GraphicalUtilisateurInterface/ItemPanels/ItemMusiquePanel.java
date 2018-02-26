@@ -24,8 +24,10 @@ public class ItemMusiquePanel extends AbstractItemMusiquePanel {
 
         @Override
         public void mouseClicked(MouseEvent mouseEvent) {
+
             super.mouseClicked(mouseEvent);
-            super.mouseClicked(mouseEvent);
+
+
             Oeuvre oeuvre_to_insert = new Musique();
             oeuvre_to_insert.setTitre(titleField.getText());
             oeuvre_to_insert.setCommentaire(commentField.getText());
