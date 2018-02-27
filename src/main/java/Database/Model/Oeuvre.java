@@ -47,8 +47,8 @@ public class Oeuvre{
 
     protected int id_acquisition_date;
 
-   /* @ForeignKey(table = "AcquisitionOrigine", column = "id_acquisition_origine")
-    protected int id_acquisition_origine;*/
+    @ForeignKey(table = "AcquisitionOrigine", column = "id")
+    protected int id_acquisition_origine;
 
     public Oeuvre() {
         this.genres_label_list = null;
@@ -57,6 +57,7 @@ public class Oeuvre{
         this.id_support = 1;
         this.id_langue = 1;
         this.id_statut = 1;
+        this.id_acquisition_origine = 1;
     }
 
     public Oeuvre(ArrayList<String> personnes_name_list, ArrayList<String> genres, int note, int langue, int statut) {
@@ -65,6 +66,7 @@ public class Oeuvre{
         this.id_note = note;
         this.id_langue = langue;
         this.id_statut = statut;
+
     }
 
     /* trouver la categorie d'une oeuvre */
@@ -117,6 +119,10 @@ public class Oeuvre{
         return library.getObjectModel(Support.class).getAll("id = ?", this.id_support).get(0).getSupport_type();
     }
 
+    public String getLieu(LibraryDatabaseModel library) throws SQLException {
+        return library.getObjectModel(AcquisitionOrigine.class).getAll("id = ?", this.id_acquisition_origine).get(0).getLieu_acquisition();
+    }
+
 
     public long getId() {
         return id;
@@ -152,6 +158,14 @@ public class Oeuvre{
 
     public void setId_langue(int id_langue) {
         this.id_langue = id_langue;
+    }
+
+    public int getId_acquisition_origine() {
+        return id_acquisition_origine;
+    }
+
+    public void setId_acquisition_origine(int id_acquisition_origine) {
+        this.id_acquisition_origine = id_acquisition_origine;
     }
 
     public int getReference() {

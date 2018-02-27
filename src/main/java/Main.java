@@ -63,11 +63,11 @@ public class Main {
         livre1.setPersonnes_name_list(personne_name_list3);
 
 
-        OeuvreController.addOeuvre(music1, music1.personnes_name_list, personne_type_list, music1.genres_label_list, "CD", database);
-        OeuvreController.addOeuvre(film1, film1.personnes_name_list, personne_type_list, film1.genres_label_list, "DVD", database);
-        OeuvreController.addOeuvre(film2, null, null, film2.genres_label_list, "BlueRay", database);
-        OeuvreController.addOeuvre(livre1, livre1.personnes_name_list, personne_type_list, livre1.genres_label_list, "Livre", database);
-        OeuvreController.addOeuvre(jeu1, null,null,null,null,database);
+        OeuvreController.addOeuvre(music1, music1.personnes_name_list, personne_type_list, music1.genres_label_list, "CD", "Amazon", database);
+        OeuvreController.addOeuvre(film1, film1.personnes_name_list, personne_type_list, film1.genres_label_list, "DVD", "Cdiscount", database);
+        OeuvreController.addOeuvre(film2, null, null, film2.genres_label_list, "BlueRay", null, database);
+        OeuvreController.addOeuvre(livre1, livre1.personnes_name_list, personne_type_list, livre1.genres_label_list, "Livre", "Mollat", database);
+        OeuvreController.addOeuvre(jeu1, null,null,null,null,"Micromania",database);
 
 
      /*   System.out.println(o != null ? o.isEmpty() : false);*/

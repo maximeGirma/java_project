@@ -12,5 +12,6 @@ public class JeuVideo extends Oeuvre {
     public JeuVideo(ArrayList<String> personnes, ArrayList<String> genres, int note, int langue, int statut) {
         super(personnes, genres, note, langue, statut);
         this.id_category = 4;
+
     }
 }

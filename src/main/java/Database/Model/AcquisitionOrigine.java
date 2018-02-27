@@ -2,24 +2,30 @@ package Database.Model;
 
 import za.co.neilson.sqlite.orm.annotations.PrimaryKey;
 
+import java.util.Collection;
+
 public class AcquisitionOrigine {
     @PrimaryKey(autoIncrement = true)
-    private int id_acquisition_origine;
-    private String lieu_d_acquisition;
+    private int id;
+    private String lieu_acquisition;
+    private Collection<Oeuvre> oeuvres;
 
-    public int getId_acquisition_origine() {
-        return id_acquisition_origine;
+    public AcquisitionOrigine() {
     }
 
-    public void setId_acquisition_origine(int id_acquisition_origine) {
-        this.id_acquisition_origine = id_acquisition_origine;
+    public int getId() {
+        return id;
     }
 
-    public String getLieu_d_acquisition() {
-        return lieu_d_acquisition;
+    public void setId(int id_acquisition_origine) {
+        this.id = id_acquisition_origine;
     }
 
-    public void setLieu_d_acquisition(String lieu_d_acquisition) {
-        this.lieu_d_acquisition = lieu_d_acquisition;
+    public String getLieu_acquisition() {
+        return lieu_acquisition;
+    }
+
+    public void setLieu_acquisition(String lieu_acquisition) {
+        this.lieu_acquisition = lieu_acquisition;
     }
 }

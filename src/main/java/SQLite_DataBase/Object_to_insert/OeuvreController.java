@@ -1,9 +1,12 @@
-package Database.Controller;
+package SQLite_DataBase.Object_to_insert;
 
-import Database.Model.*;
+import DataBaseModel.LibraryDatabaseModel;
+import SQLite_DataBase.Object_to_insert.dependenciesTables.*;
+import com.sun.istack.internal.NotNull;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 public class OeuvreController {
@@ -11,8 +14,8 @@ public class OeuvreController {
     public OeuvreController() {
     }
 
-    public static void addOeuvre(Oeuvre oeuvre, ArrayList<String> input_personnes_name, ArrayList<String> input_personne_type_name,
-                                 ArrayList<String> input_labels, String input_support_type, String input_lieu, LibraryDatabaseModel library) {
+    public static void addOeuvre(Oeuvre oeuvre, ArrayList<String> input_personnes_name, ArrayList<String> personne_type_name,
+                                 ArrayList<String> input_labels, LibraryDatabaseModel library) {
 
         try {
             /* GESTION DES PERSONNES */
@@ -27,30 +30,23 @@ public class OeuvreController {
             }
 
             /*On crée une personne uniquement si elle n'existe pas deja*/
-
-            if (input_personnes_name == null || input_personnes_name.isEmpty()) {
+            if (input_personnes_name == null) {
                 input_personnes_name = new ArrayList<>();
                 input_personnes_name.add("Inconnu");
             }
-
-            if (input_personne_type_name == null || input_personne_type_name.isEmpty()) {
-                input_personne_type_name = new ArrayList<>();
-                input_personne_type_name.add("Inconnu");
-            }
-
 
             String name;
             String type_name;
             for (int i = 0; i<input_personnes_name.size(); i++) {
                 name = input_personnes_name.get(i);
-                type_name = input_personne_type_name.get(i);
+                type_name = personne_type_name.get(i);
                 /*if (!existing_personnes_name.contains(name)) {*/
-                Personne personne = new Personne();
-                personne.setPersonneName(name);
-                personne.setId_personne_type(library.getObjectModel(PersonneType.class)
-                        .getAll("personne_type_name= ?", type_name)
-                        .get(0).getId());
-                library.getObjectModel(Personne.class).insert(personne);
+                    Personne personne = new Personne();
+                    personne.setPersonneName(name);
+                    personne.setId_personne_type(library.getObjectModel(PersonneType.class)
+                            .getAll("personne_type_name= ?", type_name)
+                            .get(0).getId());
+                    library.getObjectModel(Personne.class).insert(personne);
             }
             /* recup la liste des id des personnes créées */
             ArrayList<Long> personne_id_list = new ArrayList<>();
@@ -68,7 +64,7 @@ public class OeuvreController {
             }
 
             /*On crée un genre uniquement si il n'existe pas deja*/
-            if (input_labels == null || input_labels.isEmpty()) {
+            if (input_labels == null) {
                 input_labels = new ArrayList<>();
                 input_labels.add("Indéfini");
             }
@@ -85,54 +81,7 @@ public class OeuvreController {
                 genres_id_list.add(library.getObjectModel(Genre.class).getAll("label = ?", label).get(0).getId());
             }
 
-
-            /* GESTION DES SUPPORTS */
-
-            ArrayList<String> existing_supports_type = new ArrayList<>();
-
-            List<Support> existing_supports = library.getObjectModel(Support.class).getAll();
-            for (Support support : existing_supports) {
-                existing_supports_type.add(support.getSupport_type());
-            }
-
-            /*On crée un support uniquement si il n'existe pas deja*/
-            if (input_support_type == null || input_support_type.isEmpty())
-                input_support_type = "Non précisé";
-
-                if (!existing_supports_type.contains(input_support_type) && !input_support_type.equals("Non précisé")) {
-                    Support support = new Support();
-                    support.setSupport_type(input_support_type);
-                    library.getObjectModel(Support.class).insert(support);
-                }
-            /* recup l'id du support créé */
-            int support_id = library.getObjectModel(Support.class)
-                    .getAll("support_type = ?", input_support_type).get(0).getId();
-
-            /* GESTION DES SUPPORTS */
-
-            ArrayList<String> existing_lieux_names = new ArrayList<>();
-
-            List<AcquisitionOrigine> existing_lieux = library.getObjectModel(AcquisitionOrigine.class).getAll();
-            for (AcquisitionOrigine lieu : existing_lieux) {
-                existing_lieux_names.add(lieu.getLieu_acquisition());
-            }
-
-            /*On crée un support uniquement si il n'existe pas deja*/
-            if (input_lieu == null || input_lieu.isEmpty())
-                input_lieu = "Non précisé";
-
-            if (!existing_lieux_names.contains(input_lieu) && !input_lieu.equals("Non précisé")) {
-                AcquisitionOrigine lieu = new AcquisitionOrigine();
-                lieu.setLieu_acquisition(input_lieu);
-                library.getObjectModel(AcquisitionOrigine.class).insert(lieu);
-            }
-            /* recup l'id du support créé */
-            int lieu_id = library.getObjectModel(AcquisitionOrigine.class)
-                    .getAll("lieu_acquisition = ?", input_lieu).get(0).getId();
-
             /* CREATION OEUVRE */
-            oeuvre.setId_acquisition_origine(lieu_id);
-            oeuvre.setId_support(support_id);
             library.getObjectModel(Oeuvre.class).insert(oeuvre);
             /* recup id du film créé */
             List<Oeuvre> created_oeuvres = library.getObjectModel(Oeuvre.class).getAll("titre = ?", oeuvre.getTitre());
