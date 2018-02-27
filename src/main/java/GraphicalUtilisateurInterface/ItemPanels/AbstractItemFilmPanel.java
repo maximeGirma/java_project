@@ -34,7 +34,7 @@ public abstract class  AbstractItemFilmPanel extends JPanel{
     protected JTextField originField;
     protected JTextField acquireField;
     protected JTextField supportField;
-    protected JTextField trackField;
+    protected JComboBox trackField;
     protected JTextPane commentField;
     protected JButton delBtn;
     protected JButton addBtn;
@@ -68,19 +68,21 @@ public abstract class  AbstractItemFilmPanel extends JPanel{
         //ARTISTE 1//
         //	artistLabel = new JLabel("Artiste: ");
         artistTypeCombo = new JComboBox();
-        artistTypeCombo.addItem("Réalisateur");
-        artistTypeCombo.addItem("Acteur");
-        artistTypeCombo.addItem("Producteur");
+        ArrayList artist_list = JDBCController.get_column("PersonneType","personne_type_name");
+        for (int i =0; i< artist_list.size; i++){
+            artistTypeCombo.addItem(artist_list.get(i));
+        }
+
 
         artistNomField = new JTextField(15);
 
         //ARTISTE 2//
         artist2TypeCombo = new JComboBox();
         artist2TypeCombo.setVisible(true);
-        artist2TypeCombo.addItem("Réalisateur");
-        artist2TypeCombo.addItem("Acteur");
-        artist2TypeCombo.addItem("Producteur");
-        artist2TypeCombo.setSelectedIndex(1);
+        artist_list = JDBCController.get_column("PersonneType","personne_type_name");
+        for (int i =0; i< artist_list.size; i++){
+            artist2TypeCombo.addItem(artist_list.get(i));
+        }
 
         artist2NomField = new JTextField(15);
         artist2NomField.setVisible(true);
@@ -112,16 +114,19 @@ public abstract class  AbstractItemFilmPanel extends JPanel{
         //STATUT AVANCEMENT//
         statusLabel = new JLabel("Avancement: ");
         statusCombo = new JComboBox();
-        statusCombo.addItem("");
-        statusCombo.addItem("Non commencé");
-        statusCombo.addItem("En cours");
-        statusCombo.addItem("Achevé");
-        statusCombo.addItem("Abandonné");
+        ArrayList statut_list = JDBCController.get_column("Statut","statut");
+        for(int i =0; i< statut_list.size; i++){
+        statusCombo.addItem(statut_list.get(i));
+        }
 
 
         //LANGUE ST//
         trackLabel = new JLabel("Langue: ");
-        trackField = new JTextField(15);
+        trackField = new JComboBox();
+        ArrayList langue_list = JDBCController.getColumn("Langue","langue");
+        for (int i =0; i<langue_list.size(); i++){
+            trackField.addItem(langue_list.get(i));
+        }
 
         //	NOTE	//
         ratingCombo = new JComboBox();
