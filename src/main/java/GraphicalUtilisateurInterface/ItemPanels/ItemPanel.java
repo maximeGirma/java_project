@@ -3,7 +3,7 @@ package GraphicalUtilisateurInterface.ItemPanels;
 import GraphicalUtilisateurInterface.MouseListeners.DeleteListener;
 import GraphicalUtilisateurInterface.MouseListeners.SaveListener;
 import GraphicalUtilisateurInterface.TracksInnerPanel;
-import SQLite_DataBase.Object_to_insert.Oeuvre;
+
 
 import javax.swing.*;
 import java.awt.*;
@@ -19,7 +19,7 @@ import javax.swing.JTextPane;
 
 public class ItemPanel extends JPanel {
 	
-	private JLabel titleLabel;
+	/*private JLabel titleLabel;
 	private JLabel yearLabel;
 	private JLabel timeLabel;
 	private JLabel originLabel;
@@ -546,5 +546,5 @@ public class ItemPanel extends JPanel {
 	}
 
 
-
+*/
 }

@@ -7,6 +7,24 @@ import java.util.ArrayList;
 
 public class JDBCController {
 
+    public static ArrayList GetColumn(String table, String column){
+
+        String sql = "SELECT "+ column +" FROM "+ table;
+        ArrayList return_list = new ArrayList();
+
+        try (Connection conn = SQLite_connect.connect();
+             Statement stmt  = conn.createStatement();
+             ResultSet rs    = stmt.executeQuery(sql)){
+
+            // loop through the result set
+            while (rs.next()) {
+                return_list.add(rs.getString(column));
+            }
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+        return return_list;
+    }
 
     public static ArrayList get_notes(){
 
@@ -27,8 +45,17 @@ public class JDBCController {
         return return_note;
     }
 
+    public static void delete(Oeuvre oeuvre) {
+        String sql = "DELETE FROM Oeuvre WHERE id = " + oeuvre.getId();
 
-    public static void update(Oeuvre oeuvre){
+        try (Connection conn = SQLite_connect.connect();
+             PreparedStatement pstmt = conn.prepareStatement(sql)) {
+            pstmt.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+        public static void update(Oeuvre oeuvre){
 
 
 

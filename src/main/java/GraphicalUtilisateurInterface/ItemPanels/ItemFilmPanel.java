@@ -1,5 +1,6 @@
 package GraphicalUtilisateurInterface.ItemPanels;
 
+import Database.Controller.OeuvreController;
 import Database.Model.LibraryDatabaseModel;
 import GraphicalUtilisateurInterface.MouseListeners.AbstractCreateListener;
 import Database.Model.Film;
@@ -38,9 +39,13 @@ public class ItemFilmPanel extends AbstractItemFilmPanel {
 			oeuvre_to_insert.setCommentaire(commentField.getText());
 			oeuvre_to_insert.setDateEdition(yearField.getText());
 			oeuvre_to_insert.setDuree(timeField.getText());
-            oeuvre_to_insert.setId_note(ratingCombo.getSelectedIndex());
-
+            oeuvre_to_insert.setId_note(ratingCombo.getSelectedIndex()+1);
+			String support = supportField.getText();
+			String lieu = originField.getText();
 			temp_genres = typeField.getText().split(",");
+			oeuvre_to_insert.setAcquisition_date(acquireField.getText());
+			oeuvre_to_insert.setId_statut(statusCombo.getSelectedIndex()+1);
+			oeuvre_to_insert.setId_langue(trackField.getSelectedIndex()+1);
 			for (String genre : temp_genres
 				 ) {
 				genres.add(genre);
@@ -60,11 +65,20 @@ public class ItemFilmPanel extends AbstractItemFilmPanel {
 
 
 
-
 			JOptionPane jop1 = new JOptionPane();
 			if (oeuvre_to_insert.getTitre().isEmpty()){
 				jop1.showMessageDialog(null, "Titre non renseigné", "Information", JOptionPane.INFORMATION_MESSAGE);
 			}else {
+
+
+				OeuvreController.addOeuvre(oeuvre_to_insert,
+						personne_list,
+						type_personne_list,
+						oeuvre_to_insert.genres_label_list,
+						support,
+						lieu,
+						library);
+
 
 				jop1.showMessageDialog(null, "Oeuvre Sauvegardée !", "Information", JOptionPane.INFORMATION_MESSAGE);
 			}

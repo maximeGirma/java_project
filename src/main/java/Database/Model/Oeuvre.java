@@ -22,6 +22,7 @@ public class Oeuvre{
     protected String isbn;
     protected String duree;
     protected int pegi;
+    protected String acquisition_date;
 
     @ForeignKey(table = "Category", column = "id", childReference = "category", parentReference = "oeuvres")
     public int id_category;
@@ -231,6 +232,24 @@ public class Oeuvre{
     public void setPersonnes_name_list(ArrayList<String> personnes_name_list) {
         this.personnes_name_list = personnes_name_list;
     }
+
+    public String getAcquisition_date() {
+        return acquisition_date;
+    }
+
+    public void setAcquisition_date(String acquisition_date) {
+        this.acquisition_date = acquisition_date;
+    }
+
+    public int getId_statut() {
+        return id_statut;
+    }
+
+    public void setId_statut(int id_statut) {
+        this.id_statut = id_statut;
+    }
+
+
 
     public ArrayList<String> getGenres_label_list() {
         return genres_label_list;

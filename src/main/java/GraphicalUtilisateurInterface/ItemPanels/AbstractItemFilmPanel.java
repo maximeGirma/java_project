@@ -68,8 +68,8 @@ public abstract class  AbstractItemFilmPanel extends JPanel{
         //ARTISTE 1//
         //	artistLabel = new JLabel("Artiste: ");
         artistTypeCombo = new JComboBox();
-        ArrayList artist_list = JDBCController.get_column("PersonneType","personne_type_name");
-        for (int i =0; i< artist_list.size; i++){
+        ArrayList artist_list = JDBCController.GetColumn("PersonneType","personne_type_name");
+        for (int i =0; i< artist_list.size(); i++){
             artistTypeCombo.addItem(artist_list.get(i));
         }
 
@@ -79,8 +79,8 @@ public abstract class  AbstractItemFilmPanel extends JPanel{
         //ARTISTE 2//
         artist2TypeCombo = new JComboBox();
         artist2TypeCombo.setVisible(true);
-        artist_list = JDBCController.get_column("PersonneType","personne_type_name");
-        for (int i =0; i< artist_list.size; i++){
+        artist_list = JDBCController.GetColumn("PersonneType","personne_type_name");
+        for (int i =0; i< artist_list.size(); i++){
             artist2TypeCombo.addItem(artist_list.get(i));
         }
 
@@ -114,8 +114,8 @@ public abstract class  AbstractItemFilmPanel extends JPanel{
         //STATUT AVANCEMENT//
         statusLabel = new JLabel("Avancement: ");
         statusCombo = new JComboBox();
-        ArrayList statut_list = JDBCController.get_column("Statut","statut");
-        for(int i =0; i< statut_list.size; i++){
+        ArrayList statut_list = JDBCController.GetColumn("Statut","statut");
+        for(int i =0; i< statut_list.size(); i++){
         statusCombo.addItem(statut_list.get(i));
         }
 
@@ -123,7 +123,7 @@ public abstract class  AbstractItemFilmPanel extends JPanel{
         //LANGUE ST//
         trackLabel = new JLabel("Langue: ");
         trackField = new JComboBox();
-        ArrayList langue_list = JDBCController.getColumn("Langue","langue");
+        ArrayList langue_list = JDBCController.GetColumn("Langue","langue");
         for (int i =0; i<langue_list.size(); i++){
             trackField.addItem(langue_list.get(i));
         }
