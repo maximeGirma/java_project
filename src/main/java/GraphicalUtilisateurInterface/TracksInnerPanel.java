@@ -21,6 +21,7 @@ public class TracksInnerPanel extends JPanel{
 		trackList.setBackground(new Color(227,237,243));
 		trackList.setFont(new Font("Dialog", Font.PLAIN, 9));
 		trackList.setPreferredSize(new Dimension(90,240));
+		trackList.setMaximumSize(new Dimension(90,240));
 
 
 		scrollPane.add(trackList);

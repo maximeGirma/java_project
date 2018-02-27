@@ -11,6 +11,7 @@ import java.util.ArrayList;
 
 public abstract class AbstractItemJeuVideoPanel extends JPanel{
 
+
     protected JLabel titleLabel;
     protected JLabel yearLabel;
     protected JLabel originLabel;
@@ -41,12 +42,14 @@ public abstract class AbstractItemJeuVideoPanel extends JPanel{
     protected JLabel holdLabel1;
     protected JLabel holdLabel2;
     protected JLabel holdLabel3;
+
     protected GridBagConstraints gc;
     protected LibraryDatabaseModel library;
 
     public AbstractItemJeuVideoPanel(LibraryDatabaseModel parent_library){
 
         library = parent_library;
+
         Dimension dim = getPreferredSize();
         dim.width = 680;
         setPreferredSize(dim);
@@ -117,7 +120,7 @@ public abstract class AbstractItemJeuVideoPanel extends JPanel{
         refLabel = new JLabel("PEGI: ");
         refField = new JTextField(15);
 
-        //	NOTE	//
+        //NOTE//
         ratingCombo = new JComboBox();
         ratingCombo.setPreferredSize(new Dimension(90, 18));
         ratingCombo.setToolTipText("Note");
@@ -451,7 +454,6 @@ public abstract class AbstractItemJeuVideoPanel extends JPanel{
         gc.fill=GridBagConstraints.NONE;
         gc.anchor=GridBagConstraints.CENTER;
         add(delBtn,gc);
-
 */
 
     }

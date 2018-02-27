@@ -94,18 +94,19 @@ public class MainFrame extends JFrame implements ListSelectionListener{
 		
 		JMenu helpMenu = new JMenu("Aide");
 		
-		JMenuItem verItem = new JMenuItem("Collect Bee v1.0 ");
+		JMenuItem verItem = new JMenuItem("A propos");
 		verItem.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent actionEvent) {
 				JOptionPane jop1 = new JOptionPane();
-					jop1.showMessageDialog(null, "Dev Team : Code Solution\n" +
+					jop1.showMessageDialog(null, "Collect Bee \n" +
+							"Version 1.0\n\n" +
+							"Dev Team : Code Solution\n" +
 							"Ibran Danielle \n" +
 							"Kevin Georget \n" +
 							"Girma Maxime \n" +
-							"Bocquenet Peter\n" +
-							"Version 1.0\n\n\n" +
-							"Thanks for using our product!", "Collect Bee 1.0", JOptionPane.INFORMATION_MESSAGE);
+							"Bocquenet Peter\n\n" +
+							"Thanks for using our product!", "Collect Bee", JOptionPane.INFORMATION_MESSAGE);
 
 			}
 		});
@@ -124,37 +125,41 @@ public class MainFrame extends JFrame implements ListSelectionListener{
 		
 			public void musicEventOccured() {
 				System.out.println("it works music");
-
 				search.getTitleByCategory(2, library);
 				list_oeuvre = search.getOeuvreList();
 				viewPanel.UpdateViewPanel(list_oeuvre);
+				splitPane.setRightComponent(itemHomePanel);
 			}
 
 			public void movieEventOccured() {
-				search.getTitleByCategory(1, library);
 				System.out.println("it works movie");
+				search.getTitleByCategory(1, library);
 				list_oeuvre = search.getOeuvreList();
 				viewPanel.UpdateViewPanel(list_oeuvre);
+				splitPane.setRightComponent(itemHomePanel);
 			}
 
 			public void bookEventOccured() {
-				search.getTitleByCategory(3, library);
 				System.out.println("it works book");
+				search.getTitleByCategory(3, library);
 				list_oeuvre = search.getOeuvreList();
 				viewPanel.UpdateViewPanel(list_oeuvre);
+				splitPane.setRightComponent(itemHomePanel);
 			}
 
 			public void gameEventOccured() {
-				search.getTitleByCategory(4, library);
 				System.out.println("it works game");
+				search.getTitleByCategory(4, library);
 				list_oeuvre = search.getOeuvreList();
 				viewPanel.UpdateViewPanel(list_oeuvre);
+				splitPane.setRightComponent(itemHomePanel);
 			}
 			public void homeEventOccured(){
 				System.out.println("home clicked guys");
 				search.getTitleByCategory(0, library);
 				list_oeuvre = search.getOeuvreList();
 				viewPanel.UpdateViewPanel(list_oeuvre);
+				splitPane.setRightComponent(itemHomePanel);
 			}
 
 			@Override

@@ -195,14 +195,10 @@ public class Toolbar extends JToolBar implements ActionListener {
 		}
 		else if (clicked == GoButton){
 			System.out.println(txtSearch.getText());
-
 			parent_main_frame.getViewPanel().SearchTitle(txtSearch.getText());
 		}
 		else if (clicked == homeBtn){
 			toolbarListener.homeEventOccured();
-			Hashtable test_table = new Hashtable();
-			test_table.put("test","petit_paquet_de_bn");
-			System.out.println(test_table.get("test"));
 		}
 		else if (clicked == itemBtn){
 			toolbarListener.itemEventOccured();

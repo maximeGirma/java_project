@@ -52,7 +52,6 @@ public abstract class AbstractItemLivrePanel extends JPanel{
 
         library = parent_library;
 
-
         Dimension dim = getPreferredSize();
         dim.width = 680;
         setPreferredSize(dim);
@@ -482,7 +481,6 @@ public abstract class AbstractItemLivrePanel extends JPanel{
         gc.anchor=GridBagConstraints.CENTER;
         add(delBtn,gc);
 */
-
 
     }
 
