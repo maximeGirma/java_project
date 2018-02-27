@@ -82,6 +82,7 @@ public class LibraryDatabaseModel extends DatabaseModel<ResultSet, HashMap<Strin
             personne_types_list.add(new PersonneType("Artiste"));
             personne_types_list.add(new PersonneType("Compositeur"));
             personne_types_list.add(new PersonneType("Interprète"));
+            personne_types_list.add(new PersonneType("Auteur"));
             personne_types_list.add(new PersonneType("Editeur"));
             personne_types_list.add(new PersonneType("Nom de Plume"));
             personne_types_list.add(new PersonneType("Nègre"));

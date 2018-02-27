@@ -21,27 +21,27 @@ public class SearchDisplay {
         List<Oeuvre> list = null;
         oeuvreList = new HashMap<>();
 
-        if (category == 0) {
-            try {
-                list = library.getObjectModel(Oeuvre.class).getAll();
+        try {
+            if (category == 0) {
+
+                list = library.getObjectModel(Oeuvre.class).getAll(null, null, "Oeuvre.titre");
                 System.out.println(list);
-            } catch (SQLException e) {
+
+            } else if (category > 0 && category < 5) {
+                Integer.toString(category);
+                list = library.getObjectModel(Oeuvre.class).getAll("id_category="+category, null,"Oeuvre.titre");
+
+            } else {
+                System.out.println("HOUSTON WE GOT A PROBLEM!");
+            }
+            long i = 0;
+            for (Oeuvre oeuvre : list) {
+                oeuvreList.put(i, oeuvre);
+                i++;
+            }
+        } catch (SQLException e) {
                 e.printStackTrace();
             }
-        } else if (category > 0 && category < 5) {
-            try {
-                list = library.getObjectModel(Oeuvre.class).getAll("id_category = ?", category, "orderBy titre");
-            } catch (SQLException e) {
-                e.printStackTrace();
-            }
-        } else {
-            System.out.println("HOUSTON WE GOT A PROBLEM!");
-        }
-        long i = 0;
-        for (Oeuvre oeuvre : list) {
-            oeuvreList.put(i, oeuvre);
-            i++;
-        }
     }
 
     public HashMap<Long, Oeuvre> getOeuvreList() {

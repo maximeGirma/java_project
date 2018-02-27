@@ -33,9 +33,16 @@ public class Main {
         personne_name_list2.add("Un type sympa");
         personne_name_list2.add("Will Smith");
 
+        ArrayList<String> personne_name_list3 = new ArrayList<>();
+        personne_name_list3.add("Boris Vian");
+
+
         ArrayList<String> personne_type_list = new ArrayList<>();
         personne_type_list.add("Producteur");
         personne_type_list.add("Acteur");
+
+        ArrayList<String> personne_type_list2 = new ArrayList<>();
+        personne_type_list2.add("Auteur");
 
         Film film1 = new Film(personne_name_list, genres1, 2, 2, 3);
         film1.setTitre("Pulp Fiction");
@@ -52,12 +59,19 @@ public class Main {
         jeu1.setTitre("Zelda - Ocarina of time");
 
         Livre livre1 = new Livre();
-        livre1.setTitre("L\'écume des jours");
+        livre1.setTitre("Lécume des jours");
+        livre1.setPersonnes_name_list(personne_name_list3);
 
 
         OeuvreController.addOeuvre(music1, music1.personnes_name_list, personne_type_list, music1.genres_label_list, "CD", database);
         OeuvreController.addOeuvre(film1, film1.personnes_name_list, personne_type_list, film1.genres_label_list, "DVD", database);
-        OeuvreController.addOeuvre(film2, film2.personnes_name_list, personne_type_list, film2.genres_label_list, "BlueRay", database);
+        OeuvreController.addOeuvre(film2, null, null, film2.genres_label_list, "BlueRay", database);
+        OeuvreController.addOeuvre(livre1, livre1.personnes_name_list, personne_type_list, livre1.genres_label_list, "Livre", database);
+        OeuvreController.addOeuvre(jeu1, null,null,null,null,database);
+
+
+     /*   System.out.println(o != null ? o.isEmpty() : false);*/
+
 
 
 
@@ -110,11 +124,11 @@ public class Main {
 
 
 
-        /*SwingUtilities.invokeLater(new Runnable(){
+        SwingUtilities.invokeLater(new Runnable(){
             public void run() {
                 new MainFrame(database);
             }
-        });*/
+        });
     }
 
 }

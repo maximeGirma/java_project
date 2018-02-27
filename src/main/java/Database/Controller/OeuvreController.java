@@ -11,7 +11,7 @@ public class OeuvreController {
     public OeuvreController() {
     }
 
-    public static void addOeuvre(Oeuvre oeuvre, ArrayList<String> input_personnes_name, ArrayList<String> personne_type_name,
+    public static void addOeuvre(Oeuvre oeuvre, ArrayList<String> input_personnes_name, ArrayList<String> input_personne_type_name,
                                  ArrayList<String> input_labels, String input_support_type, LibraryDatabaseModel library) {
 
         try {
@@ -27,23 +27,30 @@ public class OeuvreController {
             }
 
             /*On crée une personne uniquement si elle n'existe pas deja*/
-            if (input_personnes_name.isEmpty()) {
+
+            if (input_personnes_name == null || input_personnes_name.isEmpty()) {
                 input_personnes_name = new ArrayList<>();
                 input_personnes_name.add("Inconnu");
             }
+
+            if (input_personne_type_name == null || input_personne_type_name.isEmpty()) {
+                input_personne_type_name = new ArrayList<>();
+                input_personne_type_name.add("Inconnu");
+            }
+
 
             String name;
             String type_name;
             for (int i = 0; i<input_personnes_name.size(); i++) {
                 name = input_personnes_name.get(i);
-                type_name = personne_type_name.get(i);
+                type_name = input_personne_type_name.get(i);
                 /*if (!existing_personnes_name.contains(name)) {*/
-                    Personne personne = new Personne();
-                    personne.setPersonneName(name);
-                    personne.setId_personne_type(library.getObjectModel(PersonneType.class)
-                            .getAll("personne_type_name= ?", type_name)
-                            .get(0).getId());
-                    library.getObjectModel(Personne.class).insert(personne);
+                Personne personne = new Personne();
+                personne.setPersonneName(name);
+                personne.setId_personne_type(library.getObjectModel(PersonneType.class)
+                        .getAll("personne_type_name= ?", type_name)
+                        .get(0).getId());
+                library.getObjectModel(Personne.class).insert(personne);
             }
             /* recup la liste des id des personnes créées */
             ArrayList<Long> personne_id_list = new ArrayList<>();
@@ -61,7 +68,7 @@ public class OeuvreController {
             }
 
             /*On crée un genre uniquement si il n'existe pas deja*/
-            if (input_labels.isEmpty()) {
+            if (input_labels == null || input_labels.isEmpty()) {
                 input_labels = new ArrayList<>();
                 input_labels.add("Indéfini");
             }
@@ -89,7 +96,7 @@ public class OeuvreController {
             }
 
             /*On crée un support uniquement si il n'existe pas deja*/
-            if (input_support_type.isEmpty())
+            if (input_support_type == null || input_support_type.isEmpty())
                 input_support_type = "Non précisé";
 
                 if (!existing_supports_type.contains(input_support_type) && !input_support_type.equals("Non précisé")) {
