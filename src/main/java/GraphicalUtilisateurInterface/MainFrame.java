@@ -54,7 +54,7 @@ public class MainFrame extends JFrame implements ListSelectionListener{
 		super ("Bienvenu sur CollectBee!"); //Titre application//
 
 		setLayout (new BorderLayout());
-
+		this.library = library;
 		toolbar = new Toolbar(this); //NORTH//
 		splitPane = new JSplitPane(JSplitPane.HORIZONTAL_SPLIT);//CENTER
 		viewPanel = new ViewPanel(this);//LEFT PANE SPLIT PANE//
@@ -74,7 +74,7 @@ public class MainFrame extends JFrame implements ListSelectionListener{
 		updateLivrePanel =new UpdateLivrePanel(library);
 		updateMusiquePanel = new UpdateMusiquePanel(library);
 
-		this.library = library;
+
 		/////Application Menu Bar/////
 		JMenuBar menuBar = new JMenuBar();
 		setJMenuBar(menuBar);
