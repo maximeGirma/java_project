@@ -113,6 +113,10 @@ public class Oeuvre{
         return genres_list;
     }
 
+    public String getSupport(LibraryDatabaseModel library) throws SQLException {
+        return library.getObjectModel(Support.class).getAll("id = ?", this.id_support).get(0).getSupport_type();
+    }
+
 
     public long getId() {
         return id;
