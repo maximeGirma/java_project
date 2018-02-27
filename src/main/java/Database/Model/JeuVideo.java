@@ -9,8 +9,8 @@ public class JeuVideo extends Oeuvre {
         this.id_category = 4;
     }
 
-    public JeuVideo(ArrayList<String> personnes, ArrayList<String> genres, int note) {
-        super(personnes, genres, note);
+    public JeuVideo(ArrayList<String> personnes, ArrayList<String> genres, int note, int langue, int statut) {
+        super(personnes, genres, note, langue, statut);
         this.id_category = 4;
     }
 }

@@ -9,8 +9,8 @@ public class Musique extends Oeuvre{
         this.id_category = 2;
     }
 
-    public Musique(ArrayList<String> personnes, ArrayList<String> genres, int note) {
-        super(personnes, genres, note);
+    public Musique(ArrayList<String> personnes, ArrayList<String> genres, int note, int langue, int statut) {
+        super(personnes, genres, note, langue, statut);
         this.id_category = 2;
     }
 }

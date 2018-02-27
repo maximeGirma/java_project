@@ -1,6 +1,5 @@
 import Database.Controller.DatabaseController;
-import Database.Model.Film;
-import Database.Model.LibraryDatabaseModel;
+import Database.Model.*;
 import Database.Controller.OeuvreController;
 import GraphicalUtilisateurInterface.MainFrame;
 
@@ -38,24 +37,54 @@ public class Main {
         personne_type_list.add("Producteur");
         personne_type_list.add("Acteur");
 
-        Film film1 = new Film(personne_name_list, genres1, 2);
+        Film film1 = new Film(personne_name_list, genres1, 2, 2, 3);
         film1.setTitre("Pulp Fiction");
 
-        Film film2 = new Film(personne_name_list2, genres2, 3);
+        Film film2 = new Film(personne_name_list2, genres2, 3, 3, 1);
         film2.setTitre("Men in Black");
 
-        /*Film film3 = new Film();
+        Film film3 = new Film();
 
-        Musique music1 = new Musique(genres3, 2);
+        Musique music1 = new Musique(personne_name_list, genres3, 2, 1, 2);
         music1.setTitre("Smoke on the water");
 
         JeuVideo jeu1 = new JeuVideo();
-        jeu1.setTitre("Zelda - Ocarina of time");*/
+        jeu1.setTitre("Zelda - Ocarina of time");
+
+        Livre livre1 = new Livre();
+        livre1.setTitre("L\'écume des jours");
+
+
+        OeuvreController.addOeuvre(music1, music1.personnes_name_list, personne_type_list, music1.genres_label_list, "CD", database);
+        OeuvreController.addOeuvre(film1, film1.personnes_name_list, personne_type_list, film1.genres_label_list, "DVD", database);
+        OeuvreController.addOeuvre(film2, film2.personnes_name_list, personne_type_list, film2.genres_label_list, "BlueRay", database);
 
 
 
-        OeuvreController.addOeuvre(film1, film1.personnes_name_list, personne_type_list, film1.genres_label_list, database);
-        OeuvreController.addOeuvre(film2, film2.personnes_name_list, personne_type_list, film2.genres_label_list, database);
+
+
+        /*List<Personne> existing_personnes;
+        ArrayList existing_personnes_list = new ArrayList<>();
+
+        existing_personnes = database.getObjectModel(Personne.class).getAll();
+
+        for (Personne personne : existing_personnes) {
+            ArrayList existing_personne = new ArrayList();
+            existing_personne.add(personne.getPersonne_name());
+            existing_personne.add(personne.getId_personne_type());
+            existing_personnes_list.add(existing_personne);
+        }
+*/
+
+
+
+
+
+        /*List<Personne> personnes = database.getObjectModel(Personne.class).getAll("id = ?", 1);
+        for (Personne personne : personnes)
+            for (PersonneType type : personne.personne_types)
+                System.out.println(type);*/
+
         /*OeuvreController.addOeuvre(music1, music1.genres_label_list, database);
         OeuvreController.addOeuvre(jeu1, jeu1.genres_label_list, database);*/
 
@@ -81,11 +110,11 @@ public class Main {
 
 
 
-        SwingUtilities.invokeLater(new Runnable(){
+        /*SwingUtilities.invokeLater(new Runnable(){
             public void run() {
                 new MainFrame(database);
             }
-        });
+        });*/
     }
 
 }

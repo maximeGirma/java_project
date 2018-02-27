@@ -38,8 +38,8 @@ public class LibraryDatabaseModel extends DatabaseModel<ResultSet, HashMap<Strin
         objectModels.put(AcquisitionDate.class, new JdbcObjectModel<AcquisitionDate>(this) {});
         objectModels.put(AcquisitionOrigine.class, new JdbcObjectModel<AcquisitionOrigine>(this) {});
         objectModels.put(Support.class, new JdbcObjectModel<Support>(this) {});
-        objectModels.put(MenuStatut.class, new JdbcObjectModel<MenuStatut>(this) {});
-        objectModels.put(MenuLangue.class, new JdbcObjectModel<MenuLangue>(this) {});
+        objectModels.put(Statut.class, new JdbcObjectModel<Statut>(this) {});
+        objectModels.put(Langue.class, new JdbcObjectModel<Langue>(this) {});
         objectModels.put(PersonneType.class, new JdbcObjectModel<PersonneType>(this) {});
         objectModels.put(Personne.class, new JdbcObjectModel<Personne>(this) {});
         objectModels.put(Genre.class, new JdbcObjectModel<Genre>(this) {});
@@ -98,11 +98,27 @@ public class LibraryDatabaseModel extends DatabaseModel<ResultSet, HashMap<Strin
             note_list.add(new Note("★★★★☆"));
             note_list.add(new Note("★★★★★"));
 
+            ArrayList<Langue> langues = new ArrayList<>();
+            langues.add(new Langue("Non précisée"));
+            langues.add(new Langue("VF"));
+            langues.add(new Langue("VOST"));
+            langues.add(new Langue("VO"));
+
+            ArrayList<Statut> statuts = new ArrayList<>();
+            statuts.add(new Statut("Non précisé"));
+            statuts.add(new Statut("Non commencé"));
+            statuts.add(new Statut("Commencé"));
+            statuts.add(new Statut("Terminé"));
+            statuts.add(new Statut("Abandonné"));
+
             Personne personne = new Personne();
             personne.setPersonneName("Inconnu");
 
             Genre genre = new Genre();
             genre.setLabel("Indéfini");
+
+            Support support = new Support();
+            support.setSupport_type("Non précisé");
 
             for (Category item : category_list) {
                 getObjectModel(Category.class).insert(item);
@@ -116,16 +132,18 @@ public class LibraryDatabaseModel extends DatabaseModel<ResultSet, HashMap<Strin
                 getObjectModel(Note.class).insert(note);
             }
 
+            for (Langue langue: langues) {
+                getObjectModel(Langue.class).insert(langue);
+            }
+
+            for (Statut statut : statuts) {
+                getObjectModel(Statut.class).insert(statut);
+            }
+
             getObjectModel(Genre.class).insert(genre);
+            getObjectModel(Support.class).insert(support);
             getObjectModel(Personne.class).insert(personne);
 
-            /*getObjectModel(AcquisitionDate.class).insert(acquisition_date);
-            getObjectModel(AcquisitionOrigine.class).insert(acquisition_origine);
-            getObjectModel(MenuLangue.class).insert(menu_langue);
-            getObjectModel(MenuStatut.class).insert(menu_statut);
-
-            getObjectModel(Support.class).insert(support);
-            getObjectModel(Oeuvre.class).insert(oeuvre);*/
         } catch (SQLException e) {
             e.printStackTrace();
         }

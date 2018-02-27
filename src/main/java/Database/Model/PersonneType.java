@@ -33,4 +33,10 @@ public class PersonneType {
     public void setPersonneType(String personne_type) {
         this.personne_type_name = personne_type;
     }
+
+    @Override
+    public String toString() {
+        return "Type personne [id: " + this.id +" nom: "+ this.personne_type_name;
+
+    }
 }

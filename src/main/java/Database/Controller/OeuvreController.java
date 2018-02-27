@@ -12,7 +12,7 @@ public class OeuvreController {
     }
 
     public static void addOeuvre(Oeuvre oeuvre, ArrayList<String> input_personnes_name, ArrayList<String> personne_type_name,
-                                 ArrayList<String> input_labels, LibraryDatabaseModel library) {
+                                 ArrayList<String> input_labels, String input_support_type, LibraryDatabaseModel library) {
 
         try {
             /* GESTION DES PERSONNES */
@@ -27,7 +27,7 @@ public class OeuvreController {
             }
 
             /*On crée une personne uniquement si elle n'existe pas deja*/
-            if (input_personnes_name == null) {
+            if (input_personnes_name.isEmpty()) {
                 input_personnes_name = new ArrayList<>();
                 input_personnes_name.add("Inconnu");
             }
@@ -61,7 +61,7 @@ public class OeuvreController {
             }
 
             /*On crée un genre uniquement si il n'existe pas deja*/
-            if (input_labels == null) {
+            if (input_labels.isEmpty()) {
                 input_labels = new ArrayList<>();
                 input_labels.add("Indéfini");
             }
@@ -78,7 +78,33 @@ public class OeuvreController {
                 genres_id_list.add(library.getObjectModel(Genre.class).getAll("label = ?", label).get(0).getId());
             }
 
+
+            /* GESTION DES SUPPORTS */
+
+            ArrayList<String> existing_supports_type = new ArrayList<>();
+
+            List<Support> existing_supports = library.getObjectModel(Support.class).getAll();
+            for (Support support : existing_supports) {
+                existing_supports_type.add(support.getSupport_type());
+            }
+
+            /*On crée un support uniquement si il n'existe pas deja*/
+            if (input_support_type.isEmpty())
+                input_support_type = "Non précisé";
+
+                if (!existing_supports_type.contains(input_support_type) && !input_support_type.equals("Non précisé")) {
+                    Support support = new Support();
+                    support.setSupport_type(input_support_type);
+                    library.getObjectModel(Support.class).insert(support);
+                }
+            /* recup l'id du support créé */
+            int support_id = library.getObjectModel(Support.class)
+                    .getAll("support_type = ?", input_support_type).get(0).getId();
+
+
+
             /* CREATION OEUVRE */
+            oeuvre.setId_support(support_id);
             library.getObjectModel(Oeuvre.class).insert(oeuvre);
             /* recup id du film créé */
             List<Oeuvre> created_oeuvres = library.getObjectModel(Oeuvre.class).getAll("titre = ?", oeuvre.getTitre());

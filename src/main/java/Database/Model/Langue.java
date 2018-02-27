@@ -7,17 +7,27 @@ package Database.Model;
 
 import za.co.neilson.sqlite.orm.annotations.PrimaryKey;
 
-public class MenuLangue {
-    @PrimaryKey(autoIncrement = true)
-    private int id_langue;
-    private String langue;
+import java.util.Collection;
 
-    public int getId_langue() {
-        return id_langue;
+public class Langue {
+    @PrimaryKey(autoIncrement = true)
+    private int id;
+    private String langue;
+    private Collection<Oeuvre> oeuvres;
+
+    public Langue() {
     }
 
-    public void setId_langue(int id_langue) {
-        this.id_langue = id_langue;
+    public Langue(String langue) {
+        this.langue = langue;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id_langue) {
+        this.id = id_langue;
     }
 
     public String getLangue() {

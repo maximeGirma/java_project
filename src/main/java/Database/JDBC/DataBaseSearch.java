@@ -72,10 +72,10 @@ public class DataBaseSearch {
         }
 
 
-        if(a.getClass() == MenuLangue.class){
-            MenuLangue is_here = null;
+        if(a.getClass() == Langue.class){
+            Langue is_here = null;
             try {
-                is_here = e.getObjectModel(MenuLangue.class)
+                is_here = e.getObjectModel(Langue.class)
                         .getFirst("langue = ?",
                                 str);
             } catch (SQLException e1) {
@@ -86,16 +86,16 @@ public class DataBaseSearch {
 
                 return 0;
             }else{
-                return is_here.getId_langue();
+                return is_here.getId();
             }
 
         }
 
 
-        if(a.getClass() == MenuStatut.class){
-            MenuStatut is_here = null;
+        if(a.getClass() == Statut.class){
+            Statut is_here = null;
             try {
-                is_here = e.getObjectModel(MenuStatut.class)
+                is_here = e.getObjectModel(Statut.class)
                         .getFirst("menu_statut = ?",
                                 str);
             } catch (SQLException e1) {
@@ -106,7 +106,7 @@ public class DataBaseSearch {
 
                 return 0;
             }else{
-                return is_here.getId_statut();
+                return is_here.getId();
             }
 
         }
@@ -126,7 +126,7 @@ public class DataBaseSearch {
 
                 return 0;
             }else{
-                return is_here.getId_support();
+                return is_here.getId();
             }
 
         }

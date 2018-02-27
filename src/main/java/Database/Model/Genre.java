@@ -32,4 +32,10 @@ public class Genre extends OeuvreAppartientAGenre {
     public Collection<Oeuvre> getOeuvres() {
         return oeuvres;
     }
+
+    @Override
+    public String toString() {
+        return "Genre = " + label;
+    }
+
 }

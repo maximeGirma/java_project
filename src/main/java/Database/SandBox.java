@@ -1,8 +1,23 @@
 package Database;
 
+import Database.Model.Personne;
+
+import java.util.ArrayList;
+import java.util.List;
+
 public class SandBox {
 
+    /*List<Personne> existing_personnes;
+    ArrayList existing_personnes_list = new ArrayList<>();
 
+    existing_personnes = library.getObjectModel(Personne.class).getAll();
+
+            for (Personne personne : existing_personnes) {
+        ArrayList existing_personne = new ArrayList();
+        existing_personne.add(personne.getPersonne_name());
+        existing_personne.add(personne.getId_personne_type());
+        existing_personnes_list.add(existing_personne);
+    }*/
       /*try {
             List<Oeuvre> genre_list = database.getObjectModel(Oeuvre.class).getAll("id = ?", 1);
             System.out.println(genre_list.get(0).getGenres());

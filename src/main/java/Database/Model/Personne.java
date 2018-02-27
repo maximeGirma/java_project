@@ -10,8 +10,10 @@ public class Personne {
     @PrimaryKey(autoIncrement = true)
     public long id;
     public String personne_name;
-    @ForeignKey(table = "PersonneType", column = "id", parentReference = "personnes")
+    @ForeignKey(table = "PersonneType", column = "id", /*childReference = "personne_types", */parentReference = "personnes")
     public long id_personne_type;
+    /*public Collection<PersonneType> personne_types;*/
+
     private Collection<Oeuvre> oeuvres;
 
     public Personne() {

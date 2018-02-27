@@ -10,8 +10,8 @@ public class Livre extends Oeuvre {
         this.id_category = 3;
     }
 
-    public Livre(ArrayList<String> personnes, ArrayList<String> genres, int note) {
-        super(personnes, genres, note);
+    public Livre(ArrayList<String> personnes, ArrayList<String> genres, int note, int langue, int statut) {
+        super(personnes, genres, note, langue, statut);
         this.id_category = 3;
     }
 
