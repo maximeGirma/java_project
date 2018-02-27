@@ -73,7 +73,7 @@ public class Main {
      /*   System.out.println(o != null ? o.isEmpty() : false);*/
 
 
-
+//ceci est un test plus ou moins useless
 
 
 
