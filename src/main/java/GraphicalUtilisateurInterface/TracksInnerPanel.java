@@ -6,7 +6,7 @@ import java.awt.*;
 
 public class TracksInnerPanel extends JPanel{
 
-	private JTextPane trackList;
+	public JTextPane trackList;
 	private JScrollPane scrollPane;
 	private DefaultListModel listModel;
 
@@ -44,4 +44,9 @@ public class TracksInnerPanel extends JPanel{
 	return null;
 }
 
+
+	public String getInnerText(){
+		return this.trackList.getText();
 	}
+
+}

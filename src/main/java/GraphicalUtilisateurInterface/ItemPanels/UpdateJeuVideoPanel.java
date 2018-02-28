@@ -1,9 +1,11 @@
 package GraphicalUtilisateurInterface.ItemPanels;
 
 
+import Database.JDBC.JDBCController;
 import Database.Model.Genre;
 import Database.Model.LibraryDatabaseModel;
 import Database.Model.Personne;
+import GraphicalUtilisateurInterface.MainFrame;
 import GraphicalUtilisateurInterface.MouseListeners.DeleteListener;
 import Database.Model.Oeuvre;
 
@@ -16,10 +18,12 @@ import java.util.ArrayList;
 
 public class UpdateJeuVideoPanel extends AbstractItemJeuVideoPanel {
     Oeuvre oeuvre_to_update;
+    MainFrame mainframe;
 
-    public UpdateJeuVideoPanel(LibraryDatabaseModel parent_library) {
+    public UpdateJeuVideoPanel(MainFrame parent, LibraryDatabaseModel parent_library) {
 
         super(parent_library);
+        mainframe = parent;
         //DELETE BUTTON//
         delBtn = new JButton("");
         delBtn.setForeground(Color.WHITE);
@@ -28,7 +32,53 @@ public class UpdateJeuVideoPanel extends AbstractItemJeuVideoPanel {
         delBtn.setIcon(new ImageIcon("src\\main\\java\\img\\trash.png"));
         delBtn.setPreferredSize(new Dimension(240,24));
         delBtn.setMaximumSize(new Dimension(240,24));
-        delBtn.addMouseListener(new DeleteListener(this));
+        delBtn.addMouseListener(new MouseListener() {
+
+            @Override
+            public void mouseClicked(MouseEvent mouseEvent) {
+                System.out.println("delete button");
+                JOptionPane jop = new JOptionPane();
+
+                int option = jop.showConfirmDialog(null,
+
+                        "Etes-vous sur? Cette action est irreversible",
+
+                        "Lancement de l'animation",
+
+                        JOptionPane.YES_NO_OPTION,
+
+                        JOptionPane.QUESTION_MESSAGE);
+                // le if s'active si on clique sur oui
+                if(option != JOptionPane.NO_OPTION &&
+
+                        option != JOptionPane.CANCEL_OPTION &&
+
+                        option != JOptionPane.CLOSED_OPTION){
+                    System.out.println("Activation de la suppression");
+                    JDBCController.delete(oeuvre_to_update);
+                }
+            }
+
+            @Override
+            public void mousePressed(MouseEvent mouseEvent) {
+
+            }
+
+            @Override
+            public void mouseReleased(MouseEvent mouseEvent) {
+
+            }
+
+            @Override
+            public void mouseEntered(MouseEvent mouseEvent) {
+
+            }
+
+            @Override
+            public void mouseExited(MouseEvent mouseEvent) {
+
+            }
+        });
 
         //DELETE BUTTON 3,11//
         gc.weightx = 1;

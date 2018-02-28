@@ -23,6 +23,8 @@ public class Oeuvre{
     protected String duree;
     protected String pegi;
     protected String acquisition_date;
+    protected String nb_pistes;
+    protected String name_pistes;
 
     @ForeignKey(table = "Category", column = "id", childReference = "category", parentReference = "oeuvres")
     public int id_category;
@@ -249,7 +251,21 @@ public class Oeuvre{
         this.id_statut = id_statut;
     }
 
+    public String getNb_pistes() {
+        return nb_pistes;
+    }
 
+    public void setNb_pistes(String nb_pistes) {
+        this.nb_pistes = nb_pistes;
+    }
+
+    public String getName_pistes() {
+        return name_pistes;
+    }
+
+    public void setName_pistes(String name_pistes) {
+        this.name_pistes = name_pistes;
+    }
 
     public ArrayList<String> getGenres_label_list() {
         return genres_label_list;

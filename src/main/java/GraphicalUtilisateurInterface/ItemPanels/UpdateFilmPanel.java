@@ -4,6 +4,7 @@ import Database.JDBC.JDBCController;
 import Database.Model.Genre;
 import Database.Model.LibraryDatabaseModel;
 import Database.Model.Personne;
+import GraphicalUtilisateurInterface.MainFrame;
 import GraphicalUtilisateurInterface.MouseListeners.DeleteListener;
 import Database.Model.Oeuvre;
 
@@ -16,10 +17,11 @@ import java.util.ArrayList;
 
 public class UpdateFilmPanel extends AbstractItemFilmPanel {
     Oeuvre oeuvre_to_update;
-    public UpdateFilmPanel(LibraryDatabaseModel parent_library) {
+    MainFrame mainframe;
+    public UpdateFilmPanel(MainFrame parent,LibraryDatabaseModel parent_library) {
 
         super(parent_library);
-
+        mainframe = parent;
         addBtn.addMouseListener(new MouseListener() {
             @Override
             public void mouseClicked(MouseEvent mouseEvent) {

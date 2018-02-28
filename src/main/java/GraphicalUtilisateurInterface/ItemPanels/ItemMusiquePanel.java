@@ -1,7 +1,9 @@
 package GraphicalUtilisateurInterface.ItemPanels;
 
 
+import Database.Controller.OeuvreController;
 import Database.Model.LibraryDatabaseModel;
+import GraphicalUtilisateurInterface.MainFrame;
 import GraphicalUtilisateurInterface.MouseListeners.AbstractCreateListener;
 import Database.Model.Musique;
 import Database.Model.Oeuvre;
@@ -11,9 +13,12 @@ import java.awt.event.MouseEvent;
 import java.util.ArrayList;
 
 public class ItemMusiquePanel extends AbstractItemMusiquePanel {
-    public ItemMusiquePanel(LibraryDatabaseModel parent_library) {
+
+    MainFrame mainframe;
+    public ItemMusiquePanel(MainFrame parent,LibraryDatabaseModel parent_library) {
 
         super(parent_library);
+        mainframe = parent;
         addBtn.addMouseListener(new CreateMusiqueListener(this));
     }
     public class CreateMusiqueListener extends AbstractCreateListener {
@@ -22,28 +27,33 @@ public class ItemMusiquePanel extends AbstractItemMusiquePanel {
             super(caller);
         }
 
-        @Override
-        public void mouseClicked(MouseEvent mouseEvent) {
+       		@Override
+		public void mouseClicked(MouseEvent mouseEvent) {
 
-            super.mouseClicked(mouseEvent);
+			super.mouseClicked(mouseEvent);
 
-            String[] temp_genres;
-            ArrayList<String> genres = new ArrayList<>();
+			Oeuvre oeuvre_to_insert = new Musique();
+			String[] temp_genres;
+			ArrayList<String> genres = new ArrayList<>();
 
-            Oeuvre oeuvre_to_insert = new Musique();
-            oeuvre_to_insert.setTitre(titleField.getText());
-            oeuvre_to_insert.setCommentaire(commentField.getText());
-            oeuvre_to_insert.setDateEdition(yearField.getText());
-            oeuvre_to_insert.setId_note(ratingCombo.getSelectedIndex());
 
-            temp_genres = typeField.getText().split(",");
-            for (String genre : temp_genres
-                    ) {
-                genres.add(genre);
-            }
-
-            oeuvre_to_insert.setGenres_label_list(genres);
-
+			oeuvre_to_insert.setTitre(titleField.getText());
+			oeuvre_to_insert.setCommentaire(commentField.getText());
+			oeuvre_to_insert.setDateEdition(yearField.getText());
+			oeuvre_to_insert.setDuree(timeField.getText());
+            oeuvre_to_insert.setId_note(ratingCombo.getSelectedIndex()+1);
+			String support = supportField.getText();
+			String lieu = originField.getText();
+			oeuvre_to_insert.setNb_pistes(trackField.getText());
+			temp_genres = typeField.getText().split(",");
+			oeuvre_to_insert.setAcquisition_date(acquireField.getText());
+			oeuvre_to_insert.setId_statut(statusCombo.getSelectedIndex()+1);
+			//oeuvre_to_insert.setId_langue(trackField.getSelectedIndex()+1);
+			for (String genre : temp_genres
+				 ) {
+				genres.add(genre);
+			}
+			oeuvre_to_insert.setGenres_label_list(genres);
 
             ArrayList personne_list = new ArrayList();
             ArrayList type_personne_list = new ArrayList();
@@ -55,15 +65,29 @@ public class ItemMusiquePanel extends AbstractItemMusiquePanel {
                 personne_list.add(artist2NomField.getText());
                 type_personne_list.add(artist2TypeCombo.getSelectedItem());
             }
-            JOptionPane jop1 = new JOptionPane();
-            if (oeuvre_to_insert.getTitre().isEmpty()){
-                jop1.showMessageDialog(null, "Titre non renseigné", "Information", JOptionPane.INFORMATION_MESSAGE);
-            }else {
-
-                jop1.showMessageDialog(null, "Oeuvre Sauvegardée !", "Information", JOptionPane.INFORMATION_MESSAGE);
-            }
 
 
-        }
+
+			JOptionPane jop1 = new JOptionPane();
+			if (oeuvre_to_insert.getTitre().isEmpty()){
+				jop1.showMessageDialog(null, "Titre non renseigné", "Information", JOptionPane.INFORMATION_MESSAGE);
+			}else {
+
+
+				OeuvreController.addOeuvre(oeuvre_to_insert,
+						personne_list,
+						type_personne_list,
+						oeuvre_to_insert.genres_label_list,
+						support,
+						lieu,
+						library);
+				mainframe.setItemFilmPanel(new ItemFilmPanel(mainframe,library));
+
+				jop1.showMessageDialog(null, "Oeuvre Sauvegardée !", "Information", JOptionPane.INFORMATION_MESSAGE);
+			}
+
+
+		}
+
     }
 }

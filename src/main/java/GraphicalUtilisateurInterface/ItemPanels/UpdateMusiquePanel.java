@@ -1,6 +1,10 @@
 package GraphicalUtilisateurInterface.ItemPanels;
 
+import Database.JDBC.JDBCController;
+import Database.Model.Genre;
 import Database.Model.LibraryDatabaseModel;
+import Database.Model.Personne;
+import GraphicalUtilisateurInterface.MainFrame;
 import GraphicalUtilisateurInterface.MouseListeners.DeleteListener;
 import Database.Model.Oeuvre;
 
@@ -8,14 +12,17 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import java.sql.SQLException;
 import java.util.ArrayList;
 
 public class UpdateMusiquePanel extends AbstractItemMusiquePanel {
 
     Oeuvre oeuvre_to_update;
-    public UpdateMusiquePanel(LibraryDatabaseModel parent_library) {
+    MainFrame mainframe;
+    public UpdateMusiquePanel(MainFrame parent,LibraryDatabaseModel parent_library) {
 
         super(parent_library);
+        mainframe = parent;
         //DELETE BUTTON//
         delBtn = new JButton("");
         delBtn.setForeground(Color.WHITE);
@@ -24,7 +31,53 @@ public class UpdateMusiquePanel extends AbstractItemMusiquePanel {
         delBtn.setIcon(new ImageIcon("src\\main\\java\\img\\trash.png"));
         delBtn.setPreferredSize(new Dimension(240,24));
         delBtn.setMaximumSize(new Dimension(240,24));
-        delBtn.addMouseListener(new DeleteListener(this));
+        delBtn.addMouseListener(new MouseListener() {
+
+            @Override
+            public void mouseClicked(MouseEvent mouseEvent) {
+                System.out.println("delete button");
+                JOptionPane jop = new JOptionPane();
+
+                int option = jop.showConfirmDialog(null,
+
+                        "Etes-vous sur? Cette action est irreversible",
+
+                        "Lancement de l'animation",
+
+                        JOptionPane.YES_NO_OPTION,
+
+                        JOptionPane.QUESTION_MESSAGE);
+                // le if s'active si on clique sur oui
+                if(option != JOptionPane.NO_OPTION &&
+
+                        option != JOptionPane.CANCEL_OPTION &&
+
+                        option != JOptionPane.CLOSED_OPTION){
+                    System.out.println("Activation de la suppression");
+                    JDBCController.delete(oeuvre_to_update);
+                }
+            }
+
+            @Override
+            public void mousePressed(MouseEvent mouseEvent) {
+
+            }
+
+            @Override
+            public void mouseReleased(MouseEvent mouseEvent) {
+
+            }
+
+            @Override
+            public void mouseEntered(MouseEvent mouseEvent) {
+
+            }
+
+            @Override
+            public void mouseExited(MouseEvent mouseEvent) {
+
+            }
+        });
 
 
         //DELETE BUTTON 3,11//
@@ -83,34 +136,60 @@ public class UpdateMusiquePanel extends AbstractItemMusiquePanel {
 
         oeuvre_to_update = oeuvre;
 
-
         titleField.setText(oeuvre.getTitre());
         yearField.setText(oeuvre.getDateEdition());
         commentField.setText(oeuvre.getCommentaire());
         timeField.setText(oeuvre.getDuree());
-        ratingCombo.setSelectedIndex(oeuvre.getId_note());
+        ratingCombo.setSelectedIndex(oeuvre.getId_note()-1);
+        statusCombo.setSelectedIndex(oeuvre.getId_statut()-1);
+        trackField.setText(oeuvre_to_update.getNb_pistes());
 
-        if(oeuvre_to_update.getGenres_label_list() != null) {
-            String concat_genres = "";
-            for (String item : oeuvre_to_update.getGenres_label_list()) {
-                concat_genres += item;
-                concat_genres += ", ";
-            }
-            typeField.setText(concat_genres);
+        try {
+            originField.setText(oeuvre.getLieu(library));
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        acquireField.setText(oeuvre.getAcquisition_date());
+
+        try {
+            supportField.setText(oeuvre.getSupport(library));
+        } catch (SQLException e) {
+            e.printStackTrace();
         }
 
-        ArrayList<String> name_list = oeuvre.getPersonnes_name_list();
+
+        String concat_genres = "";
+        try {
+            for (Genre item : oeuvre_to_update.getGenres(library)) {
+                concat_genres += item.getLabel();
+                concat_genres += ", ";
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        typeField.setText(concat_genres);
 
 
-        try {//////////TO FINISH -> WAITING FOR PERSONNE TYPE GETTERS
-            artistNomField.setText(name_list.get(0));
-            artistTypeCombo.setSelectedIndex(0);
+        ArrayList<Personne> personne_list = null;
+        try {
+            personne_list = oeuvre.getPersonnes(library);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
 
-            artist2NomField.setText(name_list.get(1));    ;
-            artist2TypeCombo.setSelectedIndex(1);
+
+        try {
+            artistNomField.setText(personne_list.get(0).getPersonne_name());
+            artistTypeCombo.setSelectedIndex((int)personne_list.get(0).getId_personne_type()-1);
+
+            artist2NomField.setText(personne_list.get(1).getPersonne_name());
+            artist2TypeCombo.setSelectedIndex((int)personne_list.get(1).getId_personne_type()-1);
+
         } catch (NullPointerException e) {
             e.printStackTrace();
         }
+
+
 
     }
 }

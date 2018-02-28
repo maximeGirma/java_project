@@ -64,15 +64,15 @@ public class MainFrame extends JFrame implements ListSelectionListener{
 		alphabetbar = new AlphabetBar();//SOUTH//
 		//*** btn = new JButton("About this App");
 
-		itemFilmPanel = new ItemFilmPanel(library);
-		itemMusiquePanel = new ItemMusiquePanel(library);
-		itemLivrePanel = new ItemLivrePanel(library);
-		itemJeuPanel = new ItemJeuPanel(library);
+		itemFilmPanel = new ItemFilmPanel(this,library);
+		itemMusiquePanel = new ItemMusiquePanel(this, library);
+		itemLivrePanel = new ItemLivrePanel(this,library);
+		itemJeuPanel = new ItemJeuPanel(this,library);
 
-		updateFilmPanel = new UpdateFilmPanel(library);
-		updateJeuPanel = new UpdateJeuVideoPanel(library);
-		updateLivrePanel =new UpdateLivrePanel(library);
-		updateMusiquePanel = new UpdateMusiquePanel(library);
+		updateFilmPanel = new UpdateFilmPanel(this,library);
+		updateJeuPanel = new UpdateJeuVideoPanel(this,library);
+		updateLivrePanel =new UpdateLivrePanel(this,library);
+		updateMusiquePanel = new UpdateMusiquePanel(this,library);
 
 
 		/////Application Menu Bar/////
@@ -184,7 +184,7 @@ public class MainFrame extends JFrame implements ListSelectionListener{
 		splitPane.setRightComponent(itemHomePanel);
 		//splitPane.setRightComponent(itemPanel);//CENTER RIGHT//
 		splitPane.resetToPreferredSizes();
-		add(alphabetbar, BorderLayout.SOUTH);
+		//add(alphabetbar, BorderLayout.SOUTH);
 		//*** add(viewPanel, BorderLayout.CENTER);
 		//*** add(accordionPane.getContent(), BorderLayout.CENTER);
 		//*** add(btn, BorderLayout.SOUTH);

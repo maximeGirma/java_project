@@ -2,6 +2,7 @@ package GraphicalUtilisateurInterface.ItemPanels;
 
 import Database.Controller.OeuvreController;
 import Database.Model.LibraryDatabaseModel;
+import GraphicalUtilisateurInterface.MainFrame;
 import GraphicalUtilisateurInterface.MouseListeners.AbstractCreateListener;
 import Database.Model.Film;
 import Database.Model.Oeuvre;
@@ -13,9 +14,11 @@ import java.util.ArrayList;
 
 public class ItemFilmPanel extends AbstractItemFilmPanel {
 
-	public ItemFilmPanel(LibraryDatabaseModel parent_library){
+	MainFrame mainframe;
+	public ItemFilmPanel(MainFrame parent, LibraryDatabaseModel parent_library){
 
 		super(parent_library);
+		mainframe = parent;
 		addBtn.addMouseListener(new CreateFilmListener(this));
 	}
 
@@ -78,7 +81,7 @@ public class ItemFilmPanel extends AbstractItemFilmPanel {
 						support,
 						lieu,
 						library);
-
+				mainframe.setItemFilmPanel(new ItemFilmPanel(mainframe,library));
 
 				jop1.showMessageDialog(null, "Oeuvre Sauvegardée !", "Information", JOptionPane.INFORMATION_MESSAGE);
 			}

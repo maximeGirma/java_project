@@ -3,6 +3,7 @@ package GraphicalUtilisateurInterface.ItemPanels;
 import Database.Controller.OeuvreController;
 import Database.Model.Film;
 import Database.Model.LibraryDatabaseModel;
+import GraphicalUtilisateurInterface.MainFrame;
 import GraphicalUtilisateurInterface.MouseListeners.AbstractCreateListener;
 import Database.Model.JeuVideo;
 import Database.Model.Oeuvre;
@@ -13,9 +14,10 @@ import java.util.ArrayList;
 
 
 public class ItemJeuPanel extends AbstractItemJeuVideoPanel {
-
-    public ItemJeuPanel(LibraryDatabaseModel parent_library) {
+    MainFrame mainframe;
+    public ItemJeuPanel(MainFrame parent,LibraryDatabaseModel parent_library) {
         super(parent_library);
+        mainframe = parent;
         addBtn.addMouseListener(new CreateJeuListener(this));
     }
 
@@ -80,6 +82,7 @@ public class ItemJeuPanel extends AbstractItemJeuVideoPanel {
                         support,
                         lieu,
                         library);
+                mainframe.setItemJeuPanel(new ItemJeuPanel(mainframe,library));
 
 
                 jop1.showMessageDialog(null, "Oeuvre Sauvegardée !", "Information", JOptionPane.INFORMATION_MESSAGE);
