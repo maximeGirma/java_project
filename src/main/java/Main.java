@@ -1,9 +1,6 @@
 import Database.Controller.DatabaseController;
 import Database.Model.*;
 import Database.Controller.OeuvreController;
-import GraphicalUtilisateurInterface.MainFrame;
-
-import javax.swing.*;
 
 import java.sql.SQLException;
 import java.util.*;
@@ -34,8 +31,7 @@ public class Main {
         personne_name_list2.add("Will Smith");
 
         ArrayList<String> personne_name_list3 = new ArrayList<>();
-        personne_name_list3.add("Boris Vian");
-
+        personne_name_list3.add("Baudelaire");
 
         ArrayList<String> personne_type_list = new ArrayList<>();
         personne_type_list.add("Producteur");
@@ -66,7 +62,7 @@ public class Main {
         OeuvreController.addOeuvre(music1, music1.personnes_name_list, personne_type_list, music1.genres_label_list, "CD", "Amazon", database);
         OeuvreController.addOeuvre(film1, film1.personnes_name_list, personne_type_list, film1.genres_label_list, "DVD", "Cdiscount", database);
         OeuvreController.addOeuvre(film2, null, null, film2.genres_label_list, "BlueRay", null, database);
-        OeuvreController.addOeuvre(livre1, livre1.personnes_name_list, personne_type_list, livre1.genres_label_list, "Livre", "Mollat", database);
+        OeuvreController.addOeuvre(livre1, livre1.personnes_name_list, null, livre1.genres_label_list, "Livre", "Mollat", database);
         OeuvreController.addOeuvre(jeu1, null,null,null,null,"Micromania",database);
 
 
@@ -124,11 +120,11 @@ public class Main {
 
 
 
-        SwingUtilities.invokeLater(new Runnable(){
+       /* SwingUtilities.invokeLater(new Runnable(){
             public void run() {
                 new MainFrame(database);
             }
-        });
+        });*/
     }
 
 }

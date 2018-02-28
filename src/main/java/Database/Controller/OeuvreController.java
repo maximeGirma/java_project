@@ -16,17 +16,6 @@ public class OeuvreController {
 
         try {
             /* GESTION DES PERSONNES */
-            List<Personne> existing_personnes;
-            ArrayList<String> existing_personnes_name = new ArrayList<>();
-
-
-            existing_personnes = library.getObjectModel(Personne.class).getAll();
-
-            for (Personne personne : existing_personnes) {
-                existing_personnes_name.add(personne.getPersonne_name());
-            }
-
-            /*On crée une personne uniquement si elle n'existe pas deja*/
 
             if (input_personnes_name == null || input_personnes_name.isEmpty()) {
                 input_personnes_name = new ArrayList<>();
@@ -38,25 +27,66 @@ public class OeuvreController {
                 input_personne_type_name.add("Inconnu");
             }
 
+            /*On crée un couple personne/type uniquement si il n'existe pas deja*/
+            List<Personne> existing_personnes = library.getObjectModel(Personne.class).getAll();
+            ArrayList<ArrayList> existing_list = new ArrayList<>();
 
-            String name;
-            String type_name;
-            for (int i = 0; i<input_personnes_name.size(); i++) {
-                name = input_personnes_name.get(i);
-                type_name = input_personne_type_name.get(i);
-                /*if (!existing_personnes_name.contains(name)) {*/
-                Personne personne = new Personne();
-                personne.setPersonneName(name);
-                personne.setId_personne_type(library.getObjectModel(PersonneType.class)
-                        .getAll("personne_type_name= ?", type_name)
-                        .get(0).getId());
-                library.getObjectModel(Personne.class).insert(personne);
+            for (Personne personne : existing_personnes) {
+                ArrayList<String> exist_couples = new ArrayList<>();
+                exist_couples.add(personne.getPersonne_name());
+                exist_couples.add(library.getObjectModel(PersonneType.class).getAll("id=?", personne.getId_personne_type())
+                        .get(0).getPersonne_type_name());
+                existing_list.add(exist_couples);
             }
+
+            ArrayList<ArrayList> input_list = new ArrayList<>();
+            for (int i = 0; i<input_personnes_name.size(); i++) {
+                ArrayList<String> couples = new ArrayList<>();
+                couples.add(input_personnes_name.get(i));
+                couples.add(input_personne_type_name.get(i));
+                input_list.add(couples);
+                /*System.out.println(couples);*/
+            }
+
+
+
+            Boolean must_create = true;
+            for (int i=0; i<input_list.size(); i++) {
+                must_create = true;
+                String input_name = (String) input_list.get(i).get(0);
+                String input_type = (String) input_list.get(i).get(1);
+
+                for (int j=0; j<existing_list.size(); j++) {
+                    String existing_name = (String) existing_list.get(j).get(0);
+                    String existing_type = (String) existing_list.get(j).get(1);
+
+                    if(input_name.equals(existing_name)  && input_type.equals(existing_type)) {
+                        must_create = false;
+                    }
+                }
+                /**/
+                if (must_create) {
+                    Personne personne = new Personne();
+                    personne.setPersonneName(input_name);
+                    personne.setId_personne_type(library.getObjectModel(PersonneType.class)
+                            .getAll("personne_type_name= ?", input_type)
+                            .get(0).getId());
+                    library.getObjectModel(Personne.class).insert(personne);
+                    ArrayList created_personne = new ArrayList();
+                    created_personne.add(input_name);
+                    created_personne.add(input_type);
+                    existing_list.add(created_personne);
+                    System.out.println("CREATION");
+                }
+            }
+
             /* recup la liste des id des personnes créées */
             ArrayList<Long> personne_id_list = new ArrayList<>();
             for (String personne_name : input_personnes_name) {
-                personne_id_list.add(library.getObjectModel(Personne.class)
-                        .getAll("personne_name = ?", personne_name).get(0).getId());
+                if (must_create) {
+                    personne_id_list.add(library.getObjectModel(Personne.class)
+                            .getAll("personne_name = ?", personne_name).get(0).getId());
+                }
             }
 
             /* GESTION DES GENRES */
@@ -99,11 +129,11 @@ public class OeuvreController {
             if (input_support_type == null || input_support_type.isEmpty())
                 input_support_type = "Non précisé";
 
-                if (!existing_supports_type.contains(input_support_type) && !input_support_type.equals("Non précisé")) {
-                    Support support = new Support();
-                    support.setSupport_type(input_support_type);
-                    library.getObjectModel(Support.class).insert(support);
-                }
+            if (!existing_supports_type.contains(input_support_type) && !input_support_type.equals("Non précisé")) {
+                Support support = new Support();
+                support.setSupport_type(input_support_type);
+                library.getObjectModel(Support.class).insert(support);
+            }
             /* recup l'id du support créé */
             int support_id = library.getObjectModel(Support.class)
                     .getAll("support_type = ?", input_support_type).get(0).getId();
@@ -141,13 +171,12 @@ public class OeuvreController {
                 id_oeuvre = o.getId();
             }
 
-            System.out.println(id_oeuvre);
-            System.out.println(genres_id_list);
-
-             /*CREATION RELATIONS OEUVRE/PERSONNES */
-            for (Long id_personne : personne_id_list) {
-               Participe participe_relationship = new Participe(id_oeuvre, id_personne);
-                library.getObjectModel(Participe.class).insert(participe_relationship);
+            /*CREATION RELATIONS OEUVRE/PERSONNES */
+            if (must_create) {
+                for (Long id_personne : personne_id_list) {
+                    Participe participe_relationship = new Participe(id_oeuvre, id_personne);
+                    library.getObjectModel(Participe.class).insert(participe_relationship);
+                }
             }
 
             /* CREATION RELATIONS OEUVRE/GENRES */

@@ -10,6 +10,9 @@ public class Support {
     private String support_type;
     private Collection<Oeuvre> oeuvres;
 
+    public Support() {
+    }
+
     public int getId() {
         return id;
     }
