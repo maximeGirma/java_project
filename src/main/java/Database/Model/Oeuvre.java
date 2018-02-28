@@ -1,3 +1,15 @@
+/*
+Author : Bocquenet Peter, Ibran Danielle, Georget Kévin Girma Maxime
+Version 1.0
+26/02/2018
+
+Oeuvre est la classe principale de stockage de données. Elle comprend de nombreuses
+données relatives aux oeuvres. Elle dispose de méthodes pour récuperer les données
+des classes qui lui sont associées et les modifier. Bien qu'elle ne soit pas abstraite elle
+ne doit pas etre instanciée.
+Elle est utilisée par SQLite database model pour écrire et lire dans la BDD.
+ */
+
 package Database.Model;
 
 import za.co.neilson.sqlite.orm.annotations.ForeignKey;

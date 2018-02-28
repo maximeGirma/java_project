@@ -1,3 +1,12 @@
+/*
+Author : Bocquenet Peter, Ibran Danielle, Girma Maxime
+Version : 1.0
+25/02/2018
+ViewPanel affiche la liste des oeuvres envoyées par le mainframe via updateViewPanel()
+Il permet egalement d'effectuer une recherche avec searchTitle() et informe le mainframe
+en cas de click
+ */
+
 package GraphicalUtilisateurInterface;
 
 import Database.Model.Oeuvre;
@@ -34,48 +43,7 @@ public class ViewPanel extends JPanel{
 		titleList.setFont(new Font("Dialog", Font.BOLD, 12));
 		
 		this.listModel = new DefaultListModel();
-/*
-		listModel.addElement("The Dark Side of the Moon");
-		listModel.addElement("Unplugged");
-		listModel.addElement("The Best of Men at Work");
-		listModel.addElement("Karajan: Beethoven Symphonies");
-		listModel.addElement("The Dark Side of the Moon");
-		listModel.addElement("Unplugged");
-		listModel.addElement("The Best of Men at Work");
-		listModel.addElement("Karajan: Beethoven Symphonies");
-		listModel.addElement("The Dark Side of the Moon");
-		listModel.addElement("Unplugged");
-		listModel.addElement("The Best of Men at Work");
-		listModel.addElement("Karajan: Beethoven Symphonies");
-		listModel.addElement("The Dark Side of the Moon");
-		listModel.addElement("Unplugged");
-		listModel.addElement("The Best of Men at Work");
-		listModel.addElement("Karajan: Beethoven Symphonies");
-		listModel.addElement("The Dark Side of the Moon");
-		listModel.addElement("Unplugged");
-		listModel.addElement("The Best of Men at Work");
-		listModel.addElement("Karajan: Beethoven Symphonies");
-		listModel.addElement("The Dark Side of the Moon");
-		listModel.addElement("Unplugged");
-		listModel.addElement("The Best of Men at Work");
-		listModel.addElement("Karajan: Beethoven Symphonies");
-		listModel.addElement("The Dark Side of the Moon");
-		listModel.addElement("Unplugged");
-		listModel.addElement("The Best of Men at Work");
-		listModel.addElement("Karajan: Beethoven Symphonies");
-		listModel.addElement("The Dark Side of the Moon");
-		listModel.addElement("Unplugged");
-		listModel.addElement("The Best of Men at Work");
-		listModel.addElement("Karajan: Beethoven Symphonies");
-		listModel.addElement("The Dark Side of the Moon");
-		listModel.addElement("Unplugged");
-		listModel.addElement("The Best of Men at Work");
-		listModel.addElement("Karajan: Beethoven Symphonies");
-		listModel.addElement("The Dark Side of the Moon");
-		listModel.addElement("Unplugged");
-		listModel.addElement("The Best of Men at Work");
-		listModel.addElement("Karajan: Beethoven Symphonies");
-*/
+
 		
 		this.titleList.setModel(listModel);
 		 list_to_listen = this.titleList.getSelectionModel();

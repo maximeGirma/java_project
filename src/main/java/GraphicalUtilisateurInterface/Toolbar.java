@@ -1,7 +1,10 @@
 package GraphicalUtilisateurInterface; /**
- * 
+ * Author : Bocquenet Peter, Ibran Danielle, Girma Maxime
+ * Version : 1.0
+ * Date: 23/02/2018
  * Application ToolBar 
  * The user can choose the category or search for the item of his choice.
+ * The Toolbar is created by the mainframe and inform in case of a click
  */
 
 import java.awt.Color;

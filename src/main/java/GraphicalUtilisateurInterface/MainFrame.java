@@ -1,7 +1,12 @@
 package GraphicalUtilisateurInterface; /**
- * 
- * Application Mainframe
- *
+ Author : Bocquenet Peter, Ibran Danielle, Girma Maxime
+ Version : 1.0
+ 26/02/2018
+ * Le mainframe est la fenetre principale de l'application, il gère la création des
+ * différents pannels et leur positionnement. Il permet aussi de modifier l'affichage
+ *selon les choix de l'utilisateur.
+ *Il a également pour role d'écouter les differents boutons et de reagir en conséquence.
+ *C'est lui qui recoit les oeuvres en provenance de la BDD et les envoie aux viewpanel.
  */
 import Database.Model.LibraryDatabaseModel;
 import Database.Controller.SearchDisplay;

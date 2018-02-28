@@ -1,3 +1,11 @@
+/*
+Author: Maxime Girma
+Version 1.0
+24/02/2018
+UpdateOeuvreRedirection est appelé par le mainframe lors d'un click sur toolbar
+Selon la nature du click cet objet appelle la classe et la methode appropriée.
+ */
+
 package GraphicalUtilisateurInterface;
 
 import Database.Model.Oeuvre;

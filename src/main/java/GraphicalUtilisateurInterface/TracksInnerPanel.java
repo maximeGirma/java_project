@@ -1,3 +1,10 @@
+/*
+Author : Bocquenet Peter
+Version : 1.0
+26/02/2018
+Est utilisé par MusiquePannel pour afficher le champs relatif aux pistes.
+ */
+
 package GraphicalUtilisateurInterface;
 
 import javax.swing.*;

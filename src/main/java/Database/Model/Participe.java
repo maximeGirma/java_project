@@ -1,5 +1,15 @@
+
 package Database.Model;
 
+/*
+Author : Bocquenet Peter, Ibran Danielle, Georget Kévin, Girma Maxime
+Version 1.0
+26/02/2018
+
+Cette classe représente une table associative et permet de relier la classe Oeuvre
+et la classe Personne
+Elle est utilisée par SQLite Database Model pour lire et écrire dans la base de données.
+*/
 import za.co.neilson.sqlite.orm.annotations.ForeignKey;
 import za.co.neilson.sqlite.orm.annotations.PrimaryKey;
 

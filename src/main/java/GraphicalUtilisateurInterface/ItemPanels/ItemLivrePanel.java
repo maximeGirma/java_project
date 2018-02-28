@@ -56,16 +56,17 @@ public class ItemLivrePanel extends AbstractItemLivrePanel {
             }
 			oeuvre_to_insert.setGenres_label_list(genres);
 
-            ArrayList personne_list = new ArrayList();
-            ArrayList type_personne_list = new ArrayList();
+            ArrayList<String> personne_list = new ArrayList();
+            ArrayList<String> type_personne_list = new ArrayList();
             if (artistNomField.getText() != "" ){
 
                 personne_list.add(artistNomField.getText());
-                type_personne_list.add(artistTypeCombo.getSelectedItem());
+                type_personne_list.add((String)artistTypeCombo.getSelectedItem());
             }
             if (artist2NomField.getText() != "" ){
+
                 personne_list.add(artist2NomField.getText());
-                type_personne_list.add(artist2TypeCombo.getSelectedItem());
+                type_personne_list.add((String)artist2TypeCombo.getSelectedItem());
             }
 
 
