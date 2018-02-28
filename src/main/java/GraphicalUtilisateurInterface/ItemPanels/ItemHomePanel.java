@@ -1,3 +1,11 @@
+/*
+Author : Bocquenet Peter
+Version : 1.0
+26/02/2018
+Est utilisée par main frame pour afficher la page d'accueil et le logo.
+Est appellée également pour se rafraîchir en cas de clic sur la Toolbar
+
+ */
 package GraphicalUtilisateurInterface.ItemPanels;
 
 

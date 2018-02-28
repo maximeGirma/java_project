@@ -1,3 +1,10 @@
+/*
+Author : Girma Maxime
+Version : 1.0
+25/02/2018
+
+
+ */
 package GraphicalUtilisateurInterface.ItemPanels;
 
 import Database.JDBC.JDBCController;

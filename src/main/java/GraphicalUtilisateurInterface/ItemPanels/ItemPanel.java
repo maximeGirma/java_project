@@ -1,20 +1,15 @@
+/*
+Author : Danielle Ibran, Peter Bocquenet
+Version : 1.0
+26/02/2018
+Maquette pour oeuvre generique
+
+ */
+
 package GraphicalUtilisateurInterface.ItemPanels;
 
-import GraphicalUtilisateurInterface.MouseListeners.DeleteListener;
-import GraphicalUtilisateurInterface.MouseListeners.SaveListener;
-import GraphicalUtilisateurInterface.TracksInnerPanel;
 
-
-import javax.swing.*;
-import java.awt.*;
-
-import javax.swing.ImageIcon;
-import javax.swing.JButton;
-import javax.swing.JComboBox;
-import javax.swing.JLabel;
 import javax.swing.JPanel;
-import javax.swing.JTextField;
-import javax.swing.JTextPane;
 
 
 public class ItemPanel extends JPanel {

@@ -1,3 +1,10 @@
+/*
+Author : Bocquenet Peter
+Version : 1.0
+26/02/2018
+Est utilisée par rien pour afficher rien.
+
+ */
 package GraphicalUtilisateurInterface.ItemPanels;
 
 

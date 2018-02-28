@@ -5,7 +5,7 @@ Version : 1.0
 Est utilisé par MusiquePannel pour afficher le champs relatif aux pistes.
  */
 
-package GraphicalUtilisateurInterface;
+package GraphicalUtilisateurInterface.ItemPanels;
 
 import javax.swing.*;
 import java.awt.*;
@@ -27,8 +27,9 @@ public class TracksInnerPanel extends JPanel{
 //		this.trackList.setVisibleRowCount(10);
 		trackList.setBackground(new Color(227,237,243));
 		trackList.setFont(new Font("Dialog", Font.PLAIN, 9));
-		trackList.setPreferredSize(new Dimension(90,240));
-		trackList.setMaximumSize(new Dimension(90,240));
+		trackList.setPreferredSize(new Dimension(90,255));
+		trackList.setMaximumSize(new Dimension(90,255));
+		trackList.setMinimumSize(new Dimension(90,255));
 
 
 		scrollPane.add(trackList);

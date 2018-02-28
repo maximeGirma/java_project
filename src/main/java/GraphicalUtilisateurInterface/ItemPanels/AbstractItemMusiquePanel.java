@@ -1,8 +1,14 @@
+/*
+Author : Bocquenet Peter
+Version : 1.0
+26/02/2018
+Abstraite. Est utilisée pour formater les vues d'oeuvre du genre Musique.
+
+ */
 package GraphicalUtilisateurInterface.ItemPanels;
 
 
 import Database.Model.LibraryDatabaseModel;
-import GraphicalUtilisateurInterface.TracksInnerPanel;
 import Database.JDBC.JDBCController;
 
 import javax.swing.*;
@@ -281,7 +287,7 @@ public abstract class AbstractItemMusiquePanel extends JPanel{
         gc.gridwidth = 1;
         gc.gridheight = 8;
         gc.fill=GridBagConstraints.VERTICAL;
-        gc.anchor=GridBagConstraints.LINE_END;
+        gc.anchor=GridBagConstraints.NORTH;
         add(tracksInnerPanel,gc);
         gc.gridheight = 1;
 

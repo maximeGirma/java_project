@@ -1,3 +1,10 @@
+/*
+Author : Bocquenet Peter
+Version : 1.0
+26/02/2018
+Abstraite. Est utilisée pour formater les vues d'oeuvre du genre Livre.
+
+ */
 package GraphicalUtilisateurInterface.ItemPanels;
 
 

@@ -6,7 +6,7 @@ package GraphicalUtilisateurInterface; /**
  * différents pannels et leur positionnement. Il permet aussi de modifier l'affichage
  *selon les choix de l'utilisateur.
  *Il a également pour role d'écouter les differents boutons et de reagir en conséquence.
- *C'est lui qui recoit les oeuvres en provenance de la BDD et les envoie aux viewpanel.
+ *C'est lui qui reçoit les oeuvres en provenance de la BDD et les envoie aux viewpanel.
  */
 import Database.Model.LibraryDatabaseModel;
 import Database.Controller.SearchDisplay;
@@ -196,7 +196,7 @@ public class MainFrame extends JFrame implements ListSelectionListener{
 
 		/////Frame theme, size and visibility/////
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setSize(1000, 600);
+		setSize(1020, 600);
 		setBackground(new Color(243,245,247));
 		setResizable(false);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

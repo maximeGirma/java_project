@@ -1,3 +1,10 @@
+/*
+Author : Maxime Girma
+Version : 1.0
+26/02/2018
+Est utilisée par ItemNewPanel pour afficher le formulaire oeuvre genre Film et ses champs de saisie.
+
+ */
 package GraphicalUtilisateurInterface.ItemPanels;
 
 import Database.Controller.OeuvreController;

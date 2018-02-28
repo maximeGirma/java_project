@@ -1,3 +1,10 @@
+/*
+Author : Bocquenet Peter
+Version : 1.0
+26/02/2018
+Est utilisée par Toolbar pour afficher le choix de categorie pour une nouvelle oeuvre.
+
+ */
 package GraphicalUtilisateurInterface.ItemPanels;
 
 
