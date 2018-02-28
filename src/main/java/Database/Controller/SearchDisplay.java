@@ -17,7 +17,7 @@ public class SearchDisplay {
     public SearchDisplay() {
     }
 
-    public void getTitleByCategory(int category, LibraryDatabaseModel library) {
+    public void getOeuvresByCategory(int category, LibraryDatabaseModel library) {
         List<Oeuvre> list = null;
         oeuvreList = new HashMap<>();
 

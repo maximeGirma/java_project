@@ -125,7 +125,7 @@ public class MainFrame extends JFrame implements ListSelectionListener{
 		
 			public void musicEventOccured() {
 				System.out.println("it works music");
-				search.getTitleByCategory(2, library);
+				search.getOeuvresByCategory(2, library);
 				list_oeuvre = search.getOeuvreList();
 				viewPanel.UpdateViewPanel(list_oeuvre);
 				splitPane.setRightComponent(itemHomePanel);
@@ -133,7 +133,7 @@ public class MainFrame extends JFrame implements ListSelectionListener{
 
 			public void movieEventOccured() {
 				System.out.println("it works movie");
-				search.getTitleByCategory(1, library);
+				search.getOeuvresByCategory(1, library);
 				list_oeuvre = search.getOeuvreList();
 				viewPanel.UpdateViewPanel(list_oeuvre);
 				splitPane.setRightComponent(itemHomePanel);
@@ -141,7 +141,7 @@ public class MainFrame extends JFrame implements ListSelectionListener{
 
 			public void bookEventOccured() {
 				System.out.println("it works book");
-				search.getTitleByCategory(3, library);
+				search.getOeuvresByCategory(3, library);
 				list_oeuvre = search.getOeuvreList();
 				viewPanel.UpdateViewPanel(list_oeuvre);
 				splitPane.setRightComponent(itemHomePanel);
@@ -149,14 +149,14 @@ public class MainFrame extends JFrame implements ListSelectionListener{
 
 			public void gameEventOccured() {
 				System.out.println("it works game");
-				search.getTitleByCategory(4, library);
+				search.getOeuvresByCategory(4, library);
 				list_oeuvre = search.getOeuvreList();
 				viewPanel.UpdateViewPanel(list_oeuvre);
 				splitPane.setRightComponent(itemHomePanel);
 			}
 			public void homeEventOccured(){
 				System.out.println("home clicked guys");
-				search.getTitleByCategory(0, library);
+				search.getOeuvresByCategory(0, library);
 				list_oeuvre = search.getOeuvreList();
 				viewPanel.UpdateViewPanel(list_oeuvre);
 				splitPane.setRightComponent(itemHomePanel);

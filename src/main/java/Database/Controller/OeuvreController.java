@@ -17,6 +17,8 @@ public class OeuvreController {
         try {
             /* GESTION DES PERSONNES */
 
+
+
             if (input_personnes_name == null || input_personnes_name.isEmpty()) {
                 input_personnes_name = new ArrayList<>();
                 input_personnes_name.add("Inconnu");
@@ -48,9 +50,8 @@ public class OeuvreController {
                 /*System.out.println(couples);*/
             }
 
-
-
             Boolean must_create = true;
+            Boolean created = false;
             for (int i=0; i<input_list.size(); i++) {
                 must_create = true;
                 String input_name = (String) input_list.get(i).get(0);
@@ -76,7 +77,10 @@ public class OeuvreController {
                     created_personne.add(input_name);
                     created_personne.add(input_type);
                     existing_list.add(created_personne);
-                    System.out.println("CREATION");
+                    created = true;
+                    System.out.println("CREATION " + created);
+
+
                 }
             }
 
@@ -172,7 +176,7 @@ public class OeuvreController {
             }
 
             /*CREATION RELATIONS OEUVRE/PERSONNES */
-            if (must_create) {
+            if (created) {
                 for (Long id_personne : personne_id_list) {
                     Participe participe_relationship = new Participe(id_oeuvre, id_personne);
                     library.getObjectModel(Participe.class).insert(participe_relationship);
