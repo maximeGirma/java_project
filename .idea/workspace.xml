@@ -3,14 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="431b41d5-0db1-461a-a71b-0f3478f89954" name="Default" comment="logo update">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/library.db" afterPath="$PROJECT_DIR$/library.db" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/GraphicalUtilisateurInterface/ItemPanels/ItemHomePanel.java" afterPath="$PROJECT_DIR$/src/main/java/GraphicalUtilisateurInterface/ItemPanels/ItemHomePanel.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/img/A.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/img/CollBee.png" afterPath="$PROJECT_DIR$/src/main/java/img/CollBee.png" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/img/_album.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/img/_home.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/img/_trash.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/img/album.png" afterPath="" />
       <change beforePath="$PROJECT_DIR$/src/main/java/img/alpha/A.png" afterPath="" />
       <change beforePath="$PROJECT_DIR$/src/main/java/img/alpha/b.png" afterPath="" />
       <change beforePath="$PROJECT_DIR$/src/main/java/img/alpha/c.png" afterPath="" />
@@ -1096,10 +1088,18 @@
       <workItem from="1519717374577" duration="8000" />
       <workItem from="1519717451264" duration="17445000" />
     </task>
+    <task id="LOCAL-00001" summary="logo update">
+      <created>1519829686365</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1519829686366</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="188866000" />
+    <option name="totallyTimeSpent" value="188983000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="784" extended-state="6" />
@@ -1225,6 +1225,10 @@
   </component>
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="logo update" />
+    <option name="LAST_COMMIT_MESSAGE" value="logo update" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
