@@ -9,6 +9,14 @@ import Database.Model.OeuvreAppartientAGenre;
 import java.sql.SQLException;
 import java.util.*;
 
+/**
+ * Manage "oeuvres" search.
+ * static methods that belongs to this class returns an HashMap<Long, Oeuvre> results
+ * of search in the database. : getOeuvresByCategory(int category, LibraryDatabaseModel library)
+ *                              getOeuvresByGenre(String genre_label, LibraryDatabaseModel library)
+ *                              HashMap<Long, Oeuvre> getOeuvresByNote(String note, LibraryDatabaseModel library)
+ **/
+
 public class SearchDisplay {
 
     private HashMap<Long, Oeuvre> oeuvreList;

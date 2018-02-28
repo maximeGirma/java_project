@@ -6,6 +6,12 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Manage "Oeuvre" adding into the database:
+ * addOeuvre(Oeuvre oeuvre, ArrayList<String> input_personnes_name, ArrayList<String> input_personne_type_name,
+ ArrayList<String> input_labels, String input_support_type, String input_lieu, LibraryDatabaseModel library)
+ >>>> adds a given "oeuvre" into the database, args received from UI input fields.
+ */
 public class OeuvreController {
 
     public OeuvreController() {
@@ -16,9 +22,6 @@ public class OeuvreController {
 
         try {
             /* GESTION DES PERSONNES */
-
-
-
             if (input_personnes_name == null || input_personnes_name.isEmpty()) {
                 input_personnes_name = new ArrayList<>();
                 input_personnes_name.add("Inconnu");
@@ -47,11 +50,10 @@ public class OeuvreController {
                 couples.add(input_personnes_name.get(i));
                 couples.add(input_personne_type_name.get(i));
                 input_list.add(couples);
-                /*System.out.println(couples);*/
             }
 
-            Boolean must_create = true;
-            Boolean created = false;
+            Boolean must_create;
+            Boolean created;
             for (int i=0; i<input_list.size(); i++) {
                 must_create = true;
                 String input_name = (String) input_list.get(i).get(0);

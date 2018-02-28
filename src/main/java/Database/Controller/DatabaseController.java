@@ -4,6 +4,12 @@ import Database.Model.LibraryDatabaseModel;
 
 import java.sql.SQLException;
 
+/**
+ * Provide the database instance and init the LibraryDatabase (init())
+ * return intance of the SQlite DatabaseModel (Neilson)  >> this instance will be used
+ * every time a db query need to be executed
+ */
+
 public class DatabaseController {
 
     private static DatabaseController DATABASE = new DatabaseController();
