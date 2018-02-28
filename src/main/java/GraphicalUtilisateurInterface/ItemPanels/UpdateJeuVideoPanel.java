@@ -1,7 +1,9 @@
 package GraphicalUtilisateurInterface.ItemPanels;
 
 
+import Database.Model.Genre;
 import Database.Model.LibraryDatabaseModel;
+import Database.Model.Personne;
 import GraphicalUtilisateurInterface.MouseListeners.DeleteListener;
 import Database.Model.Oeuvre;
 
@@ -9,6 +11,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import java.sql.SQLException;
 import java.util.ArrayList;
 
 public class UpdateJeuVideoPanel extends AbstractItemJeuVideoPanel {
@@ -41,7 +44,7 @@ public class UpdateJeuVideoPanel extends AbstractItemJeuVideoPanel {
             public void mouseClicked(MouseEvent mouseEvent) {
 
                 oeuvre_to_update.setTitre(titleField.getText());
-                oeuvre_to_update.setPegi(Integer.parseInt(refField.getText()));
+                oeuvre_to_update.setPegi(refField.getText());
                 oeuvre_to_update.setDateEdition(yearField.getText());
                 oeuvre_to_update.setCommentaire(commentField.getText());
 
@@ -83,36 +86,56 @@ public class UpdateJeuVideoPanel extends AbstractItemJeuVideoPanel {
 
         oeuvre_to_update = oeuvre;
 
-
         titleField.setText(oeuvre.getTitre());
         yearField.setText(oeuvre.getDateEdition());
         commentField.setText(oeuvre.getCommentaire());
-        refField.setText(Integer.toString(oeuvre.getPegi()));
-        ratingCombo.setSelectedIndex(oeuvre.getId_note());
-
-        if(oeuvre_to_update.getGenres_label_list() != null) {
-            String concat_genres = "";
-            for (String item : oeuvre_to_update.getGenres_label_list()) {
-                concat_genres += item;
-                concat_genres += ", ";
-            }
-            typeField.setText(concat_genres);
+        refField.setText(oeuvre_to_update.getPegi());
+        ratingCombo.setSelectedIndex(oeuvre.getId_note()-1);
+        statusCombo.setSelectedIndex(oeuvre.getId_statut()-1);
+        try {
+            originField.setText(oeuvre.getLieu(library));
+        } catch (SQLException e) {
+            e.printStackTrace();
         }
+        acquireField.setText(oeuvre.getAcquisition_date());
 
-
-        ArrayList<String> name_list = oeuvre.getPersonnes_name_list();
-
-
-        try {//////////TO FINISH -> WAITING FOR PERSONNE TYPE GETTERS
-            artistNomField.setText(name_list.get(0));
-            artistTypeCombo.setSelectedIndex(0);
-
-            artist2NomField.setText(name_list.get(1));    ;
-            artist2TypeCombo.setSelectedIndex(1);
-        } catch (NullPointerException e) {
+        try {
+            supportField.setText(oeuvre.getSupport(library));
+        } catch (SQLException e) {
             e.printStackTrace();
         }
 
+
+        String concat_genres = "";
+        try {
+            for (Genre item : oeuvre_to_update.getGenres(library)) {
+                concat_genres += item.getLabel();
+                concat_genres += ", ";
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        typeField.setText(concat_genres);
+
+
+        ArrayList<Personne> personne_list = null;
+        try {
+            personne_list = oeuvre.getPersonnes(library);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+
+        try {
+            artistNomField.setText(personne_list.get(0).getPersonne_name());
+            artistTypeCombo.setSelectedIndex((int)personne_list.get(0).getId_personne_type()-1);
+
+            artist2NomField.setText(personne_list.get(1).getPersonne_name());
+            artist2TypeCombo.setSelectedIndex((int)personne_list.get(1).getId_personne_type()-1);
+
+        } catch (NullPointerException e) {
+            e.printStackTrace();
+        }
 
 
     }

@@ -21,7 +21,7 @@ public class Oeuvre{
     protected int nbrepages;
     protected String isbn;
     protected String duree;
-    protected int pegi;
+    protected String pegi;
     protected String acquisition_date;
 
     @ForeignKey(table = "Category", column = "id", childReference = "category", parentReference = "oeuvres")
@@ -217,11 +217,11 @@ public class Oeuvre{
         this.duree = duree;
     }
 
-    public int getPegi() {
+    public String getPegi() {
         return pegi;
     }
 
-    public void setPegi(int pegi) {
+    public void setPegi(String pegi) {
         this.pegi = pegi;
     }
 

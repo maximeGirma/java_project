@@ -1,7 +1,9 @@
 import Database.Controller.DatabaseController;
 import Database.Model.*;
 import Database.Controller.OeuvreController;
+import GraphicalUtilisateurInterface.MainFrame;
 
+import javax.swing.*;
 import java.sql.SQLException;
 import java.util.*;
 
@@ -120,11 +122,11 @@ public class Main {
 
 
 
-       /* SwingUtilities.invokeLater(new Runnable(){
+        SwingUtilities.invokeLater(new Runnable(){
             public void run() {
                 new MainFrame(database);
             }
-        });*/
+        });
     }
 
 }

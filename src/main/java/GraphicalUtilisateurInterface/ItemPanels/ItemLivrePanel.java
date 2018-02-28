@@ -1,6 +1,8 @@
 package GraphicalUtilisateurInterface.ItemPanels;
 
 
+import Database.Controller.OeuvreController;
+import Database.Model.Film;
 import Database.Model.LibraryDatabaseModel;
 import GraphicalUtilisateurInterface.MouseListeners.AbstractCreateListener;
 import Database.Model.Livre;
@@ -22,28 +24,32 @@ public class ItemLivrePanel extends AbstractItemLivrePanel {
         public CreateLivreListener(JPanel caller) {
             super(caller);
         }
-
         @Override
         public void mouseClicked(MouseEvent mouseEvent) {
+
             super.mouseClicked(mouseEvent);
 
             Oeuvre oeuvre_to_insert = new Livre();
-            oeuvre_to_insert.setTitre(titleField.getText());
-            oeuvre_to_insert.setCommentaire(commentField.getText());
-            oeuvre_to_insert.setDateEdition(yearField.getText());
-            oeuvre_to_insert.setId_note(ratingCombo.getSelectedIndex());
             String[] temp_genres;
             ArrayList<String> genres = new ArrayList<>();
 
 
+			oeuvre_to_insert.setTitre(titleField.getText());
+			oeuvre_to_insert.setCommentaire(commentField.getText());
+			oeuvre_to_insert.setDateEdition(yearField.getText());
+            oeuvre_to_insert.setIsbn(refField.getText());
+            oeuvre_to_insert.setNbrepages(Integer.parseInt(pagesField.getText()));
+            oeuvre_to_insert.setId_note(ratingCombo.getSelectedIndex()+1);
+            String support = supportField.getText();
+            String lieu = originField.getText();
             temp_genres = typeField.getText().split(",");
-            for (String genre : temp_genres
-                    ) {
+			oeuvre_to_insert.setAcquisition_date(acquireField.getText());
+			oeuvre_to_insert.setId_statut(statusCombo.getSelectedIndex()+1);
+
+			for (String genre : temp_genres) {
                 genres.add(genre);
             }
-
-            oeuvre_to_insert.setGenres_label_list(genres);
-
+			oeuvre_to_insert.setGenres_label_list(genres);
 
             ArrayList personne_list = new ArrayList();
             ArrayList type_personne_list = new ArrayList();
@@ -57,14 +63,25 @@ public class ItemLivrePanel extends AbstractItemLivrePanel {
             }
 
 
-            System.out.println("save button");
+
             JOptionPane jop1 = new JOptionPane();
-            if (oeuvre_to_insert.getTitre().isEmpty()){
+			if (oeuvre_to_insert.getTitre().isEmpty()){
                 jop1.showMessageDialog(null, "Titre non renseigné", "Information", JOptionPane.INFORMATION_MESSAGE);
             }else {
 
-                jop1.showMessageDialog(null, "Oeuvre Sauvegardée !", "Information", JOptionPane.INFORMATION_MESSAGE);
+
+                OeuvreController.addOeuvre(oeuvre_to_insert,
+                    personne_list,
+                    type_personne_list,
+                    oeuvre_to_insert.genres_label_list,
+                    support,
+                    lieu,
+                    library);
+
+
+            jop1.showMessageDialog(null, "Oeuvre Sauvegardée !", "Information", JOptionPane.INFORMATION_MESSAGE);
             }
+
 
         }
     }
