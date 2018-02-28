@@ -87,10 +87,8 @@ public class OeuvreController {
             /* recup la liste des id des personnes créées */
             ArrayList<Long> personne_id_list = new ArrayList<>();
             for (String personne_name : input_personnes_name) {
-                if (must_create) {
                     personne_id_list.add(library.getObjectModel(Personne.class)
                             .getAll("personne_name = ?", personne_name).get(0).getId());
-                }
             }
 
             /* GESTION DES GENRES */
@@ -176,11 +174,11 @@ public class OeuvreController {
             }
 
             /*CREATION RELATIONS OEUVRE/PERSONNES */
-            if (created) {
-                for (Long id_personne : personne_id_list) {
-                    Participe participe_relationship = new Participe(id_oeuvre, id_personne);
-                    library.getObjectModel(Participe.class).insert(participe_relationship);
-                }
+
+            for (Long id_personne : personne_id_list) {
+                Participe participe_relationship = new Participe(id_oeuvre, id_personne);
+                library.getObjectModel(Participe.class).insert(participe_relationship);
+
             }
 
             /* CREATION RELATIONS OEUVRE/GENRES */
