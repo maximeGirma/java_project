@@ -45,21 +45,6 @@ public class UpdateLivrePanel extends AbstractItemLivrePanel{
             @Override
             public void mouseClicked(MouseEvent mouseEvent) {
 
-                oeuvre_to_update.setTitre(titleField.getText());
-                oeuvre_to_update.setIsbn(refField.getText());
-                oeuvre_to_update.setNbrepages(Integer.parseInt(pagesField.getText()));
-                oeuvre_to_update.setDateEdition(yearField.getText());
-                oeuvre_to_update.setCommentaire(commentField.getText());
-
-                String[] temp_genres;
-                ArrayList<String> genres = new ArrayList<>();
-
-
-                temp_genres = typeField.getText().split(",");
-                for (String genre : temp_genres
-                        ) {
-                    genres.add(genre);
-                }
             }
 
             @Override
@@ -91,7 +76,7 @@ public class UpdateLivrePanel extends AbstractItemLivrePanel{
         titleField.setText(oeuvre.getTitre());
         yearField.setText(oeuvre.getDateEdition());
         commentField.setText(oeuvre.getCommentaire());
-        pagesField.setText(Integer.toString(oeuvre_to_update.getNbrepages()));
+        pagesField.setText(oeuvre_to_update.getNbrepages());
         refField.setText(oeuvre_to_update.getIsbn());
         ratingCombo.setSelectedIndex(oeuvre.getId_note()-1);
         statusCombo.setSelectedIndex(oeuvre.getId_statut()-1);
@@ -121,15 +106,17 @@ public class UpdateLivrePanel extends AbstractItemLivrePanel{
         typeField.setText(concat_genres);
 
 
-        ArrayList<Personne> personne_list = null;
+        ArrayList<Personne> personne_list = new ArrayList<>();
         try {
-            personne_list = oeuvre.getPersonnes(library);
+            personne_list = oeuvre_to_update.getPersonnes(library);
         } catch (SQLException e) {
             e.printStackTrace();
         }
-
-
+        System.out.println("pouet");
+        System.out.println("pouet0"+personne_list.get(0));
+        System.out.println("pouet"+personne_list.get(0).getPersonne_name());
         try {
+            System.out.println("pouet"+personne_list.get(0).getPersonne_name());
             artistNomField.setText(personne_list.get(0).getPersonne_name());
             artistTypeCombo.setSelectedIndex((int)personne_list.get(0).getId_personne_type()-1);
 

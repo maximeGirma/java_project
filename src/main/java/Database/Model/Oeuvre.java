@@ -18,7 +18,7 @@ public class Oeuvre{
 
     protected String dateEdition;
     protected String commentaire;
-    protected int nbrepages;
+    protected String nbrepages;
     protected String isbn;
     protected String duree;
     protected String pegi;
@@ -193,11 +193,11 @@ public class Oeuvre{
         this.commentaire = commentaire;
     }
 
-    public int getNbrepages() {
+    public String getNbrepages() {
         return nbrepages;
     }
 
-    public void setNbrepages(int nbrepages) {
+    public void setNbrepages(String nbrepages) {
         this.nbrepages = nbrepages;
     }
 

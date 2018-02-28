@@ -38,7 +38,10 @@ public class ItemLivrePanel extends AbstractItemLivrePanel {
 			oeuvre_to_insert.setCommentaire(commentField.getText());
 			oeuvre_to_insert.setDateEdition(yearField.getText());
             oeuvre_to_insert.setIsbn(refField.getText());
-            oeuvre_to_insert.setNbrepages(Integer.parseInt(pagesField.getText()));
+
+
+                oeuvre_to_insert.setNbrepages(pagesField.getText());
+
             oeuvre_to_insert.setId_note(ratingCombo.getSelectedIndex()+1);
             String support = supportField.getText();
             String lieu = originField.getText();
@@ -54,6 +57,7 @@ public class ItemLivrePanel extends AbstractItemLivrePanel {
             ArrayList personne_list = new ArrayList();
             ArrayList type_personne_list = new ArrayList();
             if (artistNomField.getText() != "" ){
+
                 personne_list.add(artistNomField.getText());
                 type_personne_list.add(artistTypeCombo.getSelectedItem());
             }
