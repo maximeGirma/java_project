@@ -1,3 +1,10 @@
+/*
+Author : Girma Maxime
+Version : 1.0
+25/02/2018
+Herite de la classe AbstractLivrePanel, permet d'afficher, modifier et supprimer une oeuvre
+
+ */
 package GraphicalUtilisateurInterface.ItemPanels;
 
 import Database.JDBC.JDBCController;
